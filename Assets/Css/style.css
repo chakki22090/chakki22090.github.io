@@ -1,69 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 :root {
-    --navbar-bg-color: rgba(3, 3, 43, 0.89); /* Adjusted to be semi-transparent */
-    --navbar-text-color: white;
-    --navbar-text-active-color: yellow;
-    --btn-request-bg-color: grey;
-    --main-content-bg-image: url('../png/HomeBackgroundImage.png');
-    --main-content-text-color: white;
-  }
-  
-  .custom-navbar {
-    background-color: var(--navbar-bg-color); /* Background now semi-transparent */
-  }
-  
-  .custom-navbar .nav-link {
-    color: var(--navbar-text-color);
-  }
-  
-  .navbar-nav {
-    margin-left: auto;
-  }
-  
-  .custom-navbar .nav-link:active,
-  .custom-navbar .nav-link:focus {
-    color: var(--navbar-text-active-color);
-  }
-  
-  .nav-item {
-    margin-right: 1.5em;
-    font-size: 1.5em;
-  }
-  
-  .btn-request {
-    background-color: var(--btn-request-bg-color);
-    color: var(--main-content-text-color);
-    font-size: 1.3em;
-  }
-  
-  .main-content {
-    background-image: var(--main-content-bg-image);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 94vh;
-    width: 100vw;
-    color: var(--main-content-text-color);
-  }
-  
-  .text-container {
-    position: absolute;
-    left: 5%;
-    top: 50%;
-    font-size: 1.2em;  /* Increased overall text size */
-  }
-  
-  .text-container h1 {
-    font-size: 3em;  /* Increased the font size */
-  }
-  
-  .text-container .btn-secondary {
-    font-size: 1.5em;  /* Increased the font size */
-    padding: 20px 40px;  /* Increased the size of the button */
-  }
-  
-  .social-icons {
-    position: fixed;
-    bottom: 1%;
-    right: 1%;
-  }
-  
+  --navbar-bg-color: rgba(3, 3, 43, 0.89);
+  --navbar-text-color: white;
+  --navbar-text-active-color: yellow;
+  --btn-request-bg-color:   rgba(31, 84, 157, 0.2);
+  --main-content-bg-image: url('../png/HomeBackgroundImage.png');
+  --main-content-text-color: white;
+}
+
+.custom-navbar {
+  background-color: var(--navbar-bg-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 1.4em;
+}
+
+.navbar-brand {
+  color: var(--navbar-text-color);
+  font-size: 2em;
+}
+.text-container {
+  position: absolute;
+  left: 5%;  /* Adjusted the left position */
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-right: 1.69em;
+  font-size: 1.69em;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--navbar-text-color);
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+  color: var(--navbar-text-active-color);
+}
+
+.btn-request {
+  background-color: var(--btn-request-bg-color);
+  color: var(--main-content-text-color);
+  padding: 1em 2em;
+  text-decoration: none;
+  white-space: nowrap; /* Prevents the text inside the button from breaking into multiple lines */
+  overflow: hidden; /* Hides the overflow text */
+  text-overflow: ellipsis; /* Adds an ellipsis (...) to indicate the text is clipped */
+  max-width: 100%; /* Makes sure the button doesn’t stretch beyond its parent container */
+}
+
+
+.main-content {
+  background-image: var(--main-content-bg-image);
+  background-size: cover;
+  background-position: center;
+  height: 94vh;
+  color: var(--main-content-text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-container h1 {
+  font-size: 5em;
+  left: 5%;
+}
+
+.btn-secondary {  
+  background-color: var(--btn-request-bg-color);
+  color: var(--main-content-text-color);
+  font-size: 2.3em;
+  color:rgb(212, 206, 255);
+  padding: 0.5em 1em;
+  text-decoration: none; 
+}
+
+.social-icons {
+  position: fixed;
+  bottom: 1%;
+  right: 1%;
+}
