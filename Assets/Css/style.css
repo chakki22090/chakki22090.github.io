@@ -1,0 +1,69 @@
+:root {
+    --navbar-bg-color: rgba(0, 0, 0, 0.7); /* Adjusted to be semi-transparent */
+    --navbar-text-color: white;
+    --navbar-text-active-color: yellow;
+    --btn-request-bg-color: grey;
+    --main-content-bg-image: url('../png/HomeBackgroundImage.png');
+    --main-content-text-color: white;
+  }
+  
+  .custom-navbar {
+    background-color: var(--navbar-bg-color); /* Background now semi-transparent */
+  }
+  
+  .custom-navbar .nav-link {
+    color: var(--navbar-text-color);
+  }
+  
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  .custom-navbar .nav-link:active,
+  .custom-navbar .nav-link:focus {
+    color: var(--navbar-text-active-color);
+  }
+  
+  .nav-item {
+    margin-right: 1.5em;
+    font-size: 1.5em;
+  }
+  
+  .btn-request {
+    background-color: var(--btn-request-bg-color);
+    color: var(--main-content-text-color);
+    font-size: 1.3em;
+  }
+  
+  .main-content {
+    background-image: var(--main-content-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 94vh;
+    width: 100vw;
+    color: var(--main-content-text-color);
+  }
+  
+  .text-container {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    font-size: 1.2em;  /* Increased overall text size */
+  }
+  
+  .text-container h1 {
+    font-size: 3em;  /* Increased the font size */
+  }
+  
+  .text-container .btn-secondary {
+    font-size: 1.5em;  /* Increased the font size */
+    padding: 20px 40px;  /* Increased the size of the button */
+  }
+  
+  .social-icons {
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+  }
+  
