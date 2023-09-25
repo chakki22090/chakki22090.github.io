@@ -1,23 +1,24 @@
 
-
-
+body {
+  background-color: rgba(157, 175, 194,0.05);
+}
+h1, h2, h3 {
+  line-height: 1.15;
+}
 :root {
   --text-bg-color: rgba(100, 115, 130, 0.11);
   --title-text-color: rgba( 79, 82, 96);
   --content-text-color: rgba( 112, 115, 128  );
 }
 
-@font-face {
-	font-family: Evolventa;
-	src: local("Evolventa"), url("../fonts/Evolventa-Regular.woff");
-	font-weight: normal;
-	font-style: normal;
+
+
+
+
+.top-margin {  
+  margin-top: 2em;
+  padding: 1em;
 }
-
-
-
-
-
 
 .info-section {
   display: flex;
@@ -29,6 +30,7 @@
 .info-image {
   flex: 1;
   height: 77vh; 
+  margin-left: 4vh;
   background-image: url('../png/ServicesPage/peopleChillin.jpg');
   background-size: contain;
   background-repeat: no-repeat;  
@@ -39,19 +41,126 @@
   flex: 1;
   background-color: var(--text-bg-color);  
   color: rgb(0, 0, 0);
-  padding: 10vh 20vw 10vh 10vw;
+  padding: 5vh 20vw 5vh 10vw;
+  margin-right: 4vh;
   display: flex;
   flex-direction: column;
   align-items: start;  
 }
 
 .info-content h1 {
-  font-size: 5em;
+  font-size: 4.5em;
   color: var(--title-text-color);
-  font-family: Evolventa;
+  font-family: Evolventa-Bold;
 }
 
 .info-content p {
-  font-size: 1.9em;
+  font-size: 2.2em;
   color: var(--content-text-color);
+}
+
+
+
+.btn-read-more {  
+  background-color: var( --btn-bg-color);
+  color: var(--main-content-text-color);
+  font-size: 1.5em;
+  position: inherit;
+  margin-top: 2.5%;
+  margin-left: 5%;
+  padding: 1em 3em;
+  text-decoration: none; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 100%; 
+
+}
+
+
+.middle-section {
+  background-image: url('../png/ServicesPage/background.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 500px;
+}
+
+.middle-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.middle-content h2 {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  font-size: 3em;
+  color: white;
+}
+
+.middle-content p {
+  font-size: 1.5em;
+  padding-bottom: 4vh;
+  color: white;
+}
+
+.middle-images {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 6vh;
+  width: 100%;
+}
+
+.middle-images img {
+  width: 20%;
+  height: auto;
+}
+
+
+
+.testimonial-section {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.testimonial-box {
+  background-color:var(--text-bg-color); 
+  margin: 2vh auto;
+  width: 60%;
+  position: relative;
+  padding: 7vh 5vw;
+}
+
+.testimonial-text {
+  margin-bottom: 2vh;
+  font-size: 2em;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.quote-top-left,
+.quote-bottom-right {
+  font-size: 10em;
+  position: absolute;
+}
+
+.quote-top-left {
+  top: 1%;
+  left: 1%;
+}
+
+.quote-bottom-right {
+  bottom: 1%;
+  right: 1%;
 }
