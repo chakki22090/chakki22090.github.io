@@ -1,12 +1,8 @@
 {
-  "name": "your-app-name",
+  "name": "website-for-jim",
+  "description": "A Company website",
   "version": "1.0.0",
-  "description": "A simple website",
-  "main": "index.html",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": "14.x"
+"engines": {
+    "node": "18.x"
   }
 }
