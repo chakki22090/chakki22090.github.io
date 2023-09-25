@@ -1,16 +1,9 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
-
-
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
-
-app.use(express.static(__dirname + '/chakki22090.github.io'));
-
+app.use(express.static('public'));  // Это строка делает папку 'public' доступной
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server running at http://localhost:${port}/`);
 });
