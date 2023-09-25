@@ -7,13 +7,17 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 :root {
   --navbar-bg-color: rgba(17, 29, 39, 0.54);
   --navbar-text-color: white;
   --navbar-text-active-color: rgba(198, 159, 135, 1);
   --btn-bg-color: rgba(100, 115, 130, 1.0);
   --btn-bg-hover-color: rgba(161, 176, 191, 1);
-  --main-content-bg-image: url('../png/HomeBackgroundImage.png');
+  --main-content-bg-image: url('../png/HomePage/HomeBackgroundImage.png');
   --main-content-text-color: white;
 }
 
@@ -166,10 +170,3 @@ body {
 
 
 
-
-
-
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');

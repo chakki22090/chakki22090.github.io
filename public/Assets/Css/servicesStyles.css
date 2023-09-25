@@ -1,0 +1,57 @@
+
+
+
+:root {
+  --text-bg-color: rgba(100, 115, 130, 0.11);
+  --title-text-color: rgba( 79, 82, 96);
+  --content-text-color: rgba( 112, 115, 128  );
+}
+
+@font-face {
+	font-family: Evolventa;
+	src: local("Evolventa"), url("../fonts/Evolventa-Regular.woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;  
+}
+
+.info-image {
+  flex: 1;
+  height: 77vh; 
+  background-image: url('../png/ServicesPage/peopleChillin.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;  
+  background-position: center;
+}
+
+.info-content {
+  flex: 1;
+  background-color: var(--text-bg-color);  
+  color: rgb(0, 0, 0);
+  padding: 10vh 20vw 10vh 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: start;  
+}
+
+.info-content h1 {
+  font-size: 5em;
+  color: var(--title-text-color);
+  font-family: Evolventa;
+}
+
+.info-content p {
+  font-size: 1.9em;
+  color: var(--content-text-color);
+}
