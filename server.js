@@ -8,7 +8,8 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.use(express.static(''));
+app.use(express.static(__dirname + '/chakki22090.github.io'));
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
