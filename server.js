@@ -43,7 +43,7 @@ passport.deserializeUser(function(id, done) {
 
 // Используй этот код для страницы входа
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/login.html'));
+    res.sendFile(path.join(__dirname, 'login.html'));
 });
 
 app.post('/login', 
