@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const path = require('path'); // Добавь эту строку
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -41,9 +41,17 @@ passport.deserializeUser(function(id, done) {
     }
 });
 
-// Используй этот код для страницы входа
+// Middleware для проверки аутентификации
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
+}
+
+// Маршруты для аутентификации
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
+    res.sendFile(path.join(__dirname, 'public/login.html'));
 });
 
 app.post('/login', 
@@ -56,6 +64,11 @@ app.post('/login',
 app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
+});
+
+// Маршрут для блога с проверкой аутентификации
+app.get('/blog', ensureAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/blog.html'));
 });
 
 app.listen(port, () => {
