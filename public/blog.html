@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Blog</title>
+        <link rel="stylesheet" href="Assets/Css/blog.css">
         <link rel="stylesheet" href="Assets/Css/style.css">
         <link rel="stylesheet" href="Assets/fonts/fonts.css">
     </head>
@@ -23,38 +24,52 @@
  
     
 
-    <div class="container">
-        <div class="toggle-container">
-            <select id="postFilter">
-                <option value="active">Active Posts</option>
-                <option value="hidden">Hidden Posts</option>
-            </select>
-        </div>
+
+
+    <div class="top-margin ">
+    </div>
     
-        <!-- Пример поста -->
-        <div class="post">
-            <img src="path/to/your/image.jpg" alt="Post Image">
-            <h2>Post Title</h2>
-            <p>This is a sample post content. This can be a news update, article or anything you'd like.</p>
-            
-            <div class="post-controls">
-                ⋮
-                <div class="dropdown-content">
-                    <a href="#">Edit</a>
-                    <a href="#">Hide</a>
-                    <a href="#">Delete</a>
-                </div>
-            </div>
+  
+    <div class="info-section">
+      <div class="info-image"></div>
+      <div class="info-content">
+        <h1>Top Mistakes In Digital Strategy</h1>
+        <p>Jim Sheppard, owner of Conquest Communications Canada, discusses common mistakes small buisnesses make in digital strategy, such as:</p>
+      </div>
+    </div>
+    
+  
+  
+
+    <button id="addPostBtn">Добавить пост</button>
+    <div id="addPostForm" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleForm()">&times;</span>
+            <h2>Добавить новый пост</h2>
+            <select id="postCategory">
+                <option value="digital-strategy">Digital Strategy</option>
+                <option value="journalism">Journalism</option>
+            </select>
+            <input type="text" id="postTitle" placeholder="Заголовок">
+            <input type="file" id="postImageFile">
+            <textarea id="postContent" placeholder="Содержание поста"></textarea>
+            <button onclick="addPost()">Сохранить</button>
         </div>
     </div>
     
 
+    
+    <div class="category-toggle">
+        <button class="category-btn" data-category="digital-strategy" checked>Digital Strategy</button>
+        <button class="category-btn" data-category="journalism">Journalism</button>
+    </div>
 
-
-
-
-
-
+    <div class="blog-section">
+        <h2>Digital Strategy Posts</h2>
+        <div class="blog-box">
+          
+        </div>
+    </div>
 
 
 
