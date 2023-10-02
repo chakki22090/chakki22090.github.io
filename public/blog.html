@@ -9,32 +9,56 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="custom-navbar">
-      <span class="navbar-brand">Conquest Communications Canada</span>
+        <span class="navbar-brand">Conquest Communications Canada</span>
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn-request" href="#">REQUEST QUOTE</a>
-          </li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="btn-request" href="#">REQUEST QUOTE</a></li>
         </ul>
-      
     </nav>
 
+    
+ 
+    
 
-  <div class="blog-container">
-  </div>
-  
-  <script src="Assets/js/script.js"></script>
-  
+    <div class="container">
+        <div class="toggle-container">
+            <select id="postFilter">
+                <option value="active">Active Posts</option>
+                <option value="hidden">Hidden Posts</option>
+            </select>
+        </div>
+    
+        <!-- Пример поста -->
+        <div class="post">
+            <img src="path/to/your/image.jpg" alt="Post Image">
+            <h2>Post Title</h2>
+            <p>This is a sample post content. This can be a news update, article or anything you'd like.</p>
+            
+            <div class="post-controls">
+                ⋮
+                <div class="dropdown-content">
+                    <a href="#">Edit</a>
+                    <a href="#">Hide</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+    <script src="Assets/JS/blog.js"></script>
 </body>
 </html>
