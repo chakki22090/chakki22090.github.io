@@ -18,6 +18,16 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
 }));
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'public/uploads/');
+    },
+    filename: function(req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
+const upload = multer({ storage: storage });
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -45,6 +55,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 
 // Хранение блог-постов
 const postSchema = new mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     title: String,
     content: String,
     image: String,
@@ -74,14 +85,15 @@ passport.deserializeUser(function(id, done) {
         done(new Error('User not found'));
     }
 });
-
-app.post('/api/addpost', async (req, res) => {
+app.post('/api/addpost', upload.single('postImage'), async (req, res) => {
+    const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
     console.log("Attempting to add a post with data:", req.body);
     try {
         const newPost = new Post({
+            _id: new mongoose.Types.ObjectId(),
             title: req.body.title,
             content: req.body.content,
-            image: req.body.image,
+            image: imageUrl,
             category: req.body.category
         });
         await newPost.save();
@@ -105,6 +117,14 @@ app.get('/api/posts', async (req, res) => {
 
 
 
+app.delete('/api/deletepost/:postId', async (req, res) => {
+    try {
+        await Post.deleteOne({ _id: req.params.postId });
+        res.status(200).send();
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 
 
 

@@ -71,6 +71,7 @@ function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
+    post.setAttribute('data-id', postData._id);
     post.innerHTML = `
         <h2 class="post-title">${postData.title}</h2>
         <img class="post-image" src="${postData.image}" alt="${postData.title}">
@@ -126,10 +127,21 @@ function removeCurrentImage() {
         }
     }
 }
+
+
 function deletePost(button) {
-    const post = button.closest('.post');
-    post.remove();
-    // Далее ты можешь использовать AJAX, чтобы уведомить сервер о удалении поста.
+    const postId = button.closest('.post').getAttribute('data-id');
+    fetch(`/api/deletepost/${postId}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            button.closest('.post').remove();
+        } else {
+            console.error('Ошибка при удалении поста');
+        }
+    })
+    .catch(error => console.error('Ошибка:', error));
 }
 
 function hidePost(button) {
@@ -248,12 +260,16 @@ function addPost() {
 
 
 function addPostToServer(postData) {
+    const imageFile = document.getElementById('postImageFile').files[0];
+    const formData = new FormData();
+    formData.append('postImage', imageFile);
+    formData.append('title', postData.title);
+    formData.append('content', postData.content);
+    formData.append('category', postData.category);
+
     fetch('/api/addpost', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postData)
+        body: formData
     })
     .then(response => response.json())
     .then(data => {
