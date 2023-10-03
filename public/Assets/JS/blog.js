@@ -92,8 +92,8 @@ function editPost(button) {
     const imageElement = post.querySelector('img');
 
     const imageUrl = imageElement ? imageElement.src : '';
+    window.currentEditingPostId = post.getAttribute('data-id'); 
     
-    window.currentEditingPost = post;
 
     document.getElementById('postTitle').value = title;
     document.getElementById('postContent').value = content; 
@@ -119,14 +119,17 @@ function removeCurrentImage() {
     document.getElementById('postImageFile').value = ''; 
     const removeImageButton = document.getElementById('removeImageButton');
     removeImageButton.style.display = 'none';  
-    removeImageButton
+
     if (window.currentEditingPost) {
         const postImageElement = window.currentEditingPost.querySelector('.post-image');
         if (postImageElement) {
             postImageElement.remove();
         }
     }
+
+    window.removeImage = true; // Установка флага
 }
+
 
 
 function deletePost(button) {
@@ -262,12 +265,16 @@ function addPost() {
 function addPostToServer(postData) {
     const imageFile = document.getElementById('postImageFile').files[0];
     const formData = new FormData();
+    formData.append('removeImage', window.removeImage ? 'true' : 'false');
     formData.append('postImage', imageFile);
     formData.append('title', postData.title);
     formData.append('content', postData.content);
     formData.append('category', postData.category);
+    formData.append('postId', window.currentEditingPostId ? window.currentEditingPostId : "");
+   
+    const postUrl = window.currentEditingPostId ? `/api/editpost/${window.currentEditingPostId}` : '/api/addpost';
 
-    fetch('/api/addpost', {
+    fetch(postUrl, {
         method: 'POST',
         body: formData
     })

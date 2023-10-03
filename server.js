@@ -13,20 +13,33 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({ 
+  cloud_name: process.env.CLOUD_NAME, 
+  api_key: process.env.API_KEY, 
+  api_secret: process.env.API_SECRET 
+});
+
+
 app.use(session({
     secret: 'code',
     resave: false,
     saveUninitialized: true,
 }));
 const multer = require('multer');
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, 'public/uploads/');
-    },
-    filename: function(req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);
-    }
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'Jim-blog-pictures',
+    allowedFormats: ['jpg', 'png'],
+    transformation: [{ width: 500, height: 500, crop: 'limit' }]
+  }
 });
+
 const upload = multer({ storage: storage });
 
 app.use(passport.initialize());
@@ -40,16 +53,6 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
     })
     .catch(error => {
         console.log("error:", error.message);
-    });
-    app.get('/blog', async (req, res) => {
-        try {
-            const posts = await Post.find();  // Извлекаем все посты из MongoDB
-            // Далее тебе нужно будет передать эти посты на фронтенд и отобразить их там
-            res.sendFile(path.join(__dirname, 'public/blog.html'));
-        } catch (error) {
-            console.error("Ошибка при получении постов:", error);
-            res.status(500).send('Ошибка сервера');
-        }
     });
     
 
@@ -86,14 +89,23 @@ passport.deserializeUser(function(id, done) {
     }
 });
 app.post('/api/addpost', upload.single('postImage'), async (req, res) => {
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+
+     let imageUrl = null;
+    
+     if (req.file) {
+        // Загрузка изображения на Cloudinary
+        const result = await cloudinary.uploader.upload(req.file.path);
+        imageUrl = result.url;
+        publicId = result.public_id; 
+    }
+
     console.log("Attempting to add a post with data:", req.body);
     try {
         const newPost = new Post({
             _id: new mongoose.Types.ObjectId(),
             title: req.body.title,
             content: req.body.content,
-            image: imageUrl,
+            image: imageUrl, // здесь мы используем URL из Cloudinary
             category: req.body.category
         });
         await newPost.save();
@@ -125,6 +137,36 @@ app.delete('/api/deletepost/:postId', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+
+
+
+app.post('/api/editpost/:postId', upload.single('postImage'), async (req, res) => {
+    const postId = req.params.postId;
+    
+    let imageUrl;
+    if (req.body.removeImage === 'true') {
+        imageUrl = null; // Удаляем информацию о картинке из базы данных
+    } else {
+        imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+    }
+
+    // Удостоверимся, что мы не отправляем пустые значения в базу данных
+    const updatedData = {};
+    if (req.body.title) updatedData.title = req.body.title;
+    if (req.body.content) updatedData.content = req.body.content;
+    if (imageUrl !== undefined) updatedData.image = imageUrl;
+    if (req.body.category) updatedData.category = req.body.category;
+
+    try {
+        await Post.findByIdAndUpdate(postId, updatedData);
+        res.json({ success: true, message: 'Пост успешно обновлен, брат!' });
+    } catch (err) {
+        console.error("Ошибка при обновлении поста:", err);
+        res.json({ success: false, message: 'Блять, какая-то ошибка: ' + err.message });
+    }
+});
+
 
 
 
