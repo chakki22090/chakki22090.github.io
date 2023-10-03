@@ -3,11 +3,14 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
@@ -19,20 +22,36 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('dotenv').config();
-const mongoose = require('mongoose');
-
 const MONGODB_URI = process.env.MONGO_URI;
 
-mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
-  .then(() => {
-    console.log("Connected to MongoDB!");
-  })
-  .catch(error => {
-    console.log("ERROR:", error.message);
-  });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("Connected to MongoDB!");
+    })
+    .catch(error => {
+        console.log("error:", error.message);
+    });
+    app.get('/blog', async (req, res) => {
+        try {
+            const posts = await Post.find();  // Извлекаем все посты из MongoDB
+            // Далее тебе нужно будет передать эти посты на фронтенд и отобразить их там
+            res.sendFile(path.join(__dirname, 'public/blog.html'));
+        } catch (error) {
+            console.error("Ошибка при получении постов:", error);
+            res.status(500).send('Ошибка сервера');
+        }
+    });
+    
 
+// Хранение блог-постов
+const postSchema = new mongoose.Schema({
+    title: String,
+    content: String,
+    image: String,
+    category: String
+});
 
+const Post = mongoose.model('Post', postSchema);
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -56,11 +75,44 @@ passport.deserializeUser(function(id, done) {
     }
 });
 
+app.post('/api/addpost', async (req, res) => {
+    try {
+        const newPost = new Post({
+            title: req.body.title,
+            content: req.body.content,
+            image: req.body.image,
+            category: req.body.category
+        });
+        await newPost.save();
+        res.json({ success: true, message: 'Пост успешно добавлен!' });
+    } catch (err) {
+        res.json({ success: false, message: err.message });
+    }
+});
+
+app.get('/api/posts', async (req, res) => {
+    try {
+        const posts = await Post.find();
+        res.json({ success: true, posts });
+    } catch (err) {
+        res.json({ success: false, message: err.message });
+    }
+});
+
+app.get('/blog', async (req, res) => {
+    try {
+        const posts = await Post.find();  // Извлекаем все посты из MongoDB
+        res.render('blog', { posts: posts });  // Передаем посты в шаблон страницы блога
+    } catch (error) {
+        console.error("Ошибка при получении постов:", error);
+        res.status(500).send('Ошибка сервера');
+    }
+    res.sendFile(path.join(__dirname, 'public/blog.html'));
+
+});
+
 app.get('/slogin', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/login.html'));
-});
-app.get('/blog', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/blog.html'));
 });
 app.get('/services', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/services.html'));
