@@ -76,6 +76,7 @@ passport.deserializeUser(function(id, done) {
 });
 
 app.post('/api/addpost', async (req, res) => {
+    console.log("Attempting to add a post with data:", req.body);
     try {
         const newPost = new Post({
             title: req.body.title,
@@ -86,9 +87,11 @@ app.post('/api/addpost', async (req, res) => {
         await newPost.save();
         res.json({ success: true, message: 'Пост успешно добавлен!' });
     } catch (err) {
+        console.error("Error while adding post:", err);
         res.json({ success: false, message: err.message });
     }
 });
+
 
 app.get('/api/posts', async (req, res) => {
     try {
@@ -99,17 +102,29 @@ app.get('/api/posts', async (req, res) => {
     }
 });
 
+
+
+
+
+
+
 app.get('/blog', async (req, res) => {
     try {
-        const posts = await Post.find();  // Извлекаем все посты из MongoDB
-        res.render('blog', { posts: posts });  // Передаем посты в шаблон страницы блога
+        const posts = await Post.find(); 
+        // Ты здесь можешь передать в функцию render свои посты, чтобы отобразить их в HTML
+        if (req.session.editMode) {
+            // Показать блог в режиме редактирования
+            res.render('blog_edit', { posts: posts }); 
+        } else {
+            // Показать обычный блог
+            res.render('blog', { posts: posts });  
+        }
     } catch (error) {
         console.error("Ошибка при получении постов:", error);
         res.status(500).send('Ошибка сервера');
     }
-    res.sendFile(path.join(__dirname, 'public/blog.html'));
-
 });
+
 
 app.get('/slogin', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/login.html'));
@@ -143,13 +158,6 @@ app.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
-app.get('/blog', (req, res) => {
-    if (req.session.editMode) {
-        // показать блог в режиме редактирования
-    } else {
-        // показать обычный блог
-    }
-});
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/.`);

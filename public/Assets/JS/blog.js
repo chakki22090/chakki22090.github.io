@@ -40,9 +40,48 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     document.querySelector('.category-btn[data-category="digital-strategy"]').click();
+
+    fetch('/api/posts')
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            displayPosts(data.posts);
+        } else {
+            console.error("Ошибка при загрузке постов:", data.message);
+        }
+    })
+    .catch(err => {
+        console.error("Ошибка при выполнении запроса:", err);
+    });
+
+
+
 });
 
 
+function displayPosts(posts) {
+    const blogBox = document.querySelector('.blog-box');
+    for(let post of posts) {
+        const postElement = createPostElement(post);
+        blogBox.appendChild(postElement);
+    }
+}
+
+function createPostElement(postData) {
+    const post = document.createElement('div');
+    post.className = 'post';
+    post.setAttribute('data-category', postData.category);
+    post.innerHTML = `
+        <h2 class="post-title">${postData.title}</h2>
+        <img class="post-image" src="${postData.image}" alt="${postData.title}">
+        <p class="post-text">${postData.content}</p>
+        <div class="post-controls" style="display:block;">
+            <button onclick="editPost(this)">Edit</button>
+            <button onclick="deletePost(this)">Delete</button>
+        </div>
+    `;
+    return post;
+}
 
 function editPost(button) {
     currentEditingPost = button.closest('.post');
@@ -115,6 +154,19 @@ function toggleHiddenPosts() {
 
 
 
+document.getElementById('postImageFile').addEventListener('change', function() {
+    const currentImageElement = document.getElementById('currentPostImage');
+    const removeImageButton = document.getElementById('removeImageButton'); 
+    if (this.files && this.files[0]) {
+        currentImageElement.src = URL.createObjectURL(this.files[0]);
+        currentImageElement.style.display = 'block';
+        removeImageButton.style.display = 'block'; 
+    } else {
+        currentImageElement.style.display = 'none';
+        removeImageButton.style.display = 'none'; 
+    }
+});
+
 
 
 document.getElementById('addPostBtn').addEventListener('click', toggleForm);
@@ -126,7 +178,15 @@ function toggleForm() {
     } else {
         form.style.display = 'none';
     }
-}function addPost() {
+}
+
+
+
+
+
+
+
+function addPost() {
     const title = document.getElementById('postTitle').value;
     const imageFile = document.getElementById('postImageFile').files[0];
     const content = document.getElementById('postContent').value;
@@ -139,7 +199,7 @@ function toggleForm() {
 
     if (currentEditingPost) {
         currentEditingPost.querySelector('.post-title').textContent = title;
-        if (imageFile) {
+        if (imageHtml) {
             if (currentEditingPost.querySelector('.post-image')) {
                 currentEditingPost.querySelector('.post-image').src = URL.createObjectURL(imageFile);
             } else {
@@ -167,7 +227,14 @@ function toggleForm() {
         `;
         document.querySelector('.blog-box').appendChild(post);
     }
-
+    const postData = {
+        title: title,
+        content: content,
+        category: category,
+        imageUrl: (imageFile && typeof imageFile !== "undefined") ? URL.createObjectURL(imageFile) : null
+    };
+    addPostToServer(postData);
+    
     toggleForm();
     const currentImageElement = document.getElementById('currentPostImage');
     currentImageElement.src = '';
@@ -178,15 +245,25 @@ function toggleForm() {
 }
 
 
-document.getElementById('postImageFile').addEventListener('change', function() {
-    const currentImageElement = document.getElementById('currentPostImage');
-    const removeImageButton = document.getElementById('removeImageButton'); 
-    if (this.files && this.files[0]) {
-        currentImageElement.src = URL.createObjectURL(this.files[0]);
-        currentImageElement.style.display = 'block';
-        removeImageButton.style.display = 'block'; 
-    } else {
-        currentImageElement.style.display = 'none';
-        removeImageButton.style.display = 'none'; 
-    }
-});
+
+
+function addPostToServer(postData) {
+    fetch('/api/addpost', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log("Пост добавлен успешно:", data.message);
+        } else {
+            console.error("Ошибка при добавлении поста:", data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Произошла ошибка при отправке запроса:", error);
+    });
+}
