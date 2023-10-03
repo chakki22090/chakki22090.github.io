@@ -1,5 +1,5 @@
 const editMode = true; 
-
+let currentEditingPost = null;
 if (editMode) {
     const postOptions = document.querySelectorAll(".post-options");
     postOptions.forEach(option => option.addEventListener('click', function() {
@@ -45,20 +45,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function editPost(button) {
+    currentEditingPost = button.closest('.post');
     const post = button.closest('.post');
     const title = post.querySelector('h2').textContent;
     const content = post.querySelector('p').textContent;
-    const imageUrl = post.querySelector('img').src;
-    
-    document.getElementById('postTitle').value = title;
-    document.getElementById('postContent').textContent = content; 
+    const imageElement = post.querySelector('img');
 
+    const imageUrl = imageElement ? imageElement.src : '';
+    
+    window.currentEditingPost = post;
+
+    document.getElementById('postTitle').value = title;
+    document.getElementById('postContent').value = content; 
     const currentImageElement = document.getElementById('currentPostImage');
+    const removeImageButton = document.getElementById('removeImageButton'); 
     if (imageUrl) {
+    
         currentImageElement.src = imageUrl;
         currentImageElement.style.display = 'block';
+        removeImageButton.style.display = 'block';  // Show the remove button
     } else {
         currentImageElement.style.display = 'none';
+        removeImageButton.style.display = 'none';  // Hide the remove button
     }
 
     toggleForm();
@@ -68,7 +76,16 @@ function removeCurrentImage() {
     const currentImageElement = document.getElementById('currentPostImage');
     currentImageElement.src = '';
     currentImageElement.style.display = 'none';
-    document.getElementById('postImageFile').value = ''; // это сбросит файл изображения, если он был выбран
+    document.getElementById('postImageFile').value = ''; 
+    const removeImageButton = document.getElementById('removeImageButton');
+    removeImageButton.style.display = 'none';  
+    removeImageButton
+    if (window.currentEditingPost) {
+        const postImageElement = window.currentEditingPost.querySelector('.post-image');
+        if (postImageElement) {
+            postImageElement.remove();
+        }
+    }
 }
 function deletePost(button) {
     const post = button.closest('.post');
@@ -109,10 +126,9 @@ function toggleForm() {
     } else {
         form.style.display = 'none';
     }
-}
-function addPost() {
+}function addPost() {
     const title = document.getElementById('postTitle').value;
-    const imageFile = document.getElementById('postImageFile').files[0]; 
+    const imageFile = document.getElementById('postImageFile').files[0];
     const content = document.getElementById('postContent').value;
     const category = document.getElementById('postCategory').value;
 
@@ -121,26 +137,56 @@ function addPost() {
         imageHtml = `<img class="post-image" src="${URL.createObjectURL(imageFile)}" alt="${title}">`;
     }
 
-    const post = document.createElement('div');
-    post.className = 'post';
-    post.setAttribute('data-category', category);
-    post.innerHTML = `
-        <h2 class="post-title">${title}</h2>
-        ${imageHtml}
-        <p class="post-text">${content}</p>
-        <div class="post-controls" style="display:block;">
-            <button onclick="editPost(this)">Edit</button>
-            <button onclick="deletePost(this)">Delete</button>
-        </div>
-    `;
+    if (currentEditingPost) {
+        currentEditingPost.querySelector('.post-title').textContent = title;
+        if (imageFile) {
+            if (currentEditingPost.querySelector('.post-image')) {
+                currentEditingPost.querySelector('.post-image').src = URL.createObjectURL(imageFile);
+            } else {
+                const newImage = document.createElement('img');
+                newImage.classList.add('post-image');
+                newImage.src = URL.createObjectURL(imageFile);
+                currentEditingPost.insertBefore(newImage, currentEditingPost.querySelector('.post-text'));
+            }
+        }
+        currentEditingPost.querySelector('.post-text').textContent = content;
+        currentEditingPost.setAttribute('data-category', category);
+        currentEditingPost = null;
+    } else {
+        const post = document.createElement('div');
+        post.className = 'post';
+        post.setAttribute('data-category', category);
+        post.innerHTML = `
+            <h2 class="post-title">${title}</h2>
+            ${imageHtml}
+            <p class="post-text">${content}</p>
+            <div class="post-controls" style="display:block;">
+                <button onclick="editPost(this)">Edit</button>
+                <button onclick="deletePost(this)">Delete</button>
+            </div>
+        `;
+        document.querySelector('.blog-box').appendChild(post);
+    }
 
-    document.querySelector('.blog-box').appendChild(post);
     toggleForm();
-
+    const currentImageElement = document.getElementById('currentPostImage');
+    currentImageElement.src = '';
+    currentImageElement.style.display = 'none';
     document.getElementById('postTitle').value = "";
-document.getElementById('postImageFile').value = "";
-document.getElementById('postContent').value = "";
-
+    document.getElementById('postImageFile').value = "";
+    document.getElementById('postContent').value = "";
 }
 
 
+document.getElementById('postImageFile').addEventListener('change', function() {
+    const currentImageElement = document.getElementById('currentPostImage');
+    const removeImageButton = document.getElementById('removeImageButton'); 
+    if (this.files && this.files[0]) {
+        currentImageElement.src = URL.createObjectURL(this.files[0]);
+        currentImageElement.style.display = 'block';
+        removeImageButton.style.display = 'block'; 
+    } else {
+        currentImageElement.style.display = 'none';
+        removeImageButton.style.display = 'none'; 
+    }
+});

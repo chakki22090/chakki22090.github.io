@@ -99,6 +99,8 @@ body {
 
 
   .post {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
     border: 1px solid black;
 }
 
@@ -116,6 +118,7 @@ body {
 
 .post-text {
     font-size: 2em;
+    flex-wrap: wrap;
 }
 
   
@@ -178,4 +181,28 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+
+
+
+#imageContainer {
+  position: relative;
+  display: inline-block;
+}
+
+#removeImageButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 2px 5px;
+}
+#currentPostImage {
+  max-width: 6vw;
+  max-height: 6vw;
+  display: block;
+  margin: 10px 0;
 }

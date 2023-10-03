@@ -19,6 +19,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+const MONGODB_URI = process.env.MONGO_URI;
+
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => {
+    console.log("Connected to MongoDB!");
+  })
+  .catch(error => {
+    console.log("ERROR:", error.message);
+  });
+
+
+
 passport.use(new LocalStrategy(
     function(username, password, done) {
         if (username === 'Jim' && password === 'password') {

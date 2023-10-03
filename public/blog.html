@@ -41,19 +41,22 @@
   
   
 
-    <button id="addPostBtn">Добавить пост</button>
+    <button id="addPostBtn">Add Post</button>
     <div id="addPostForm" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="toggleForm()">&times;</span>
-            <h2>Добавить новый пост</h2>
             <select id="postCategory">
                 <option value="digital-strategy">Digital Strategy</option>
                 <option value="journalism">Journalism</option>
             </select>
-            <input type="text" id="postTitle" placeholder="Заголовок">
+            <input type="text" id="postTitle" placeholder="Title">
             <input type="file" id="postImageFile">
-            <textarea id="postContent" placeholder="Содержание поста"></textarea>
-            <button onclick="addPost()">Сохранить</button>
+            <div id="imageContainer">
+                <img id="currentPostImage" style="display:none" alt="Current Post Image">
+                <span id="removeImageButton" style="display:none" onclick="removeCurrentImage()">&times;</span>
+            </div>
+            <textarea id="postContent" placeholder="Post content"></textarea>
+            <button onclick="addPost()">Save</button>
         </div>
     </div>
     
