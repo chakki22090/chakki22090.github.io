@@ -4,10 +4,15 @@ fetch('/api/isUserLoggedIn')
     .then(data => {
         isUserLoggedIn = data.loggedIn;
         if (!isUserLoggedIn) {
-            const controlButtons = document.querySelectorAll(".post-controls, #addPostBtn");
+            const controlButtons = document.querySelectorAll(".post-controls, #addPostBtn,.logout-link");
+            
             controlButtons.forEach(button => {
                 button.style.display = "none";
             });
+        }
+        else
+        {
+            document.querySelector('.logout-link').style.display = 'block';
         }
     })
     .catch(err => {
@@ -36,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const heading = document.querySelector(".blog-section h2");
 
     const userIsLoggedIn = true; // Ты должен получить эту переменную из сервера
-
+  
     if (!userIsLoggedIn) {
         const controlButtons = document.querySelectorAll(".post-controls, #addPostBtn");
         controlButtons.forEach(button => {
@@ -55,6 +60,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     post.style.display = "none";
                 }
+
+
+
+
+
             });
     
             if (category === "digital-strategy") {
@@ -70,13 +80,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     
-    document.querySelector('.category-btn[data-category="digital-strategy"]').click();
 
     fetch('/api/posts')
     .then(response => response.json())
     .then(data => {
         if(data.success) {
             displayPosts(data.posts);
+            document.querySelector('.category-btn[data-category="digital-strategy"]').click();
         } else {
             console.error("Ошибка при загрузке постов:", data.message);
         }
@@ -116,10 +126,13 @@ function createPostElement(postData) {
     }
     
     post.innerHTML = `
-        <h2 class="post-title">${postData.title}</h2>
+    <h2 class="post-title">${postData.title}</h2>
+    <div class="post-content-container">
         <img class="post-image" src="${postData.image}" alt="${postData.title}">
         <p class="post-text">${postData.content}</p>
-        ${controlsHtml} 
+    </div>
+    ${controlsHtml}
+    <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
     `;
     return post;
 }
@@ -171,6 +184,37 @@ function removeCurrentImage() {
     window.removeImage = true; // Установка флага
 }
 
+function viewFullPost(postData) {
+    const modal = document.getElementById('fullPostModal');
+    const modalContent = modal.querySelector('.full-post-content');
+    
+    modalContent.innerHTML = `
+        <h2 class="post-title">${postData.title}</h2>
+        <img class="post-image" src="${postData.image}" alt="${postData.title}">
+        <p class="post-text">${postData.content}</p>
+    `;
+    
+    modal.style.display = 'block';
+}
+
+function closeFullPost() {
+    const modal = document.getElementById('fullPostModal');
+    modal.style.display = 'none';
+}
+
+// Теперь добавим обработчик для каждого поста
+const posts = document.querySelectorAll('.post');
+posts.forEach(post => {
+    post.addEventListener('click', function() {
+        const postData = {
+            title: post.querySelector('.post-title').textContent,
+            image: post.querySelector('.post-image') ? post.querySelector('.post-image').src : '',
+            content: post.querySelector('.post-text').textContent
+        };
+        
+        viewFullPost(postData);
+    });
+});
 
 
 function deletePost(button) {
@@ -247,7 +291,7 @@ function addPost() {
     const imageFile = document.getElementById('postImageFile').files[0];
     const content = document.getElementById('postContent').value;
     const category = document.getElementById('postCategory').value;
-
+    const date = document.getElementById('postDate').value;
     let imageHtml = '';
     if (imageFile) {
         imageHtml = `<img class="post-image" src="${URL.createObjectURL(imageFile)}" alt="${title}">`;
@@ -283,10 +327,16 @@ function addPost() {
         `;
         document.querySelector('.blog-box').appendChild(post);
     }
+
+    if (!window.currentEditingPostId) { // Если это новый пост
+        const today = new Date().toISOString().slice(0, 10);
+        document.getElementById('postDate').value = today;
+    }
     const postData = {
         title: title,
         content: content,
         category: category,
+        date: date,
         imageUrl: (imageFile && typeof imageFile !== "undefined") ? URL.createObjectURL(imageFile) : null
     };
     addPostToServer(postData);

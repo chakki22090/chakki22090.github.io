@@ -108,20 +108,35 @@ body {
     font-size: 3em;
 }
 
-.post-image {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; 
+.post-body {
+  display: flex;
+  align-items: center;
 }
 
+.post-content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* это расстояние между картинкой и текстом */
+}
+
+.post-image {
+  width: 30%;  /* меняй размер под свои нужды */
+  border-radius: 10px; /* закругляем уголки, чтобы было красиво */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* добавим немного тени */
+}
 
 .post-text {
-    font-size: 2em;
-    flex-wrap: wrap;
+  flex: 1;
+  font-size: 1.5em;
+  margin: 0;
 }
 
-  
+.post-date {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 1.2em;
+}
 
 
 .modal {

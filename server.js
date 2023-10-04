@@ -7,6 +7,10 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
+
+app.set('view engine', 'ejs');
+
+
 const port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
@@ -64,14 +68,15 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
     });
 
 
-    
+
 // Хранение блог-постов
 const postSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     title: String,
     content: String,
     image: String,
-    category: String
+    category: String, 
+    date: { type: Date, default: Date.now }
 });
 
 const Post = mongoose.model('Post', postSchema);
@@ -127,7 +132,8 @@ app.post('/api/addpost',ensureAuthenticated, upload.single('postImage'), async (
             title: req.body.title,
             content: req.body.content,
             image: imageUrl, // здесь мы используем URL из Cloudinary
-            category: req.body.category
+            category: req.body.category,
+            date: req.body.date
         });
         await newPost.save();
         res.json({ success: true, message: 'Пост успешно добавлен!' });
@@ -203,6 +209,7 @@ app.get('/blog', async (req, res) => {
         console.error("Ошибка при получении постов:", error);
         res.status(500).send('Ошибка сервера');
     }
+    
 });
 
 
