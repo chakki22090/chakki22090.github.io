@@ -55,7 +55,16 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
         console.log("error:", error.message);
     });
     
+    app.get('/api/isUserLoggedIn', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.json({ loggedIn: true });
+        } else {
+            res.json({ loggedIn: false });
+        }
+    });
 
+
+    
 // Хранение блог-постов
 const postSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
@@ -88,7 +97,19 @@ passport.deserializeUser(function(id, done) {
         done(new Error('User not found'));
     }
 });
-app.post('/api/addpost', upload.single('postImage'), async (req, res) => {
+
+
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.status(403).send('Доступ запрещен, ты не залогинен!');
+}
+
+
+
+
+app.post('/api/addpost',ensureAuthenticated, upload.single('postImage'), async (req, res) => {
 
      let imageUrl = null;
     
@@ -116,10 +137,9 @@ app.post('/api/addpost', upload.single('postImage'), async (req, res) => {
     }
 });
 
-
 app.get('/api/posts', async (req, res) => {
     try {
-        const posts = await Post.find();
+        const posts = await Post.find().sort({ _id: -1 });
         res.json({ success: true, posts });
     } catch (err) {
         res.json({ success: false, message: err.message });
@@ -128,8 +148,7 @@ app.get('/api/posts', async (req, res) => {
 
 
 
-
-app.delete('/api/deletepost/:postId', async (req, res) => {
+app.delete('/api/deletepost/:postId',ensureAuthenticated, async (req, res) => {
     try {
         await Post.deleteOne({ _id: req.params.postId });
         res.status(200).send();
@@ -141,14 +160,17 @@ app.delete('/api/deletepost/:postId', async (req, res) => {
 
 
 
-app.post('/api/editpost/:postId', upload.single('postImage'), async (req, res) => {
+app.post('/api/editpost/:postId',ensureAuthenticated, upload.single('postImage'), async (req, res) => {
     const postId = req.params.postId;
     
     let imageUrl;
-    if (req.body.removeImage === 'true') {
-        imageUrl = null; // Удаляем информацию о картинке из базы данных
+    if (req.file) {
+        const result = await cloudinary.uploader.upload(req.file.path);
+        imageUrl = result.url;
+    } else if (req.body.removeImage === 'true') {
+        imageUrl = null;
     } else {
-        imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+        imageUrl = undefined; // Оставь значение неизменным, если изображение не было загружено или удалено
     }
 
     // Удостоверимся, что мы не отправляем пустые значения в базу данных
@@ -169,17 +191,13 @@ app.post('/api/editpost/:postId', upload.single('postImage'), async (req, res) =
 
 
 
-
 app.get('/blog', async (req, res) => {
     try {
         const posts = await Post.find(); 
-        // Ты здесь можешь передать в функцию render свои посты, чтобы отобразить их в HTML
-        if (req.session.editMode) {
-            // Показать блог в режиме редактирования
-            res.render('blog_edit', { posts: posts }); 
+        if (req.isAuthenticated()) {
+            res.render('blog_edit', { posts: posts, isUserLoggedIn: true });
         } else {
-            // Показать обычный блог
-            res.render('blog', { posts: posts });  
+            res.render('blog', { posts: posts, isUserLoggedIn: false });  
         }
     } catch (error) {
         console.error("Ошибка при получении постов:", error);
@@ -215,7 +233,7 @@ app.post('/slogin',
 );
 
 app.get('/logout', function(req, res) {
-    req.logout();
+    req.logout(() => {}); // Пустой callback
     req.session.editMode = false;
     res.redirect('/');
 });

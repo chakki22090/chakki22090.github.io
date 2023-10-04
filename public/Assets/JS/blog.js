@@ -1,3 +1,22 @@
+let isUserLoggedIn = false;
+fetch('/api/isUserLoggedIn')
+    .then(response => response.json())
+    .then(data => {
+        isUserLoggedIn = data.loggedIn;
+        if (!isUserLoggedIn) {
+            const controlButtons = document.querySelectorAll(".post-controls, #addPostBtn");
+            controlButtons.forEach(button => {
+                button.style.display = "none";
+            });
+        }
+    })
+    .catch(err => {
+        console.error("Ошибка при выполнении запроса:", err);
+    });
+
+
+
+
 const editMode = true; 
 let currentEditingPost = null;
 if (editMode) {
@@ -11,12 +30,19 @@ if (editMode) {
         }
     }));
 }
-
-
 document.addEventListener("DOMContentLoaded", function() {
     const categoryButtons = document.querySelectorAll(".category-btn");
     const allPosts = document.querySelectorAll(".post");
     const heading = document.querySelector(".blog-section h2");
+
+    const userIsLoggedIn = true; // Ты должен получить эту переменную из сервера
+
+    if (!userIsLoggedIn) {
+        const controlButtons = document.querySelectorAll(".post-controls, #addPostBtn");
+        controlButtons.forEach(button => {
+            button.style.display = "none";
+        });
+    }
 
     categoryButtons.forEach(button => {
         button.addEventListener("click", function() {
@@ -37,6 +63,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 heading.textContent = "Journalism Posts";
             }
         });
+
+        const addPostButton = document.getElementById('addPostBtn');
+        if (!editMode) { // Если не в режиме редактирования, то скрыть кнопку AddPost
+            addPostButton.style.display = 'none';
+        }
     });
     
     document.querySelector('.category-btn[data-category="digital-strategy"]').click();
@@ -72,17 +103,27 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
+    
+    let controlsHtml = ''; // Добавим пустую переменную для HTML контрольных кнопок
+    
+    if(isUserLoggedIn) { 
+        controlsHtml = `
+            <div class="post-controls" style="display:block;">
+                <button onclick="editPost(this)">Edit</button>
+                <button onclick="deletePost(this)">Delete</button>
+            </div>
+        `; // Если пользователь в системе, создай кнопки
+    }
+    
     post.innerHTML = `
         <h2 class="post-title">${postData.title}</h2>
         <img class="post-image" src="${postData.image}" alt="${postData.title}">
         <p class="post-text">${postData.content}</p>
-        <div class="post-controls" style="display:block;">
-            <button onclick="editPost(this)">Edit</button>
-            <button onclick="deletePost(this)">Delete</button>
-        </div>
+        ${controlsHtml} 
     `;
     return post;
 }
+
 
 function editPost(button) {
     currentEditingPost = button.closest('.post');
