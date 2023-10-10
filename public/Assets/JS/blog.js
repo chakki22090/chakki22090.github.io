@@ -144,7 +144,9 @@ function editPost(button) {
     const title = post.querySelector('h2').textContent;
     const content = post.querySelector('p').textContent;
     const imageElement = post.querySelector('img');
-
+    const date = post.querySelector('.post-date').textContent;
+    document.getElementById('postDate').value = date;
+    
     const imageUrl = imageElement ? imageElement.src : '';
     window.currentEditingPostId = post.getAttribute('data-id'); 
     
@@ -232,26 +234,6 @@ function deletePost(button) {
     .catch(error => console.error('Ошибка:', error));
 }
 
-function hidePost(button) {
-    const post = button.closest('.post');
-    post.style.display = "none";
-    // Далее ты можешь использовать AJAX, чтобы уведомить сервер о том, что пост скрыт.
-}
-
-function toggleHiddenPosts() {
-    const posts = document.querySelectorAll('.post');
-    posts.forEach(post => {
-        if(post.style.display === "none") {
-            post.style.display = "block";
-        } else {
-            post.style.display = "none";
-        }
-    });
-}
-
-
-
-
 
 
 document.getElementById('postImageFile').addEventListener('change', function() {
@@ -328,10 +310,6 @@ function addPost() {
         document.querySelector('.blog-box').appendChild(post);
     }
 
-    if (!window.currentEditingPostId) { // Если это новый пост
-        const today = new Date().toISOString().slice(0, 10);
-        document.getElementById('postDate').value = today;
-    }
     const postData = {
         title: title,
         content: content,
@@ -339,6 +317,7 @@ function addPost() {
         date: date,
         imageUrl: (imageFile && typeof imageFile !== "undefined") ? URL.createObjectURL(imageFile) : null
     };
+    
     addPostToServer(postData);
     
     toggleForm();
@@ -362,6 +341,8 @@ function addPostToServer(postData) {
     formData.append('content', postData.content);
     formData.append('category', postData.category);
     formData.append('postId', window.currentEditingPostId ? window.currentEditingPostId : "");
+    formData.append('date', postData.date);
+
    
     const postUrl = window.currentEditingPostId ? `/api/editpost/${window.currentEditingPostId}` : '/api/addpost';
 

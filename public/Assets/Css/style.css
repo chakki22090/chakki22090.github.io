@@ -83,66 +83,59 @@ body {
   background-color: var(--btn-bg-hover-color);
 }
 
-.main-content {
-  background-image: var(--main-content-bg-image);
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  color: var(--main-content-text-color);
-}
 
-.text-container {
-  position: absolute;
-  left: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-}
 
-.text-container h1 {
+/*Footer*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #2d3947;
   color: white;
-  font-size: 7em;
 }
 
-.btn-secondary {  
-  background-color: var( --btn-bg-color);
-  color: var(--main-content-text-color);
-  font-size: 2.3em;
-  position: inherit;
-  margin-top: 2.5%;
-  margin-left: 5%;
-  padding: 0.5em 1.5em;
-  text-decoration: none; 
-  white-space: nowrap; /* Prevents the text inside the button from breaking into multiple lines */
-  overflow: hidden; /* Hides the overflow text */
-  text-overflow: ellipsis; /* Adds an ellipsis (...) to indicate the text is clipped */
-  max-width: 100%; /* Makes sure the button doesn’t stretch beyond its parent container */
+.company-info {
+  flex: 3;
+} 
 
+.links {
+  flex: 4;
+  display: flex;
+  justify-content: space-between;
 }
 
-.btn-secondary:active,
-.btn-secondary:focus,
-.btn-secondary:hover {
-  background-color: var(--btn-bg-hover-color);
+.company, .contact {
+  flex: 1;
 }
 
-.social-icons {
-  position: fixed;
-  bottom: 1%;
-  right: 1%;
+.company ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.social-icon-item {
-  position: relative;
-  display: inline-block;
-  margin-right: 1.7em;
+.company li {
+  margin: 0.5vw;
 }
 
-
-
-
-
-
-
+.socials {
+  display: flex;
+  gap: 1vw;
+}
 
 
 
