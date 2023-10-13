@@ -158,9 +158,11 @@ function editPost(button) {
     const imageUrl = imageElement ? imageElement.src : '';
     window.currentEditingPostId = post.getAttribute('data-id'); 
     
+    const clonedElement = post.cloneNode(true); 
+    const fullText = post.getAttribute('data-full-text');  
 
     document.getElementById('postTitle').value = title;
-    document.getElementById('postContent').value = content; 
+    document.getElementById('postContent').value = fullText; 
     const currentImageElement = document.getElementById('currentPostImage');
     const removeImageButton = document.getElementById('removeImageButton'); 
     if (imageUrl) {
