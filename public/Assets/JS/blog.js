@@ -16,7 +16,7 @@ fetch('/api/isUserLoggedIn')
         }
     })
     .catch(err => {
-        console.error("Ошибка при выполнении запроса:", err);
+        console.error("Error doing request:", err);
     });
 
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const allPosts = document.querySelectorAll(".post");
     const heading = document.querySelector(".blog-section h2");
 
-    const userIsLoggedIn = true; // Ты должен получить эту переменную из сервера
+    const userIsLoggedIn = true;  
   
     if (!userIsLoggedIn) {
         const controlButtons = document.querySelectorAll(".post-controls, #addPostBtn");
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
     categoryButtons.forEach(button => {
         button.addEventListener("click", function() {
             const category = this.getAttribute("data-category");
-            const allPosts = document.querySelectorAll(".post"); // обновляем список постов
+            const allPosts = document.querySelectorAll(".post"); 
     
             allPosts.forEach(post => {
                 if (post.getAttribute("data-category") === category) {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         const addPostButton = document.getElementById('addPostBtn');
-        if (!editMode) { // Если не в режиме редактирования, то скрыть кнопку AddPost
+        if (!editMode) { 
             addPostButton.style.display = 'none';
         }
     });
@@ -88,22 +88,24 @@ document.addEventListener("DOMContentLoaded", function() {
             displayPosts(data.posts);
             document.querySelector('.category-btn[data-category="digital-strategy"]').click();
         } else {
-            console.error("Ошибка при загрузке постов:", data.message);
+            console.error("Error updating posts:", data.message);
         }
     })
     .catch(err => {
-        console.error("Ошибка при выполнении запроса:", err);
+        console.error("Error doing request:", err);
     });
 
 
 
 });
-
-
 function displayPosts(posts) {
     const blogBox = document.querySelector('.blog-box');
     for(let post of posts) {
         const postElement = createPostElement(post);
+        const fullText = postElement.querySelector('p').textContent;
+        if (fullText.split(" ").length > 30) {
+            postElement.text = fullText.split(" ", 300).join(" ") + "...";
+        }
         blogBox.appendChild(postElement);
     }
 }
@@ -114,28 +116,34 @@ function createPostElement(postData) {
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
     
-    let controlsHtml = ''; // Добавим пустую переменную для HTML контрольных кнопок
-    
+    let controlsHtml = ''; 
     if(isUserLoggedIn) { 
         controlsHtml = `
             <div class="post-controls" style="display:block;">
                 <button onclick="editPost(this)">Edit</button>
                 <button onclick="deletePost(this)">Delete</button>
             </div>
-        `; // Если пользователь в системе, создай кнопки
+        `; 
     }
+
+    let fullText = postData.content;
     
     post.innerHTML = `
-    <h2 class="post-title">${postData.title}</h2>
-    <div class="post-content-container">
-        <img class="post-image" src="${postData.image}" alt="${postData.title}">
-        <p class="post-text">${postData.content}</p>
-    </div>
-    ${controlsHtml}
-    <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
+        <div class="post-box">
+            <h2 class="post-title">${postData.title}</h2>
+            <div class="post-content">
+                <p class="post-text" data-full-text="${fullText}">${fullText}</p>
+                <img class="post-image" src="${postData.image}" alt="${postData.title}">
+            </div>
+            <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
+        </div>
+        ${controlsHtml}
     `;
+
+    post.onclick = function() { openModal(this); }; // Тут можешь передать fullText, если нужно
     return post;
 }
+
 
 
 function editPost(button) {
@@ -159,15 +167,14 @@ function editPost(button) {
     
         currentImageElement.src = imageUrl;
         currentImageElement.style.display = 'block';
-        removeImageButton.style.display = 'block';  // Show the remove button
+        removeImageButton.style.display = 'block';  
     } else {
         currentImageElement.style.display = 'none';
-        removeImageButton.style.display = 'none';  // Hide the remove button
+        removeImageButton.style.display = 'none';  
     }
 
     toggleForm();
 }
-
 function removeCurrentImage() {
     const currentImageElement = document.getElementById('currentPostImage');
     currentImageElement.src = '';
@@ -183,42 +190,8 @@ function removeCurrentImage() {
         }
     }
 
-    window.removeImage = true; // Установка флага
+    window.removeImage = true;  
 }
-
-function viewFullPost(postData) {
-    const modal = document.getElementById('fullPostModal');
-    const modalContent = modal.querySelector('.full-post-content');
-    
-    modalContent.innerHTML = `
-        <h2 class="post-title">${postData.title}</h2>
-        <img class="post-image" src="${postData.image}" alt="${postData.title}">
-        <p class="post-text">${postData.content}</p>
-    `;
-    
-    modal.style.display = 'block';
-}
-
-function closeFullPost() {
-    const modal = document.getElementById('fullPostModal');
-    modal.style.display = 'none';
-}
-
-// Теперь добавим обработчик для каждого поста
-const posts = document.querySelectorAll('.post');
-posts.forEach(post => {
-    post.addEventListener('click', function() {
-        const postData = {
-            title: post.querySelector('.post-title').textContent,
-            image: post.querySelector('.post-image') ? post.querySelector('.post-image').src : '',
-            content: post.querySelector('.post-text').textContent
-        };
-        
-        viewFullPost(postData);
-    });
-});
-
-
 function deletePost(button) {
     const postId = button.closest('.post').getAttribute('data-id');
     fetch(`/api/deletepost/${postId}`, {
@@ -228,13 +201,11 @@ function deletePost(button) {
         if (response.ok) {
             button.closest('.post').remove();
         } else {
-            console.error('Ошибка при удалении поста');
+            console.error('Error deleting post');
         }
     })
-    .catch(error => console.error('Ошибка:', error));
+    .catch(error => console.error('Error:', error));
 }
-
-
 
 document.getElementById('postImageFile').addEventListener('change', function() {
     const currentImageElement = document.getElementById('currentPostImage');
@@ -249,8 +220,6 @@ document.getElementById('postImageFile').addEventListener('change', function() {
     }
 });
 
-
-
 document.getElementById('addPostBtn').addEventListener('click', toggleForm);
 
 function toggleForm() {
@@ -261,12 +230,6 @@ function toggleForm() {
         form.style.display = 'none';
     }
 }
-
-
-
-
-
-
 
 function addPost() {
     const title = document.getElementById('postTitle').value;
@@ -329,9 +292,6 @@ function addPost() {
     document.getElementById('postContent').value = "";
 }
 
-
-
-
 function addPostToServer(postData) {
     const imageFile = document.getElementById('postImageFile').files[0];
     const formData = new FormData();
@@ -353,12 +313,68 @@ function addPostToServer(postData) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            console.log("Пост добавлен успешно:", data.message);
+            console.log("Post added:", data.message);
         } else {
-            console.error("Ошибка при добавлении поста:", data.message);
+            console.error("Error Adding post:", data.message);
         }
     })
     .catch(error => {
-        console.error("Произошла ошибка при отправке запроса:", error);
+        console.error("Error while sending request:", error);
     });
 }
+
+function viewFullPost(postData) {
+    const modal = document.getElementById('fullPostModal');
+    const modalContent = modal.querySelector('.full-post-content');
+    
+    modalContent.innerHTML = `
+        <h2 class="post-title">${postData.title}</h2>
+        <img class="post-image" src="${postData.image}" alt="${postData.title}">
+        <p class="post-text">${postData.content}</p>
+    `;
+    
+    modal.style.display = 'block';
+}
+function closeFullPost() {
+    const modal = document.getElementById('fullPostModal');
+    modal.style.display = 'none';
+}
+
+const posts = document.querySelectorAll('.post');
+posts.forEach(post => {
+    post.addEventListener('click', function() {
+        const postData = {
+            title: post.querySelector('.post-title').textContent,
+            image: post.querySelector('.post-image') ? post.querySelector('.post-image').src : '',
+            content: post.querySelector('.post-text').textContent
+        };
+        
+        viewFullPost(postData);
+    });
+});
+
+
+
+function openModal(postElement) {
+    const modal = document.getElementById("myModal");
+    const span = document.getElementsByClassName("close")[0];
+    const modalBody = document.getElementById("modalBody");
+    modal.scrollTo(0,0);
+    modalBody.innerHTML = postElement.innerHTML;  // копируем содержимое поста в модальное окно
+    
+    // Показываем модальное окно
+    modal.style.display = "block";
+    
+    // Закрыть модальное окно
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // Закрыть на клик вне
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+  

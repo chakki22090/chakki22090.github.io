@@ -67,9 +67,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
         }
     });
 
-
-
-// Хранение блог-постов
+ 
 const postSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     title: String,
@@ -108,7 +106,7 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    res.status(403).send('Доступ запрещен, ты не залогинен!');
+    res.status(403).send('Not logged in');
 }
 
 
@@ -118,8 +116,7 @@ app.post('/api/addpost',ensureAuthenticated, upload.single('postImage'), async (
 
      let imageUrl = null;
     
-     if (req.file) {
-        // Загрузка изображения на Cloudinary
+     if (req.file) { 
         const result = await cloudinary.uploader.upload(req.file.path);
         imageUrl = result.url;
         publicId = result.public_id; 
@@ -131,12 +128,12 @@ app.post('/api/addpost',ensureAuthenticated, upload.single('postImage'), async (
             _id: new mongoose.Types.ObjectId(),
             title: req.body.title,
             content: req.body.content,
-            image: imageUrl, // здесь мы используем URL из Cloudinary
+            image: imageUrl,  
             category: req.body.category,
             date: req.body.date
         });
         await newPost.save();
-        res.json({ success: true, message: 'Пост успешно добавлен!' });
+        res.json({ success: true, message: 'Post Added!' });
     } catch (err) {
         console.error("Error while adding post:", err);
         res.json({ success: false, message: err.message });
@@ -176,10 +173,9 @@ app.post('/api/editpost/:postId',ensureAuthenticated, upload.single('postImage')
     } else if (req.body.removeImage === 'true') {
         imageUrl = null;
     } else {
-        imageUrl = undefined; // Оставь значение неизменным, если изображение не было загружено или удалено
+        imageUrl = undefined;  
     }
 
-    // Удостоверимся, что мы не отправляем пустые значения в базу данных
     const updatedData = {};
     if (req.body.title) updatedData.title = req.body.title;
     if (req.body.content) updatedData.content = req.body.content;
@@ -188,10 +184,10 @@ app.post('/api/editpost/:postId',ensureAuthenticated, upload.single('postImage')
 
     try {
         await Post.findByIdAndUpdate(postId, updatedData);
-        res.json({ success: true, message: 'Пост успешно обновлен, брат!' });
+        res.json({ success: true, message: 'Post Added!' });
     } catch (err) {
-        console.error("Ошибка при обновлении поста:", err);
-        res.json({ success: false, message: 'Блять, какая-то ошибка: ' + err.message });
+        console.error("Error updating post:", err);
+        res.json({ success: false, message: 'Error: ' + err.message });
     }
 });
 
@@ -206,8 +202,8 @@ app.get('/blog', async (req, res) => {
             res.render('blog', { posts: posts, isUserLoggedIn: false });  
         }
     } catch (error) {
-        console.error("Ошибка при получении постов:", error);
-        res.status(500).send('Ошибка сервера');
+        console.error("Error retrieving posts:", error);
+        res.status(500).send('Server errir');
     }
     
 });
@@ -240,7 +236,7 @@ app.post('/slogin',
 );
 
 app.get('/logout', function(req, res) {
-    req.logout(() => {}); // Пустой callback
+    req.logout(() => {}); 
     req.session.editMode = false;
     res.redirect('/');
 });

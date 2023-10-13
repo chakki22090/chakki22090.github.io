@@ -62,8 +62,8 @@ body {
 
 
 .category-btn {
-    padding: 10px 20px;
-    margin-right: 10px;
+    padding: 1vh 2vw;
+    margin-right: 1vw;
     cursor: pointer;
     border: none;
     background-color: rgba( 79, 82, 96);
@@ -91,53 +91,13 @@ body {
   .blog-box {
     background-color:var(--text-bg-color); 
     margin: 2vh auto;
-    width: 60%;
+    width: 100%;
     position: relative;
     padding: 7vh 5vw;
   }
 
 
-
-  .post {
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-    border: 1px solid black;
-}
-
-.post-title {
-    font-size: 3em;
-}
-
-.post-body {
-  display: flex;
-  align-items: center;
-}
-
-.post-content-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px; /* это расстояние между картинкой и текстом */
-}
-
-.post-image {
-  width: 30%;  /* меняй размер под свои нужды */
-  border-radius: 10px; /* закругляем уголки, чтобы было красиво */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* добавим немного тени */
-}
-
-.post-text {
-  flex: 1;
-  font-size: 1.5em;
-  margin: 0;
-}
-
-.post-date {
-  margin-top: 10px;
-  font-style: italic;
-  font-size: 1.2em;
-}
-
+  
 
 .modal {
     display: none; 
@@ -221,3 +181,106 @@ button:hover {
   display: block;
   margin: 10px 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.post {
+  margin: 2vh auto; 
+  width: 60vw;
+  font-family: Arial, sans-serif;
+  position: center;
+  display: flex;  
+  justify-content: center;  
+  
+  gap: 2vh; 
+}
+
+.post-box {
+  background-color:white; 
+  margin: 2vh auto;
+  width: 100%;
+  position: relative;
+  padding: 7vh 5vw;
+}
+.post-title {
+  font-size: 2vw;
+  margin-bottom: 1vw;
+}
+
+.post-content {
+  flex-wrap: wrap;  
+  font-size: 1.5vw;
+  line-height: 1.6;
+  display: flex;         
+  justify-content: space-between;  
+  align-items: center;  
+}
+
+.post-date {
+  font-size: 1.4vw;
+  color: gray;
+  margin-top: 2vw;
+}
+.post-text {
+  flex: 1;   
+  padding-right: 1vw;   
+
+  word-wrap: break-word;  /* Add this line */
+  overflow-wrap: break-word;  /* And this too */
+  min-width: 0;  /* Keep this */
+}
+
+.post-image {
+  max-width: 50%;   
+  margin-left: 1vw;
+  
+  order: 2;    
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  margin: 20% auto;
+  padding: 2мv;
+  width: 70%;
+  background-color: #fff;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
