@@ -98,23 +98,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 });
-function displayPosts(posts) {
-    const blogBox = document.querySelector('.blog-box');
-    for(let post of posts) {
-        const postElement = createPostElement(post);
-        const fullText = postElement.querySelector('p').textContent;
-        if (fullText.split(" ").length > 30) {
-            postElement.text = fullText.split(" ", 300).join(" ") + "...";
-        }
-        blogBox.appendChild(postElement);
-    }
-}
+
+
+
+
+
+
+
+
+
 
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
+    post.setAttribute('data-full-text', postData.content);  
+
     
     let controlsHtml = ''; 
     if(isUserLoggedIn) { 
@@ -355,26 +355,72 @@ posts.forEach(post => {
 
 
 
+
+  
+
+ 
+  function displayPosts(posts) {
+    const blogBox = document.querySelector('.blog-box');
+
+    for(let post of posts) {
+        const postElement = createPostElement(post);
+        blogBox.appendChild(postElement);
+        
+        const textElement = postElement.querySelector('p.post-text');
+        const fullText = textElement.getAttribute('data-full-text');
+        const num = 50;
+        if (fullText.split(" ").length > num) {
+            textElement.textContent = fullText.split(" ", num).join(" ") + "...";
+        }
+    }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 function openModal(postElement) {
     const modal = document.getElementById("myModal");
     const span = document.getElementsByClassName("close")[0];
     const modalBody = document.getElementById("modalBody");
-    modal.scrollTo(0,0);
-    modalBody.innerHTML = postElement.innerHTML;  // копируем содержимое поста в модальное окно
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImage = document.getElementById("modalImage");
+    const modalDate = document.getElementById("modalDate");
+
+    const clonedElement = postElement.cloneNode(true); // Клонируем элемент
+    const fullText = postElement.getAttribute('data-full-text'); // Получаем полный текст
+    clonedElement.querySelector('.post-text').textContent = fullText; // Заменяем текст в клоне
+    modalBody.innerHTML = clonedElement.innerHTML; // Заменяем содержимое модального окна
+
+
     
-    // Показываем модальное окно
+    modalTitle.innerHTML = clonedElement.querySelector('.post-title').outerHTML;
+    modalImage.innerHTML = clonedElement.querySelector('.post-image').outerHTML;
+    modalBody.innerHTML = clonedElement.querySelector('.post-text').outerHTML;
+    modalDate.innerHTML = clonedElement.querySelector('.post-date').outerHTML;
+
+  
+    modal.scrollTo(0,0);
     modal.style.display = "block";
     
     // Закрыть модальное окно
     span.onclick = function() {
-      modal.style.display = "none";
-    }
+        modal.style.display = "none";
+    };
     
     // Закрыть на клик вне
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
-  }
-  
+}
+

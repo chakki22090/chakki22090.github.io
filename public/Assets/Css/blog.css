@@ -30,7 +30,7 @@ body {
     flex: 1;
     height: 77vh; 
     margin-left: 4vh;
-    background-image: url('../png/ServicesPage/peopleChillin.jpg');
+    background-image: url('../png/BlogPage/guyTyping.png');
     background-size: contain;
     background-repeat: no-repeat;  
     background-position: center;
@@ -42,9 +42,6 @@ body {
     color: rgb(0, 0, 0);
     padding: 5vh 20vw 5vh 10vw;
     margin-right: 4vh;
-    display: flex;
-    flex-direction: column;
-    align-items: start;  
   }
   
   .info-content h1 {
@@ -93,7 +90,6 @@ body {
     margin: 2vh auto;
     width: 100%;
     position: relative;
-    padding: 7vh 5vw;
   }
 
 
@@ -198,7 +194,7 @@ button:hover {
   margin: 2vh auto; 
   width: 60vw;
   font-family: Arial, sans-serif;
-  position: center;
+
   display: flex;  
   justify-content: center;  
   
@@ -246,7 +242,6 @@ button:hover {
   
   order: 2;    
 }
-
 .modal {
   display: none;
   position: fixed;
@@ -256,21 +251,26 @@ button:hover {
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.6);
+  overflow-y: auto;  
 }
 
 .modal-content {
-  margin: 20% auto;
-  padding: 2мv;
+  margin: 5% auto;
+  padding: 2vw;
   width: 70%;
   background-color: #fff;
+  border-radius: 1.2vw;  
+  box-shadow: 0 0.4vw 2vw rgba(0,0,0,0.5);  
 }
 
 .close {
   color: #aaaaaa;
   float: right;
-  font-size: 28px;
+  font-size: 2vw;
   font-weight: bold;
+  margin-top: -0.5em;
 }
+
 .close:hover,
 .close:focus {
   color: #000;
@@ -278,6 +278,27 @@ button:hover {
   cursor: pointer;
 }
 
+#modalTitle {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+#modalImage {
+  max-width: 100%;
+  height: auto;
+  ;
+  margin-bottom: 1em;
+}
+
+#modalBody {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+#modalDate {
+  font-size: 1em;
+  color: #aaa;
+}
 
 
 
