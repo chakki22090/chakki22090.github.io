@@ -41,15 +41,15 @@ body {
     flex: 1;
     background-color: var(--text-bg-color);  
     color: rgb(0, 0, 0);
-    padding: 12vh 20vw 12vh 10vw;
-    margin-left: 4vh;
+    padding: 3vh 5vw 3vh 3vw;
+    margin-left: 3vw;
     display: flex;
     flex-direction: column;
     align-items: start;  
   }
   
   .info-content h1 {
-    font-size: 4.5em;
+    font-size: 3.5em;
     color: var(--title-text-color);
     font-family: Evolventa-Bold;
   }
@@ -77,52 +77,124 @@ body {
   
   }
   
+  .btn-read-more:active,
+  .btn-read-more:focus,
+  .btn-read-more:hover {
+    background-color: var(--btn-bg-hover-color);
+  }
   
-  .middle-section {
+   
+  .background {
     background-image: url('../png/ServicesPage/background.png');
     background-size: cover;
     background-position: center;
+    height: 45vh;
     position: relative;
-    height: 500px;
-  }
-  
-  .middle-content {
+}
+
+.mission-title {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .middle-content h2 {
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 3em;
-    color: white;
-  }
+    color: #fff;
+}
+.image-row {
+  display: flex;
+  justify-content: space-between;   
+  align-items: center;
+  position: absolute;
+  bottom: 10%;
+  width: 80%;   
+}
+
+.image-row img {
+  margin-left: 4vw;
+  margin-right: 4vw;
+  width: 30%;  
+}
+
+
+
+
+
+
+
+
+
+
+
+.bottom-section {
+  text-align: center;
+  padding: 2em 0;
+}
+
+.bottom-section h1 {
+  font-size: 4em;
+  margin-bottom: 1em;
+}
+
+.grey-box {
+  flex: 1;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  display: flex;
+  background-color:  var(--text-bg-color);  
+  color: rgb(0, 0, 0);
+  padding: 7vh 3vw 3vh 3vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.text-section {
+  flex-grow: 1;  /* Added this line to make it grow and push the image to the right */
+  text-align: left;
+}
+
+.text-section h2 {
   
-  .middle-content p {
-    font-size: 1.5em;
-    padding-bottom: 4vh;
-    color: white;
-  }
+  color: var(--title-text-color);
+  font-family: Evolventa-Bold;
+  font-size: 3em;
+}
+
+.text-section p {
+  font-size: 2.1em;
+  margin: 3vh 0vw 12vh 1vw;
   
-  .middle-images {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 6vh;
-    width: 100%;
-  }
-  
-  .middle-images img {
-    width: 20%;
-    height: auto;
-  }
-  
-  
-  
+  color: var(--content-text-color);
+}
+
+
+ 
+.btn-view-members {
+  background-color: var( --btn-bg-color);
+  color: var(--main-content-text-color);
+  font-size: 1.5em;
+  position: inherit;
+  margin-top: 2.5%;
+  padding: 1em 3em;
+  text-decoration: none; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 100%; 
+}
+
+
+
+.btn-view-members:active,
+.btn-view-members:focus,
+.btn-view-members:hover {
+  background-color: var(--btn-bg-hover-color);
+}
+
+.image-section img {
+  width: 25vw;
+}
+
+
+

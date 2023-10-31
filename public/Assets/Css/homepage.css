@@ -16,13 +16,13 @@
   
   .text-container h1 {
     color: white;
-    font-size: 7em;
+    font-size: 5em;
   }
   
   .btn-secondary {  
     background-color: var( --btn-bg-color);
     color: var(--main-content-text-color);
-    font-size: 2.3em;
+    font-size: 2em;
     position: inherit;
     margin-top: 2.5%;
     margin-left: 5%;
