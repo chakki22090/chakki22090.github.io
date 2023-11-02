@@ -86,7 +86,14 @@
 
 
 
-
+  .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
 
 
   .modal {
@@ -102,23 +109,50 @@
 }
 
 .modal-content {
+    position: relative;
     background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 70%;
+    margin: 5% auto;
+    padding: 2vw;
+    border-radius: 1vw;
+    font-size: 1.5vw;
+    width: 60%;
+    box-shadow: 0 1vw 4vw rgba(0, 0, 0, 0.2);
+    max-height: 80vh;
+    overflow-y: auto;  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
 }
 
-.close-button {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
 
-.close-button:hover,
-.close-button:focus {
-    color: #000;
+.modal-content a {
+    color: #007BFF;
     text-decoration: none;
-    cursor: pointer;
+    transition: color 0.3s;
+}
+.modal-content h2 {
+    text-align: center; 
+    font-size: 2.5vw;
+    margin: 1vw 0;  
+}
+
+
+.modal-content a:hover {
+    color: var(--button-text-color);
+    text-decoration: none;
+}
+
+.modal-content img {
+    width: 50%;
+}
+
+.modal-social-links img {
+    width: 10%;
+  }
+  
+
+.modal-content a:hover {
+    color: var(--button-text-color);
+    text-decoration: none;
 }
