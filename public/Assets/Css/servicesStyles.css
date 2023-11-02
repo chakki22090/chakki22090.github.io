@@ -31,7 +31,7 @@ h1, h2, h3 {
   flex: 1;
   height: 77vh; 
   margin-left: 4vh;
-  background-image: url('../png/ServicesPage/peopleChillin.jpg');
+  background-image: url('../png/ServicesPage/meetingpic.jpg');
   background-size: contain;
   background-repeat: no-repeat;  
   background-position: center;
@@ -54,6 +54,11 @@ h1, h2, h3 {
   font-family: Evolventa-Bold;
 }
 
+.info-content h2 {
+  font-size: 2.5em;
+  color: var(--title-text-color);
+  font-family: Evolventa-Bold;
+}
 .info-content p {
   font-size: 2.2em;
   color: var(--content-text-color);

@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 1.5em;
+  padding: 1.2em;
 }
 .custom-navbar.home {
   background-color: var(--navbar-bg-color-home);
@@ -60,9 +60,11 @@ body {
 
 .nav-link:hover,
 .nav-link:active,
-.nav-link:focus {
+.nav-link:focus,
+.nav-link.active {
   color: var(--navbar-text-active-color);
 }
+
 
 
 .btn-request {
@@ -143,8 +145,8 @@ body {
 
 
 ul li a {
-  text-decoration: none; /* Убирает подчеркивание */
-  color: white; /* Делает текст белым */
+  text-decoration: none;  
+  color: white;  
 }
 
 
