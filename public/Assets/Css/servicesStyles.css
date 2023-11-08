@@ -7,7 +7,7 @@ h1, h2, h3 {
 }
 :root {
   --text-bg-color: rgba(100, 115, 130, 0.11);
-  --title-text-color: rgba( 79, 82, 96);
+  --title-text-color: rgba( 87, 101, 114);
   --content-text-color: rgba( 112, 115, 128  );
 }
 
@@ -57,7 +57,7 @@ h1, h2, h3 {
 .info-content h2 {
   font-size: 2.5em;
   color: var(--title-text-color);
-  font-family: Evolventa-Bold;
+  font-family: Roboto-Regular;
 }
 .info-content p {
   font-size: 2.2em;
@@ -104,7 +104,7 @@ h1, h2, h3 {
   background-size: cover;
   background-position: center;
   position: relative;
-  height: 50vh;
+  padding: 50vh 0; /* Adjusted padding */
 }
 
 .middle-content {
@@ -132,19 +132,43 @@ h1, h2, h3 {
   padding-bottom: 4vh;
   color: white;
 }
-
-.middle-images {
+.white-boxes {
   display: flex;
+  flex-direction: row;
+}
+.white-box {
+  display: flex;
+  background-color: white;
   justify-content: space-around;
-  padding-bottom: 6vh;
-  width: 100%;
-}
+  flex-direction: column;
+  margin-left: 2vw;
+  margin-right: 2vw;
+} 
 
-.middle-images img {
-  width: 20%;
-  height: auto;
+.white-box img {
+margin-left: 2vw;
+  width: 80%;
 }
-
+.white-box h1{
+  font-family: Roboto-Bold;
+  font-size: 3em;
+  color: var(--title-text-color);
+ padding-bottom: 0.3em;
+}
+.white-box h2 {
+  font-size: 1.2em;
+  font-family: Roboto-Bold;
+  color: var( --content-text-color);
+  padding-bottom: 0.15em;
+  padding-top: 0;
+}
+.white-box p { 
+  font-size: 1em;
+  font-family: Roboto;
+  color: var( --content-text-color);
+  padding-bottom: 1em;
+ padding-top: 0;
+}
 
 
 
@@ -178,11 +202,13 @@ h1, h2, h3 {
 .testimonial-text {
   margin-bottom: 2vh;
   font-size: 2em;
+  font-family: Roboto-Regular;
 }
 
 .testimonial-author {
-  font-weight: bold;
+  font-family: Roboto-BoldItalic;
   font-size: 1.5em;
+  color: var(  --content-text-color);
 }
 
 .quote-top-left,
@@ -199,4 +225,28 @@ h1, h2, h3 {
 .quote-bottom-right {
   bottom: 1%;
   right: 1%;
+}
+
+
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px; 
+  height: auto;  
+}
+
+.left-arrow {
+  left: 3.2vw;  
+}
+
+.right-arrow {
+  right: 3.2vw;  
+}
+
+.testimonial-section {
+  position: relative;
+  overflow: hidden;  
 }
