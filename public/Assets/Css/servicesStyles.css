@@ -164,7 +164,7 @@ margin-left: 2vw;
 }
 .white-box p { 
   font-size: 1em;
-  font-family: Roboto;
+  font-family: Roboto-Regular;
   color: var( --content-text-color);
   padding-bottom: 1em;
  padding-top: 0;
