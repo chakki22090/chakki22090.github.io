@@ -140,7 +140,7 @@ function createPostElement(postData) {
         ${controlsHtml}
     `;
 
-    post.onclick = function() { openModal(this); }; // Тут можешь передать fullText, если нужно
+    post.onclick = function() { openModal(this); };  
     return post;
 }
 
@@ -397,10 +397,10 @@ function openModal(postElement) {
     const modalImage = document.getElementById("modalImage");
     const modalDate = document.getElementById("modalDate");
 
-    const clonedElement = postElement.cloneNode(true); // Клонируем элемент
-    const fullText = postElement.getAttribute('data-full-text'); // Получаем полный текст
-    clonedElement.querySelector('.post-text').textContent = fullText; // Заменяем текст в клоне
-    modalBody.innerHTML = clonedElement.innerHTML; // Заменяем содержимое модального окна
+    const clonedElement = postElement.cloneNode(true); 
+    const fullText = postElement.getAttribute('data-full-text');  
+    clonedElement.querySelector('.post-text').textContent = fullText;  
+    modalBody.innerHTML = clonedElement.innerHTML; 
 
 
     
@@ -413,12 +413,10 @@ function openModal(postElement) {
     modal.scrollTo(0,0);
     modal.style.display = "block";
     
-    // Закрыть модальное окно
     span.onclick = function() {
         modal.style.display = "none";
     };
     
-    // Закрыть на клик вне
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
