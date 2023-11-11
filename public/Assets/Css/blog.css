@@ -60,6 +60,7 @@ body {
 {
   margin-left: 5%;
   font-family: Roboto-Bold;
+  font-size: 2em;
   color: var(--title-text-color);
 }
 
@@ -93,20 +94,6 @@ body {
 
 
 
-
-
-  
-.blog-section {
-    text-align: center;
-    margin-top: 5vh;
-  }
-  
-  .blog-box {
-    background-color:var(--text-bg-color); 
-    margin: 2vh auto;
-    width: 100%;
-    position: relative;
-  }
 
 
   
@@ -203,29 +190,44 @@ button:hover {
 
 
 
+.blog-section {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.blog-box {
+  background-color:var(--text-bg-color); 
+  margin: 2vh auto;
+  width: 100%;
+  position: relative;
+}
+
+
+
 
 
 
 .post {
-  margin: 2vh auto; 
-  width: 60vw;
+}
+.post-all
+{
+  display: flex;
+  flex-direction: row;  
+  justify-content: start; /* Align to the start */
+  align-items:center;
+  margin: 2vh auto;
   font-family: Arial, sans-serif;
-
-  display: flex;  
-  justify-content: center;  
-  
-  gap: 2vh; 
+  width: 90%; /* Ensure this is wide enough */
 }
 
 .post-box {
-  background-color:white; 
-  margin: 2vh auto;
-  width: 100%;
-  position: relative;
-  padding: 7vh 5vw;
+  background-color: white; 
+  width: 55%; /* Define a specific width */
+  padding: 2vh 2vw;
 }
 .post-title {
-  font-size: 2vw;
+  font-size: 2vw;  
+  color: var(--title-text-color);
   margin-bottom: 1vw;
 }
 
@@ -233,9 +235,11 @@ button:hover {
   flex-wrap: wrap;  
   font-size: 1.5vw;
   line-height: 1.6;
-  display: flex;         
+  display: flex;     
+  flex: 1;    
   justify-content: space-between;  
   align-items: center;  
+  color: var(--title-text-color);
 }
 
 .post-date {
@@ -246,17 +250,12 @@ button:hover {
 .post-text {
   flex: 1;   
   padding-right: 1vw;   
-
   word-wrap: break-word;  /* Add this line */
   overflow-wrap: break-word;  /* And this too */
-  min-width: 0;  /* Keep this */
 }
-
 .post-image {
-  max-width: 50%;   
-  margin-left: 1vw;
-  
-  order: 2;    
+  flex-shrink: 0; /* Prevents the image from shrinking */
+  max-width: 40%; /* Adjust as needed */ 
 }
 .modal {
   display: none;
