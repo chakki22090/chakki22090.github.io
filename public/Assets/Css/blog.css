@@ -51,25 +51,41 @@ body {
   }
   
   .info-content p {
-    font-size: 2.2em;
+    font-size: 2.1em;
     color: var(--content-text-color);
   }
 
 
-
-
-.category-btn {
-    padding: 1vh 2vw;
-    margin-right: 1vw;
-    cursor: pointer;
-    border: none;
-    background-color: rgba( 79, 82, 96);
-    color: white;
-    transition: background-color 0.3s ease;
+.category-toggle
+{
+  margin-left: 5%;
+  font-family: Roboto-Bold;
+  color: var(--title-text-color);
 }
 
-.category-btn:hover {
-    background-color: rgba(112, 115, 128);
+
+
+
+
+
+.category-btn {  
+  background-color: #FFFFFF;  
+  color: var( --title-text-color);;  
+  border: 0.2vw solid var( --title-text-color);
+  padding: 0.5vh 1vw;  
+  border-radius: 25%;  
+  text-align: center; 
+  display: inline-block;
+  font-size: 1em;  
+  
+  white-space: nowrap; 
+}
+
+.category-btn:hover,
+.category-btn.active 
+{
+    background-color:var( --title-text-color);
+    color: white;
 }
 
 

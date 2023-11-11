@@ -19,6 +19,7 @@ body {
   --btn-bg-hover-color: rgba(161, 176, 191, 1);
   --main-content-bg-image: url('../png/HomePage/HomeBackgroundImage.png');
   --main-content-text-color: white;
+  --footer-bg-color: rgb(64, 77, 89);
 }
 
 .custom-navbar {
@@ -107,7 +108,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #2d3947;
+  background-color:  var( --footer-bg-color);
   color: white;
 }
 
@@ -116,6 +117,12 @@ body {
   flex: 3;
 } 
 
+.company-info h2{
+  font-family: Evolventa-Regular;
+} 
+.company-info p{
+  font-family:SourceSansPro-Regular;
+} 
 .links {
   flex: 4;
   display: flex;

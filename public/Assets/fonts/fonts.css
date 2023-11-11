@@ -4,7 +4,12 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
+@font-face {
+	font-family: Evolventa-Regular;
+	src: local("Evolventa"), url("../fonts/Evolventa-Regular.otf");
+	font-weight: normal;
+	font-style: normal;
+}
 
 
 @font-face {
@@ -22,6 +27,16 @@
 @font-face {
 	font-family: Roboto-Regular;
 	src: local("Roboto"), url("../fonts/Roboto-Regular.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+@font-face {
+	font-family: SourceSansPro-Regular;
+	src: local("SourceSansPro"), url("../fonts/SourceSansPro-Regular.ttf");
 	font-weight: normal;
 	font-style: normal;
 }

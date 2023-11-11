@@ -7,7 +7,7 @@ h1, h2, h3 {
 }
 :root {
   --text-bg-color: rgba(100, 115, 130, 0.11);
-  --title-text-color: rgba( 87, 101, 114);
+  --title-text-color: rgba( 87, 101, 114); 
   --content-text-color: rgba( 112, 115, 128  );
 }
 

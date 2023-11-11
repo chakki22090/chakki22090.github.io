@@ -38,7 +38,6 @@ if (editMode) {
 document.addEventListener("DOMContentLoaded", function() {
     const categoryButtons = document.querySelectorAll(".category-btn");
     const allPosts = document.querySelectorAll(".post");
-    const heading = document.querySelector(".blog-section h2");
 
     const userIsLoggedIn = true;  
   
@@ -66,12 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
             });
-    
-            if (category === "digital-strategy") {
-                heading.textContent = "Digital Strategy Posts";
-            } else if (category === "journalism") {
-                heading.textContent = "Journalism Posts";
-            }
+     
         });
 
         const addPostButton = document.getElementById('addPostBtn');
@@ -106,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+//create posts that user sees with check whether admin or not 
 
 function createPostElement(postData) {
     const post = document.createElement('div');
@@ -145,7 +139,7 @@ function createPostElement(postData) {
 }
 
 
-
+//change post 
 function editPost(button) {
     currentEditingPost = button.closest('.post');
     const post = button.closest('.post');
@@ -177,6 +171,30 @@ function editPost(button) {
 
     toggleForm();
 }
+
+
+
+
+
+//remove post 
+function deletePost(button) {
+    const postId = button.closest('.post').getAttribute('data-id');
+    fetch(`/api/deletepost/${postId}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            button.closest('.post').remove();
+        } else {
+            console.error('Error deleting post');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+
+//delete image from post 
 function removeCurrentImage() {
     const currentImageElement = document.getElementById('currentPostImage');
     currentImageElement.src = '';
@@ -194,21 +212,8 @@ function removeCurrentImage() {
 
     window.removeImage = true;  
 }
-function deletePost(button) {
-    const postId = button.closest('.post').getAttribute('data-id');
-    fetch(`/api/deletepost/${postId}`, {
-        method: 'DELETE'
-    })
-    .then(response => {
-        if (response.ok) {
-            button.closest('.post').remove();
-        } else {
-            console.error('Error deleting post');
-        }
-    })
-    .catch(error => console.error('Error:', error));
-}
 
+//work with image 
 document.getElementById('postImageFile').addEventListener('change', function() {
     const currentImageElement = document.getElementById('currentPostImage');
     const removeImageButton = document.getElementById('removeImageButton'); 
@@ -222,8 +227,13 @@ document.getElementById('postImageFile').addEventListener('change', function() {
     }
 });
 
+
+//check for add post press 
 document.getElementById('addPostBtn').addEventListener('click', toggleForm);
 
+
+
+//update post 
 function toggleForm() {
     const form = document.getElementById('addPostForm');
     if (form.style.display === 'none' || form.style.display === '') {
@@ -233,6 +243,10 @@ function toggleForm() {
     }
 }
 
+
+
+
+//adding a new post 
 function addPost() {
     const title = document.getElementById('postTitle').value;
     const imageFile = document.getElementById('postImageFile').files[0];
@@ -294,6 +308,9 @@ function addPost() {
     document.getElementById('postContent').value = "";
 }
 
+
+
+//add post to the server 
 function addPostToServer(postData) {
     const imageFile = document.getElementById('postImageFile').files[0];
     const formData = new FormData();
@@ -325,41 +342,17 @@ function addPostToServer(postData) {
     });
 }
 
-function viewFullPost(postData) {
-    const modal = document.getElementById('fullPostModal');
-    const modalContent = modal.querySelector('.full-post-content');
-    
-    modalContent.innerHTML = `
-        <h2 class="post-title">${postData.title}</h2>
-        <img class="post-image" src="${postData.image}" alt="${postData.title}">
-        <p class="post-text">${postData.content}</p>
-    `;
-    
-    modal.style.display = 'block';
-}
-function closeFullPost() {
-    const modal = document.getElementById('fullPostModal');
-    modal.style.display = 'none';
-}
 
-const posts = document.querySelectorAll('.post');
-posts.forEach(post => {
-    post.addEventListener('click', function() {
-        const postData = {
-            title: post.querySelector('.post-title').textContent,
-            image: post.querySelector('.post-image') ? post.querySelector('.post-image').src : '',
-            content: post.querySelector('.post-text').textContent
-        };
-        
-        viewFullPost(postData);
-    });
-});
+
+
+
+
 
 
 
 
   
-
+//show all posts 
  
   function displayPosts(posts) {
     const blogBox = document.querySelector('.blog-box');
@@ -385,9 +378,23 @@ posts.forEach(post => {
 
 
 
+// if clicked on post 
+const posts = document.querySelectorAll('.post');
+posts.forEach(post => {
+    post.addEventListener('click', function() {
+        const postData = {
+            title: post.querySelector('.post-title').textContent,
+            image: post.querySelector('.post-image') ? post.querySelector('.post-image').src : '',
+            content: post.querySelector('.post-text').textContent
+        };
+        
+        viewFullPost(postData);
+    });
+});
 
 
 
+//open modal window 
 
 function openModal(postElement) {
     const modal = document.getElementById("myModal");
@@ -424,3 +431,43 @@ function openModal(postElement) {
     }
 }
 
+//update post info with full
+function viewFullPost(postData) {
+    const modal = document.getElementById('fullPostModal');
+    const modalContent = modal.querySelector('.full-post-content');
+    
+    modalContent.innerHTML = `
+        <h2 class="post-title">${postData.title}</h2>
+        <img class="post-image" src="${postData.image}" alt="${postData.title}">
+        <p class="post-text">${postData.content}</p>
+    `;
+    
+    modal.style.display = 'block';
+}
+
+
+//close back to modal 
+
+function closeFullPost() {
+    const modal = document.getElementById('fullPostModal');
+    modal.style.display = 'none';
+}
+
+
+
+// category buttons
+
+
+  const buttons = document.querySelectorAll('.category-btn');
+
+  function setActiveButton() {
+    buttons.forEach(button => {
+      button.classList.remove('active');
+    });
+
+    this.classList.add('active');
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener('click', setActiveButton);
+  });

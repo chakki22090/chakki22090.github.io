@@ -12,6 +12,8 @@
     left: 5%;
     top: 50%;
     transform: translateY(-50%);
+    
+  font-family:SourceSansPro-Regular;
   }
   
   .text-container h1 {
