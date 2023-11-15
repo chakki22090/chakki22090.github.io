@@ -18,17 +18,17 @@
   
   .text-container h1 {
     color: white;
-    font-size: 5em;
+    font-size: 5vw;
   }
   
   .btn-secondary {  
     background-color: var( --btn-bg-color);
     color: var(--main-content-text-color);
-    font-size: 2em;
+    font-size: 2vw;
     position: inherit;
     margin-top: 2.5%;
     margin-left: 5%;
-    padding: 0.5em 1.5em;
+    padding: 0.5vw 1.5vh;
     text-decoration: none; 
     white-space: nowrap; /* Prevents the text inside the button from breaking into multiple lines */
     overflow: hidden; /* Hides the overflow text */
@@ -52,7 +52,7 @@
   .social-icon-item {
     position: relative;
     display: inline-block;
-    margin-right: 1.7em;
+    margin-right: 1.7vw;
   }
   
   

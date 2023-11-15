@@ -9,6 +9,7 @@ h1, h2, h3 {
   --text-bg-color: rgba(100, 115, 130, 0.11);
   --title-text-color: rgba( 87, 101, 114); 
   --content-text-color: rgba( 112, 115, 128  );
+  --testimonials-text-color: rgba(112,115,128);
 }
 
 
@@ -16,8 +17,8 @@ h1, h2, h3 {
 
 
 .top-margin {  
-  margin-top: 2em;
-  padding: 1em;
+  margin-top: 2vh;
+  padding: 1vw;
 }
 
 .info-section {
@@ -49,18 +50,18 @@ h1, h2, h3 {
 }
 
 .info-content h1 {
-  font-size: 4.5em;
+  font-size: 4.5vw;
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
 }
 
 .info-content h2 {
-  font-size: 2.5em;
+  font-size: 2.5vw;
   color: var(--title-text-color);
   font-family: Roboto-Regular;
 }
 .info-content p {
-  font-size: 2.2em;
+  font-size: 2.2vw;
   color: var(--content-text-color);
 }
 .icon {
@@ -76,11 +77,11 @@ h1, h2, h3 {
 .btn-read-more {  
   background-color: var( --btn-bg-color);
   color: var(--main-content-text-color);
-  font-size: 1.5em;
+  font-size: 1.5vw;
   position: inherit;
   margin-top: 2.5%;
   margin-left: 5%;
-  padding: 1em 3em;
+  padding: 1vw 3vh;
   text-decoration: none; 
   white-space: nowrap; 
   overflow: hidden; 
@@ -123,12 +124,12 @@ h1, h2, h3 {
 .middle-content h2 {
   padding-top: 2vh;
   padding-bottom: 2vh;
-  font-size: 3em;
+  font-size: 3vw;
   color: white;
 }
 
 .middle-content p {
-  font-size: 1.5em;
+  font-size: 1.5vw;
   padding-bottom: 4vh;
   color: white;
 }
@@ -151,22 +152,22 @@ margin-left: 2vw;
 }
 .white-box h1{
   font-family: Roboto-Bold;
-  font-size: 3em;
+  font-size: 3vw;
   color: var(--title-text-color);
- padding-bottom: 0.3em;
+ padding-bottom: 0.3vh;
 }
 .white-box h2 {
-  font-size: 1.2em;
+  font-size: 1.2vw;
   font-family: Roboto-Bold;
   color: var( --content-text-color);
-  padding-bottom: 0.15em;
+  padding-bottom: 0.15vh;
   padding-top: 0;
 }
 .white-box p { 
-  font-size: 1em;
+  font-size: 1vw;
   font-family: Roboto-Regular;
   color: var( --content-text-color);
-  padding-bottom: 1em;
+  padding-bottom: 1vh;
  padding-top: 0;
 }
 
@@ -191,6 +192,14 @@ margin-left: 2vw;
   margin-top: 5vh;
 }
 
+
+.testimonial-section h2
+{
+  font-family:Evolventa-Bold;
+  color:var(--title-text-color);
+  font-size: 3vw;
+}
+
 .testimonial-box {
   background-color:var(--text-bg-color); 
   margin: 2vh auto;
@@ -201,19 +210,20 @@ margin-left: 2vw;
 
 .testimonial-text {
   margin-bottom: 2vh;
-  font-size: 2em;
+  font-size: 2vw;
   font-family: Roboto-Regular;
+  color: var(--testimonials-text-color)
 }
 
 .testimonial-author {
-  font-family: Roboto-BoldItalic;
-  font-size: 1.5em;
+  font-family:Roboto-BoldItalic;
+  font-size: 1.5vw;
   color: var(  --content-text-color);
 }
 
 .quote-top-left,
 .quote-bottom-right {
-  font-size: 10em;
+  font-size: 10vw;
   position: absolute;
 }
 

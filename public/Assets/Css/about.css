@@ -16,8 +16,8 @@ body {
   
   
   .top-margin {  
-    margin-top: 2em;
-    padding: 1em;
+    margin-top: 2vh;
+    padding: 1vw;
   } 
   
   .info-section {
@@ -49,13 +49,13 @@ body {
   }
   
   .info-content h1 {
-    font-size: 3.5em;
+    font-size: 3.5vw;
     color: var(--title-text-color);
     font-family: Evolventa-Bold;
   }
   
   .info-content p {
-    font-size: 2.2em;
+    font-size: 2.2vw;
     color: var(--content-text-color);
   }
   
@@ -64,11 +64,11 @@ body {
   .btn-read-more {  
     background-color: var( --btn-bg-color);
     color: var(--main-content-text-color);
-    font-size: 1.5em;
+    font-size: 1.5vw;
     position: inherit;
     margin-top: 2.5%;
     margin-left: 5%;
-    padding: 1em 3em;
+    padding: 1vw 3vh;
     text-decoration: none; 
     white-space: nowrap; 
     overflow: hidden; 
@@ -121,12 +121,12 @@ body {
   .middle-content h2 {
     padding-top: 2vh;
     padding-bottom: 2vh;
-    font-size: 3em;
+    font-size: 3vw;
     color: white;
   }
   
   .middle-content p {
-    font-size: 1.5em;
+    font-size: 1.5vw;
     padding-bottom: 4vh;
     color: white;
   }
@@ -153,15 +153,15 @@ body {
   }
   .white-box h1{
     font-family: Roboto-Bold;
-    font-size: 3em;
+    font-size: 3vw;
     color: var(--title-text-color);
-   padding-bottom: 0.3em;
+   padding-bottom: 0.3vh;
   }
   .white-box p { 
-    font-size: 1em;
+    font-size: 1vw;
     font-family: Roboto-Regular;
     color: var( --content-text-color);
-    padding-bottom: 1em;
+    padding-bottom: 1vh;
    padding-top: 0;
   }
 
@@ -180,12 +180,12 @@ body {
 
 .bottom-section {
   text-align: center;
-  padding: 2em 0;
+  padding: 2vw 0;
 }
 
 .bottom-section h1 {
-  font-size: 4em;
-  margin-bottom: 1em;
+  font-size: 4vw;
+  margin-bottom: 1vh;
 }
 
 .grey-box {
@@ -211,11 +211,11 @@ body {
   
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
-  font-size: 3em;
+  font-size: 3vw;
 }
 
 .text-section p {
-  font-size: 2.1em;
+  font-size: 2.1vw;
   margin: 3vh 0vw 12vh 1vw;
   
   color: var(--content-text-color);
@@ -226,10 +226,10 @@ body {
 .btn-view-members {
   background-color: var( --btn-bg-color);
   color: var(--main-content-text-color);
-  font-size: 1.5em;
+  font-size: 1.5vw;
   position: inherit;
   margin-top: 2.5%;
-  padding: 1em 3em;
+  padding: 1vw 3vh;
   text-decoration: none; 
   white-space: nowrap; 
   overflow: hidden; 

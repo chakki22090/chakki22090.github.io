@@ -8,30 +8,30 @@ body {
 
 
 .login-form {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+    max-width: 40vw;
+    margin: 5vw auto;
+    padding: 2vw;
+    border: 0.1vw solid #ccc;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5vw;
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
 }
 
 .login-form div {
-    margin-bottom: 15px;
+    margin-bottom: 15vh;
 }
 
 .login-form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 5vh;
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 1vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.5vw;
 }
 
 .login-form input[type="submit"] {
@@ -39,22 +39,22 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 1vw 1.5vh;
+    border-radius: 0.5vw;
     width: 100%;
 }
 
 .blog-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
+    max-width: 80vw;
+    margin: 5vw auto;
+    padding: 2vw;
 }
 
 .blog-post {
     background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2vw;
+    margin-bottom: 2vwh;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.5vw;
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
 }
