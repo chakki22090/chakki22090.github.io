@@ -107,9 +107,10 @@ body {
 .container {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 2vh;
   background-color:  var( --footer-bg-color);
   color: white;
+  font-size: 1vw;
 }
 
 .company-info {
