@@ -7,28 +7,26 @@
     color: var(--main-content-text-color);
   }
   
-  .text-container {
-    position: absolute;
-    left: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    
-  font-family:SourceSansPro-Regular;
+  .text-container {    
+    margin-top: 35vh;
+    margin-left: 4vw;
+    font-family:SourceSansPro-Regular;
   }
   
   .text-container h1 {
     color: white;
-    font-size: 5vw;
+    font-size: 4.5vw;
+    line-height: 1.1;
+    margin-bottom: 3vw;
   }
   
+ 
   .btn-secondary {  
     background-color: var( --btn-bg-color);
     color: var(--main-content-text-color);
-    font-size: 2vw;
-    position: inherit;
-    margin-top: 2.5%;
-    margin-left: 5%;
-    padding: 0.5vw 1.5vh;
+    font-size: 1vw;
+    padding: 1vw 3vw;
+    margin-left: 1vw;
     text-decoration: none; 
     white-space: nowrap; /* Prevents the text inside the button from breaking into multiple lines */
     overflow: hidden; /* Hides the overflow text */

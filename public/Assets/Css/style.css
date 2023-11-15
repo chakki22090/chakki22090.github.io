@@ -144,6 +144,10 @@ body {
 
 .company li {
   margin: 0.5vw;
+  text-decoration: none;
+}
+
+.company li:hover {
   text-decoration: underline;
 }
 

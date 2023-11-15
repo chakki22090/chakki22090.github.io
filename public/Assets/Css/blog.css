@@ -58,7 +58,7 @@ body {
 
 .category-toggle
 {
-  margin-left: 5%;
+  margin-left: 5vw;
   font-family: Roboto-Bold;
   font-size: 2vw;
   color: var(--title-text-color);
@@ -66,19 +66,21 @@ body {
 
 
 
+.category-toggle h1
+{
+  font-size: 3vw;
+}
 
 
 
 .category-btn {  
-  background-color: #FFFFFF;  
-  color: var( --title-text-color);;  
-  border: 0.2vw solid var( --title-text-color);
-  padding: 0.5vh 1vw;  
-  border-radius: 25%;  
-  text-align: center; 
-  display: inline-block;
-  font-size: 1vw;  
-  
+  background-color: white;
+  color: #333; /* Dark text color */
+  border: 0.15vw solid #333; /* Dark border */
+  padding: 0.7w 2vw; /* Adjust as per your requirement */
+  border-radius: 0.7vw; /* Smooth rounded edges */
+  font-size: 1vw; /* Adjust as needed */
+  cursor: pointer; /* Cursor changes to a hand icon when hovering over the button */  
   white-space: nowrap; 
 }
 
@@ -206,9 +208,7 @@ button:hover {
 
 
 
-
-.post { 
-}
+ 
 .post-all
 {
   display: flex;
@@ -254,8 +254,8 @@ button:hover {
   overflow-wrap: break-word;  /* And this too */
 }
 .post-image {
-  flex-shrink: 0; /* Prevents the image from shrinking */
-  max-width: 40%; /* Adjust as needed */ 
+  max-width: 15vw;
+  max-height: 40vh;
 }
 .modal {
   display: none;
