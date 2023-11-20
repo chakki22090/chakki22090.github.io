@@ -7,13 +7,13 @@
 
   .team {
     background-color: var(--text-bg-color);  
-    margin: 1em 7em 1em 7em;
+    margin: 1vh 7vw 1vh 7vw;
   }
 .team-leader {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 2em ;
+    align-items: center; 
+    padding: 2vw ;
   }
 
 
@@ -23,17 +23,21 @@
   
   .leader-description {
     background-color: var(--text-bg-color);  
-    padding: 5em;
+    padding: 5vw;
     flex: 1;
   }
   
 
-  .leader-description h1{
-    font-size: 4em;
+  .leader-description h1{ 
+  color: var(--title-text-color);
+  font-family: Evolventa-Bold;
+  font-size: 3vw;
+ 
 }
 
 .leader-description p{
-    font-size: 2em;
+    font-size: 2vw;
+    color: var(--content-text-color);
 }
 
 
@@ -44,12 +48,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 2em 2em;
+    padding: 2vh 2vw;
   }
   
   .team-member {
     flex: 0 48%;
-    margin-bottom: 2em;
+    margin-bottom: 2vw;
     background-color: var(--text-bg-color);  ;
     display: flex;
     align-items: center;
@@ -61,30 +65,35 @@
   
   .member-description {
     flex: 1;
-    padding: 1em;
+    padding: 1vw;
   }
   .member-description h2 {
-    font-size: 2.2em;
+    color: var(--title-text-color);
+    font-family: Evolventa-Bold;
+    font-size: 1.8vw;
   }
   .member-description h3 {
-    font-size: 1.5em;
+    font-size: 1.5vw;
     color: grey;
   }
 
   .member-description p {
-    font-size: 1em;
+    font-size: 1vw;
+    
+  color: var(--content-text-color);
   }
 
   .social-links a {
     margin-right: 1vw;
     text-decoration: none;
+    font-size: 2vw;
   }
+
+
   .social-links img {
     width: 10%;
   }
   
-
-
 
   .modal-overlay {
     position: absolute;
