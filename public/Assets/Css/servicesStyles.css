@@ -230,15 +230,15 @@ margin-left: 2vw;
 }
 
 .quote-top-left {
-  top: 1%;
-  left: 1%;
+  top: 0;
+  left: 0;
   font-family:Evolventa-Bold;
   color:var(--title-text-color);
 }
 
 .quote-bottom-right {
-  bottom: 1%;
-  right: 1%;
+  bottom: -7vw;
+  right: 0;
   color:var(--title-text-color);
   font-family:Evolventa-Bold;
 }
@@ -250,7 +250,7 @@ margin-left: 2vw;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px; 
+  width: 5vw; 
   height: auto;  
 }
 
