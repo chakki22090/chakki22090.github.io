@@ -13,7 +13,7 @@ var testimonials = [
 
 
 
-var testimonialChangeInterval = setInterval(function() { changeTestimonial(1); }, 10000); // Change every 10 seconds
+var testimonialChangeInterval = setInterval(function() { changeTestimonial(1); }, 10000);  
 
 function displayTestimonial(index) {
   document.querySelector('.testimonial-text').innerText = testimonials[index].text;
@@ -21,7 +21,7 @@ function displayTestimonial(index) {
 }
 
 function changeTestimonial(direction) {
-  clearInterval(testimonialChangeInterval); // Clear interval when user manually changes testimonial
+  clearInterval(testimonialChangeInterval); 
   
   currentTestimonial += direction;
   if (currentTestimonial < 0) {
@@ -32,9 +32,13 @@ function changeTestimonial(direction) {
   
   displayTestimonial(currentTestimonial);
 
-  // Restart the interval after changing testimonial
   testimonialChangeInterval = setInterval(function() { changeTestimonial(1); }, 10000);
 }
 
-// Initial display
 displayTestimonial(currentTestimonial);
+
+
+
+
+
+

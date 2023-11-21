@@ -46,11 +46,12 @@ body {
   list-style: none;
   display: flex;
   padding: 0;
-  margin: 0;
+  margin-left: 22vw;
+
 }
 
 .nav-item {
-  margin-right: 2vw;
+  margin-left: 2vw;
   font-size: 1.69vw;
 }
 
@@ -66,6 +67,18 @@ body {
   color: var(--navbar-text-active-color);
 }
 
+.login-request {
+  background-color: var( --btn-bg-color);
+  color: var(--main-content-text-color);
+  padding: 0.5vh 2vw;
+  position: inherit;
+  text-decoration: none;
+  white-space: nowrap; /* Prevents the text inside the button from breaking into multiple lines */
+  overflow: hidden; /* Hides the overflow text */
+  text-overflow: ellipsis; /* Adds an ellipsis (...) to indicate the text is clipped */
+  max-width: 100%; /* Makes sure the button doesn’t stretch beyond its parent container */
+
+}
 
 
 .btn-request {
@@ -85,6 +98,30 @@ body {
 .btn-request:hover {
   background-color: var(--btn-bg-hover-color);
 }
+
+
+
+
+
+#myBtn {
+  display: none; /* Скрыта по умолчанию */
+  position: fixed; /* Фиксированное позиционирование */
+  bottom: 20px; /* Расположение снизу */
+  right: 30px; /* Расположение справа */
+  z-index: 99; /* Находится поверх других элементов */
+  border: none; /* Без границы */
+  outline: none; /* Без контура */
+  background-color: red; /* Цвет фона */
+  color: white; /* Цвет текста */
+  cursor: pointer; /* Курсор указывает на кликабельность */
+  padding: 15px; /* Отступ внутри кнопки */
+  border-radius: 10px; /* Скругленные углы */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Цвет фона при наведении */
+}
+
 
 
 
