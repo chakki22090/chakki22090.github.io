@@ -18,4 +18,5 @@ function closeModal(modalId) {
         }, 300);
         document.body.style.overflow = 'auto'; 
     }
+    
 }
