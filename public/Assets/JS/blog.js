@@ -121,13 +121,14 @@ function createPostElement(postData) {
     }
 
     let fullText = postData.content;
-    
+    let shortText = fullText.length > 150 ? fullText.substring(0, 150) + "..." : fullText;
+
     post.innerHTML = `
     <div class = "post-all">
         <div class="post-box">
             <h2 class="post-title">${postData.title}</h2>
             <div class="post-content">
-                <p class="post-text" data-full-text="${fullText}">${fullText}</p>
+             <p class="post-text" data-full-text="${fullText}">${shortText}</p>
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
