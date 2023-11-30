@@ -96,7 +96,7 @@ body {
   max-width: 100%; /* Makes sure the button doesn’t stretch beyond its parent container */
   border-radius: 0.7vw;
   line-height: 5vh;
-
+  font-size: 1vw;
 } 
 
 .btn-request a {
@@ -115,8 +115,8 @@ margin-top: 1vw;
 #myBtn {
   display: none; /* Скрыта по умолчанию */
   position: fixed; /* Фиксированное позиционирование */
-  bottom: 2vw; /* Расположение снизу */
-  right: 3vw; /* Расположение справа */
+  margin-bottom: 2vw; /* Расположение снизу */
+  margin-right: 3vw; /* Расположение справа */
   z-index: 99; /* Находится поверх других элементов */
   border: none; /* Без границы */
   outline: none; /* Без контура */
