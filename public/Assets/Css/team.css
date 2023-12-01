@@ -20,6 +20,7 @@
   text-align: center;
 }
 
+@media screen and (min-width: 1200px) {
   
   .team {
     background-color: var(--text-bg-color);  
@@ -200,3 +201,196 @@
     color: var(--button-text-color);
     text-decoration: none;
 }
+}
+
+
+
+@media screen and (max-width: 1200px) {
+  
+  .team {
+    background-color: var(--text-bg-color);  
+    width: 100%;
+    height: 100%;
+  }
+.team-leader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 2.5vw;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);  
+  }
+  .team-leader:hover
+  {    
+  transform: translateY(-1vw);  
+  box-shadow: 0 0.8vw 1.6vw rgba(0, 0, 0, 0.2);  
+  margin-top: 2vw;
+  }
+
+
+  .team-leader img{
+    width: 30%;
+  }
+  
+  .leader-description {
+    background-color: var(--text-bg-color);  
+    padding: 5vw;
+    flex: 1;
+  }
+  
+
+  .leader-description h1{ 
+  color: var(--title-text-color);
+  font-family: Evolventa-Bold;
+  font-size: 3vw;
+ 
+}
+
+.leader-description p{
+    font-size: 2vw;
+    color: var(--content-text-color);
+}
+
+
+
+
+
+.team-members {
+  display: flex;
+  flex-direction: column; /* Stack members vertically */
+  align-items: center; /* Center-align members */
+  padding: 2vh 2vw;
+}
+  .team-member {
+    flex: 0 48%;
+    margin-bottom: 2vw;
+    display: flex;
+    align-items: center;
+    
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен переход */
+  box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1); /* Добавим тень для большего эффекта */
+  }
+  .team-member:hover
+  {
+  margin-top: 2vw;
+  transform: translateY(-1vw);  
+  box-shadow: 0 0.8vw 1.6vw rgba(0, 0, 0, 0.2);  
+  }
+
+  .team-member img{
+   width: 20%;
+   margin: 0.5vw;
+   border-radius: 33.14vw;
+  }
+  
+  .member-description {
+    margin-left: 2vw;
+    background-color: var(--text-bg-color);  ;
+    flex: 1;
+    padding: 1vw; 
+    border-radius: 3.14vw;
+  }
+  .member-description h2 {
+    color: var(--title-text-color);
+    font-family: Evolventa-Bold;
+    font-size: 1.8vw;
+    
+    text-decoration: underline;
+  }
+  .member-description h3 {
+    font-size: 1.4vw;
+    font-family: Roboto-Italic;
+
+    color: var(--job--color);
+  }
+
+  .member-description p {
+    font-size: 1.2vw;    
+    color: var(--content-text-color);
+  }
+
+  .social-links a {
+    text-decoration: none;
+    font-size: 2vw;
+  }
+
+
+  .social-links img {
+    width: 5%;
+  }
+  
+
+  .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 2vw;
+    border-radius: 1vw;
+    font-size: 1.5vw;
+    width: 60%;
+    box-shadow: 0 1vw 4vw rgba(0, 0, 0, 0.2);
+    max-height: 80vh;
+    overflow-y: auto;  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.modal-content a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.modal-content h2 {
+    text-align: center; 
+    font-size: 2.5vw;
+    margin: 1vw 0;  
+}
+
+
+.modal-content a:hover {
+    color: var(--button-text-color);
+    text-decoration: none;
+}
+
+.modal-content img {
+    width: 50%;
+}
+
+.modal-social-links img {
+    width: 10%;
+  }
+  
+
+.modal-content a:hover {
+    color: var(--button-text-color);
+    text-decoration: none;
+}
+}
+
+
+

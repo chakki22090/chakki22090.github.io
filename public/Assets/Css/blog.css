@@ -18,6 +18,8 @@ body {
   
   
   
+
+@media screen and (min-width: 1200px) {
   
   .top-margin {  
     margin-top: 2vh;
@@ -350,6 +352,340 @@ button:hover {
 
 
 
+}
 
 
 
+
+@media screen and (max-width: 1200px) {
+
+  
+
+
+  .top-margin {  
+    margin-top: 1vh;
+    padding: 1vw;
+  }
+  
+  .info-section {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center; /* Align items in the center */
+  }
+  
+  .info-image {
+    flex: 0 1 40%; /* Adjust the flex basis to control starting size */
+    height: 15vh;
+    background-image: url('../png/ServicesPage/meetingpic.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Changed to cover for a better fit */
+  }
+  
+  .info-content {
+    flex: 0 1 40%; /* Adjust the flex basis as per requirement */
+    background-color: var(--text-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1.5vw 7vw 1.5vw 3vw; /* Adjust padding as needed */
+  }
+  
+  .info-content h1 {
+    font-size: 2.5vw;
+    color: var(--title-text-color);
+    font-family: Evolventa-Bold;
+  }
+  
+  .info-content h2 {
+    font-size: 1.6vw;
+    color: var(--title-text-color);
+    font-family: Roboto-Regular; 
+
+  }
+  .info-content p {
+    font-size: 1.5vw;
+    color: var(--content-text-color);
+  }
+  
+
+
+
+
+  .category-toggle
+  {
+    margin-left: 5vw;
+    font-family: Roboto-Bold;
+    font-size: 2vw;
+    color: var(--title-text-color);
+    padding-top: 2vw;
+  }
+  
+  
+  
+  .category-toggle h1
+  {
+    font-size: 3vw;
+  
+  }
+  
+  
+  
+  .category-btn {  
+    background-color: white;
+    color: #333; /* Dark text color */
+    border: 0.05vw solid #333; /* Dark border */
+    padding: 0.7w 2vw; /* Adjust as per your requirement */
+    border-radius: 0.7vw; /* Smooth rounded edges */
+    font-size: 1vw; /* Adjust as needed */
+    cursor: pointer; /* Cursor changes to a hand icon when hovering over the button */  
+    white-space: nowrap; 
+    font-family: Roboto-Bold;
+  }
+  
+  .category-btn:hover,
+  .category-btn.active 
+  {
+      background-color:var( --title-text-color);
+      color: white;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1;
+      padding-top: 10%; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.7);
+  }
+  
+  .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .close-btn {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  .close-btn:hover,
+  .close-btn:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  input[type="text"], textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+  }
+  
+  button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  
+  button:hover {
+      background-color: #45a049;
+  }
+  
+  
+  
+  
+  #imageContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #removeImageButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 2px 5px;
+  }
+  #currentPostImage {
+    max-width: 6vw;
+    max-height: 6vw;
+    display: block;
+    margin: 10px 0;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .blog-section {
+    text-align: center;
+    margin-top: 5vh;
+  }
+  
+  .blog-box {
+    background-color:var(--text-bg-color); 
+    margin: 2vh auto;
+    width: 100%;
+    position: relative;
+  }
+  
+  
+  
+  
+  
+   
+  .post-all
+  {
+    display: flex;
+    flex-direction: row;  
+    justify-content: start; /* Align to the start */
+    align-items:center;
+    margin: 2vh auto;
+    font-family: Arial, sans-serif;
+    width: 90%; /* Ensure this is wide enough */
+    border-bottom: 0.2vw solid rgb(232,232,237); /* Добавленная граница */
+    margin-bottom: 2vh; /* Добавьте немного отступа внизу */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен переход */
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1); /* Добавим тень для большего эффекта */
+  
+  }
+  .post-all:hover
+  {
+    transform: translateY(-1vw);  
+    box-shadow: 0 0.8vw 1.6vw rgba(0, 0, 0, 0.2);  
+  
+  }
+  
+  .post-box {
+    background-color: white; 
+    width: 55%; /* Define a specific width */
+    padding: 2vh 2vw;
+  }
+  .post-title {
+    font-size: 2vw;  
+    color: var(--title-text-color);
+    margin-bottom: 1vw;
+  }
+  
+  .post-content {
+    flex-wrap: wrap;  
+    font-size: 1.5vw;
+    line-height: 1.6;
+    display: flex;     
+    flex: 1;    
+    justify-content: space-between;  
+    align-items: center;  
+    color: var( --content-text-color);
+  }
+  
+  .post-date {
+    font-size: 1.4vw;
+    color: gray;
+    margin-top: 2vw;
+  }
+  .post-text {
+    flex: 1;   
+    padding-right: 1vw;   
+    word-wrap: break-word;  /* Add this line */
+    overflow-wrap: break-word;  /* And this too */
+  }
+  .post-image {
+    width: 20%;
+    height: 20%;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    overflow-y: auto;  
+  }
+  
+  .modal-content {
+    margin: 5% auto;
+    padding: 2vw;
+    width: 70%;
+    background-color: #fff;
+    border-radius: 1.2vw;  
+    box-shadow: 0 0.4vw 2vw rgba(0,0,0,0.5);  
+  }
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 2vw;
+    font-weight: bold;
+    margin-top: -0.5vh;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #modalTitle {
+    font-size: 2vw;
+    margin-bottom: 1vh;
+  }
+  
+  #modalImage {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1vh;
+    margin-left: 25vw;
+  }
+  
+  #modalBody {
+    font-size: 2vw;
+    margin-bottom: 1vh;
+  }
+  
+  #modalDate {
+    font-size: 1vw;
+    color: #aaa;
+  }
+  
+  
+  
+
+}
