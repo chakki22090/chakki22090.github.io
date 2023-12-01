@@ -31,6 +31,14 @@
     justify-content: space-between;
     align-items: center; 
     padding: 2.5vw;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);  
+  }
+  .team-leader:hover
+  {    
+  transform: translateY(-1vw);  
+  box-shadow: 0 0.8vw 1.6vw rgba(0, 0, 0, 0.2);  
+  margin-top: 2vw;
   }
 
 
@@ -74,6 +82,15 @@
     background-color: var(--text-bg-color);  ;
     display: flex;
     align-items: center;
+    
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен переход */
+  box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1); /* Добавим тень для большего эффекта */
+  }
+  .team-member:hover
+  {
+  margin-top: 2vw;
+  transform: translateY(-1vw);  
+  box-shadow: 0 0.8vw 1.6vw rgba(0, 0, 0, 0.2);  
   }
 
   .team-member img{

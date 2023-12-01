@@ -65,6 +65,8 @@ body {
 
 
 
+@media screen and (min-width: 1200px) {
+
 .custom-navbar {
   position: relative;
   z-index: 1000;
@@ -163,7 +165,7 @@ margin-top: 1vw;
   z-index: 99;  
   border: none;  
   outline: none;  
-  background-color: red;  
+  background-color:var(--navbar-bg-color-default);
   color: white;  
   cursor: pointer;  
   padding: 1vw; 
@@ -172,23 +174,14 @@ margin-top: 1vw;
 }
 
 #myBtn:hover {
-  background-color: #555;  
+  background-color:rgb(98, 138, 168);  
+
 }
 
 
 
 
 /*Footer*/
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -257,5 +250,154 @@ ul li a {
 }
 
 
+}
 
 
+
+@media screen and (max-width: 1200px) {
+  .custom-navbar {
+    position: relative;
+    z-index: 1000;
+    background-color: var(--navbar-bg-color-default);
+    display: flex;
+    flex-direction: row;  
+    justify-content: space-between;  
+    align-items: center;  
+    width: 100%;
+    padding: 2vw;  
+  }
+  
+  .custom-navbar.home {
+    background-color: var(--navbar-bg-color-home);
+  }
+  
+  .navbar-brand {
+    color: var(--navbar-text-color);
+    font-size:3vw;
+    margin-right: 2vw;  
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin-left: 2vw;
+    gap: 2vw; 
+  }
+  
+  .nav-item {
+    margin: 0 1vw;  
+    font-size: 3vw;  
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: var(--navbar-text-color);
+  }
+  
+  .nav-link:focus,
+  .nav-link.active {
+    color: var(--navbar-text-active-color);
+  }
+  
+  .nav-link:hover {
+    color: rgb(187,175, 168);
+  }
+  
+  .btn-request, .login-request {
+    background-color: var(--btn-bg-color);
+    color: var(--main-content-text-color);
+    padding: 0.5vw 1vw;  
+    margin-left: 2vw;  
+    position: relative;
+    text-decoration: none;
+    max-width: 100%;
+    min-width: 20vw;  
+    border-radius: 0.5vw;
+    font-size: 2.3vw;  
+  }
+  
+  .btn-request a {
+    margin-top: 1vw;
+  }
+  
+  .btn-request:active,
+  .btn-request:focus,
+  .btn-request:hover {
+    background-color: var(--btn-bg-hover-color);
+  }
+
+
+
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 2vw;  
+    right: 2vw; 
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--navbar-bg-color-home);
+    color: white;
+    cursor: pointer;
+    padding: 3vw;  
+    border-radius: 1vw; 
+    font-size: 3vw;  
+  }
+
+  #myBtn:hover {
+    background-color: rgba(98, 138, 168, 0.69);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items for a cleaner look */
+    padding: 2vw; /* Slightly increased padding for better spacing */
+    background-color: var(--footer-bg-color);
+    color: white;
+    font-size: 1.2vw; /* Slightly reduced font size for minimalism */
+    text-align: center; /* Center align text */
+  }
+  
+  .company-info {
+    margin: 1vw 0; /* Uniform margin for cleaner layout */
+    flex: none;
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    align-items: center; /* Center align items for a cleaner look */
+    margin: 1vw 0; /* Adjust margin for better spacing */
+  }
+ 
+  
+  .company, .contact {
+    margin-bottom: 1vw; /* Reduced margin for a compact look */
+  }
+  
+  .socials {
+    display: flex;
+    justify-content: center; /* Center align social icons */
+    margin-top: 1vw; /* Added margin for separation from other elements */
+  }
+  
+  .socials img {
+    width: 2.5vw; /* Slightly reduced size for a more subtle look */
+    height: 2.5vw;
+    margin: 0 0.5vw; /* Added margin between icons for better spacing */
+  }
+
+
+  ul li a {
+    text-decoration: none;  
+    color: white;  
+  }
+
+
+
+}

@@ -240,14 +240,23 @@ button:hover {
   margin: 2vh auto;
   font-family: Arial, sans-serif;
   width: 90%; /* Ensure this is wide enough */
+  border-bottom: 0.2vw solid rgb(232,232,237); /* Добавленная граница */
+  margin-bottom: 2vh; /* Добавьте немного отступа внизу */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен переход */
+  box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1); /* Добавим тень для большего эффекта */
+
+}
+.post-all:hover
+{
+  transform: translateY(-1vw);  
+  box-shadow: 0 0.8vw 1.6vw rgba(0, 0, 0, 0.2);  
+
 }
 
 .post-box {
   background-color: white; 
   width: 55%; /* Define a specific width */
   padding: 2vh 2vw;
-  border-bottom: 0.2vw solid rgb(232,232,237); /* Добавленная граница */
-  margin-bottom: 2vh; /* Добавьте немного отступа внизу */
 }
 .post-title {
   font-size: 2vw;  

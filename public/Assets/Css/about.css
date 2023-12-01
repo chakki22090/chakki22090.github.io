@@ -14,6 +14,7 @@ body {
   
   
   
+@media screen and (min-width: 1200px) {
   
   .top-margin {  
     margin-top: 2vh;
@@ -253,3 +254,266 @@ body {
 
 
 
+}
+
+
+
+
+/* 
+\\
+\
+\
+\\
+\
+\
+\\
+\
+\\\\
+\
+\
+\
+\
+\
+\\\
+\\\\\\
+\\\
+\\
+\\
+\
+\
+/
+/
+/
+//
+*/
+
+  
+  
+@media screen and (max-width: 1200px) {
+  
+  .top-margin {  
+    margin-top: 2vh;
+    padding: 1vw;
+  }
+  
+  .info-section {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 4vh;
+    row-gap: 0;
+  }
+  
+  .info-image {
+    flex: 1;
+    height:15vh;
+    background-image: url('../png/AboutPage/DudeExplaining.png');
+    background-repeat: no-repeat;
+    background-size: 75%;
+  }
+  
+  .info-content {
+    flex: 1;
+    background-color: var(--text-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 6vw;
+    margin-top: 2vw;
+    padding: 1.5vw 7vw 1.5vw 3vw; /*top, right, bottom, left*/
+  }
+  
+  .info-content h1 {
+    font-size: 2.5vw;
+    color: var(--title-text-color);
+    font-family: Evolventa-Bold;
+  }
+  
+  .info-content p {
+    font-size: 1.5vw;
+    color: var(--content-text-color);
+  }
+  
+  .btn-read-more {  
+    background-color: var(--btn-bg-color);
+    color: var(--main-content-text-color);
+    font-size: 1.2vw;
+    padding: 1vw 3vw;
+    margin-top: 1vw;
+    margin-left: 2.5vw;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    border-radius: 0.7vw;
+  }
+  
+  .btn-read-more:active,
+  .btn-read-more:focus,
+  .btn-read-more:hover {
+    background-color: var(--btn-bg-hover-color);
+  }
+
+
+
+
+
+  .middle-section {
+    background-image: url('../png/ServicesPage/background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 10vh 0;  
+  }
+  
+  .middle-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .middle-content h2 {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    font-size: 3vw;
+    color: white;
+  }
+  
+  .white-boxes {
+    display: flex;
+    flex-direction: row;
+    gap: 6vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+  .white-box {
+    display: flex;
+    background-color: white;
+    flex-direction: column; 
+    padding: 1.5vw 1.5vw 1.5vw 1.5vw;
+    width: 60%;
+    height: 80%;
+    } 
+  
+  .white-box img {
+  margin-left: 2vw;
+    width: 40%;
+    height: 40%;
+  margin-left: 30%;
+    
+  }
+  .white-box h1{
+    font-family: Roboto-Bold;
+    font-size: 1.5vw;
+    color: var(--title-text-color);
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+  }
+  .white-box p { 
+    text-align: left;
+    font-size: 1.2vw;
+    font-family: Roboto-Regular;
+    color: var( --content-text-color);
+    padding-bottom: 1vh;
+   padding-top: 0;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bottom-section {
+  text-align: center;
+  padding: 2vw 0;
+}
+
+.bottom-section h1 {
+  font-size: 3vw;
+  margin-bottom: 1vh;
+  color: var(--title-text-color);
+}
+
+.grey-box {
+  flex: 1;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  display: flex;
+  background-color:  var(--text-bg-color);  
+  color: rgb(0, 0, 0);
+  padding: 3vh 3vw 3vh 3vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.text-section {
+  flex-grow: 1;  /* Added this line to make it grow and push the image to the right */
+  text-align: left;
+}
+
+.text-section h2 {
+  
+  color: var(--title-text-color);
+  font-family: Evolventa-Bold;
+  font-size: 2vw;
+  margin-left: 1vw;
+  text-align: center;
+}
+
+.text-section p {
+  font-size: 1.5vw;
+  margin: 1vh 2vw 1vh 1vw;  
+  color: var(--content-text-color);
+}
+
+
+ 
+.btn-view-members {
+  background-color: var( --btn-bg-color);
+  color: var(--main-content-text-color);
+  font-size: 1vw;
+  padding: 1vw 3vh;
+  margin-left: 1vw;
+  text-decoration: none; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  max-width: 100%; 
+  border-radius: 0.7vw;
+}
+
+
+
+.btn-view-members:active,
+.btn-view-members:focus,
+.btn-view-members:hover {
+  background-color: var(--btn-bg-hover-color);
+}
+
+.image-section img {
+  margin-top: -1.7vw;
+  width: 25vw;
+}
+
+
+
+}
