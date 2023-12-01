@@ -1,6 +1,8 @@
+
+
 :root {
     --text-bg-color: rgba(100, 115, 130, 0.11);
-    --title-text-color: rgba( 81, 101, 104);
+    --title-text-color: rgba( 81, 101, 114);
     --content-text-color: rgba( 112, 115, 128  );
     --job--color: rgb(144,154,165);
   }
@@ -85,17 +87,18 @@
   .member-description h2 {
     color: var(--title-text-color);
     font-family: Evolventa-Bold;
-    font-size: 1.6vw;
+    font-size: 1.7vw;
   }
   .member-description h3 {
-    font-size: 1.4vw;
+    font-size: 1.2vw;
+    font-family: Roboto-Italic;
+
     color: var(--job--color);
   }
 
   .member-description p {
-    font-size: 0.9vw;
-    
-  color: var(--content-text-color);
+    font-size: 0.9vw;    
+    color: var(--content-text-color);
   }
 
   .social-links a {

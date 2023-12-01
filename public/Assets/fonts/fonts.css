@@ -8,7 +8,7 @@
 	font-family: Evolventa-Regular;
 	src: local("Evolventa"), url("../fonts/Evolventa-Regular.otf");
 	font-weight: normal;
-	font-style: normal;
+	font-style:normal;
 }
 
 
@@ -24,13 +24,20 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+@font-face {
+	font-family:Roboto-Italic;
+	src: local("Roboto"), url("../fonts/Roboto-Italic.ttf");
+	font-weight: normal;
+	font-style: italic;
+}
+
 @font-face {
 	font-family: Roboto-Regular;
 	src: local("Roboto"), url("../fonts/Roboto-Regular.ttf");
 	font-weight: normal;
 	font-style: normal;
 }
-
 
 
 

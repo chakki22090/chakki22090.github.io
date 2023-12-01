@@ -6,9 +6,7 @@
 body {
   font-family: 'Roboto-Regular'
 }
-
-
-
+ 
 
 :root {
   --navbar-bg-color-home: rgba(17, 29, 39, 0.54);
@@ -20,7 +18,54 @@ body {
   --main-content-bg-image: url('../png/HomePage/HomeBackgroundImage.png');
   --main-content-text-color: white;
   --footer-bg-color: rgb(64, 77, 89);
+
+  --title-font-size: 2.5vw;
+  --subtitle-font-size:1.85vw;
+  --text-font-size:1.2vw;
+
+
+  
+  --scrollbar-width-thin: 0.2vw;
+  --scrollbar-width-expanded: 0.6vw;
+  --scrollbar-color: #c1c1c1; /* Light grey color */
+  --scrollbar-hover-color: #a0a0a0; /* Darker grey on hover */
+  --scrollbar-radius: 1vw; /* Rounded corners */
 }
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: var(--scrollbar-radius);
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: var(--scrollbar-radius);
+  transition: background-color 0.3s ease;
+}
+
+/* Expanded scrollbar style */
+.expanded-scrollbar ::-webkit-scrollbar {
+  width: var(--scrollbar-width-expanded);
+}
+
+/* Set the default size of the scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width-thin);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+
+
+
+
+
+
 
 .custom-navbar {
   position: relative;
@@ -112,21 +157,20 @@ margin-top: 1vw;
 
 
 
-
 #myBtn {
-  display: none; /* Скрыта по умолчанию */
+  display: none; /* Сначала скрыта */
   position: fixed; /* Фиксированное позиционирование */
-  margin-bottom: 2vw; /* Расположение снизу */
-  margin-right: 3vw; /* Расположение справа */
+  bottom: 20px; /* Расположение снизу */
+  right: 20px; /* Расположение справа */
   z-index: 99; /* Находится поверх других элементов */
   border: none; /* Без границы */
   outline: none; /* Без контура */
   background-color: red; /* Цвет фона */
   color: white; /* Цвет текста */
   cursor: pointer; /* Курсор указывает на кликабельность */
-  padding: 1.5vw; /* Отступ внутри кнопки */
-  border-radius: 1vw; /* Скругленные углы */
-  font-size: 1vw;
+  padding: 15px; /* Отступ внутри кнопки */
+  border-radius: 10px; /* Скругленные углы */
+  font-size: 16px; /* Размер шрифта */
 }
 
 #myBtn:hover {
@@ -201,7 +245,11 @@ margin-top: 1vw;
 
 .socials {
   display: flex;
-  gap: 1vw;
+}
+.socials img{
+  
+  width:2.5vw;
+  height:2.5vw;
 }
 
 

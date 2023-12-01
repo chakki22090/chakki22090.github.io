@@ -104,7 +104,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    padding: 33vh 0;  
+    padding: 30vh 0;  
   }
   
   .middle-content {
@@ -121,7 +121,7 @@ body {
   }
   
   .middle-content h2 {
-    margin-top: -3vw;
+    margin-top: 2vw;
     margin-bottom: 2vw;
     font-size: 3vw;
     color: white;
@@ -130,33 +130,36 @@ body {
   .white-boxes {
     display: flex;
     flex-direction: row;
-    gap: 10vw;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    gap: 6vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
   }
   .white-box {
     display: flex;
     background-color: white;
     flex-direction: column; 
-    padding: 0.5vw 1.5vw 0.5vw 1.5vw;
-    width: 50%;
+    padding: 1.5vw 1.5vw 1.5vw 1.5vw;
+    width: 60%;
+    height: 80%;
     } 
   
   .white-box img {
   margin-left: 2vw;
-    width: 50%;
-    height: 50%;
-  margin-left: 25%;
+    width: 40%;
+    height: 40%;
+  margin-left: 30%;
     
   }
   .white-box h1{
     font-family: Roboto-Bold;
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     color: var(--title-text-color);
-   padding-bottom: 0.3vh;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
   }
   .white-box p { 
-    font-size: 1vw;
+    text-align: left;
+    font-size: 1.2vw;
     font-family: Roboto-Regular;
     color: var( --content-text-color);
     padding-bottom: 1vh;
@@ -182,7 +185,7 @@ body {
 }
 
 .bottom-section h1 {
-  font-size: 4vw;
+  font-size: 3vw;
   margin-bottom: 1vh;
   color: var(--title-text-color);
 }
@@ -210,11 +213,12 @@ body {
   
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
-  font-size: 2.5vw;
+  font-size: 2vw;
+  margin-left: 1vw;
 }
 
 .text-section p {
-  font-size: 1.7vw;
+  font-size: 1.5vw;
   margin: 3vh 0vw 7vh 1vw;  
   color: var(--content-text-color);
 }

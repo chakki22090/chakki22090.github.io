@@ -29,12 +29,12 @@ body {
 
 .info-image {
   flex: 1;
-  height: 77vh; 
+  height: 66vh; 
   background-image: url('../png/ServicesPage/meetingpic.jpg');
   background-size: contain;
   background-repeat: no-repeat;  
   background-position: center;
-  margin-left: 10vw;
+  margin-left: 15vw;
 }
 
 .info-content {
@@ -45,14 +45,15 @@ body {
   flex-direction: column;
   align-items: start;  
   padding-left: 5vw;  
-  margin-right: 10vw;
+  margin-right: 15vw;
 }
 
 .info-content h1 {
-  font-size: 3.8vw;
+  font-size: 3vw;
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
   margin-bottom: 2vh;
+  margin-left: -1.5vw;
 }
 
 .info-content h2 {
@@ -61,9 +62,10 @@ body {
   font-family: Roboto-Regular;
 }
 .info-content p {
-  font-size: 2vw; 
+  font-size: 1.6vw; 
   color: var(--content-text-color);
   margin-bottom: 5vh;
+  padding-right: 2vw;
 }
 .icon {
   color: var(--title-text-color);
@@ -123,8 +125,7 @@ body {
 }
 
 .middle-content h2 {
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  margin-top: -1vw;
   font-size: 3vw;
   color: white;
 }
@@ -148,29 +149,27 @@ body {
 } 
 
 .white-box img {
-margin-left: 2vw;
-  width: 80%;
+margin-left: 5.5vw;
+  width: 40%;
 }
 .white-box h1{
   font-family: Roboto-Bold;
-  font-size: 3vw;
+  font-size: 2vw;
+  margin-bottom: 2vw;
   color: var(--title-text-color);
- padding-bottom: 0.3vh;
+
 }
 .white-box h2 {
-  font-size: 1.2vw;
+  font-size: 1vw;
+  margin-bottom: 0.3vw;
   font-family: Roboto-Bold;
   
-  color:var(--title-text-color);
-  padding-bottom: 0.15vh;
-  padding-top: 0;
+  color:var(--title-text-color); 
 }
 .white-box p { 
-  font-size: 1vw;
+  font-size: 0.8vw;
   font-family: Roboto-Regular;
-  color: var( --content-text-color);
-  padding-bottom: 1vh;
- padding-top: 0;
+  color: var( --content-text-color); 
 }
 
 
@@ -218,9 +217,9 @@ margin-left: 2vw;
 }
 
 .testimonial-author {
-  font-family:Roboto-BoldItalic;
+  font-family:Roboto-Italic;
   font-size: 1.5vw;
-  color: var(  --content-text-color);
+  color: rgb(87, 101, 114 );
 }
 
 .quote-top-left,
@@ -261,7 +260,22 @@ margin-left: 2vw;
 .right-arrow {
   right: 3.2vw;  
 }
+.left-arrow:hover { 
+  background-color: rgba(37, 21, 129, 0.05);
+}
+.right-arrow:hover { 
+  background-color: rgba(37, 21, 129, 0.05);
+}
 
+
+.left-arrow:active{
+  background-color: rgba(37, 21, 129, 0.2);
+}
+
+
+.right-arrow:active{
+  background-color: rgba(37, 21, 129, 0.2);
+}
 .testimonial-section {
   position: relative;
   overflow: hidden;  

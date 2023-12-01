@@ -1,12 +1,17 @@
 body {
     background-color: rgba(157, 175, 194,0.05);
+    
+
+  font-family: 'Roboto-BoldItalic'
+
+ 
   }
   h1, h2, h3 {
     line-height: 1.15;
   }
   :root {
     --text-bg-color: rgba(100, 115, 130, 0.11);
-    --title-text-color: rgba( 79, 82, 96);
+    --title-text-color: rgba( 87, 101, 114);
     --content-text-color: rgba( 112, 115, 128  );
   }
   
@@ -18,42 +23,56 @@ body {
     margin-top: 2vh;
     padding: 1vw;
   }
-  
   .info-section {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    flex-direction: row;
     flex-wrap: wrap;  
+    row-gap: 0;
   }
   
   .info-image {
     flex: 1;
-    height: 77vh; 
-    margin-left: 4vh;
+    height: 66vh; 
     background-image: url('../png/BlogPage/guyTyping.png');
     background-size: contain;
     background-repeat: no-repeat;  
     background-position: center;
+    margin-left: 18vw;
   }
   
   .info-content {
     flex: 1;
     background-color: var(--text-bg-color);  
     color: rgb(0, 0, 0);
-    padding: 5vh 20vw 5vh 10vw;
-    margin-right: 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;  
+    padding-left: 5vw;  
+    margin-right: 18vw;
+    
   }
   
   .info-content h1 {
-    font-size: 2.5vw;
+    font-size: 3vw;
     color: var(--title-text-color);
     font-family: Evolventa-Bold;
+    margin-bottom: 2vh;
   }
   
-  .info-content p {
-    font-size: 1.5vw;
-    color: var(--content-text-color);
+  .info-content h2 {
+    font-size: 1.6vw;
+    color: var(--title-text-color);
+    font-family: Roboto-Regular;
   }
+  .info-content p {
+    font-size: 1.6vw; 
+    color: var(--content-text-color);
+    margin-bottom: 5vh;
+  }
+
+
+
 
 
 .category-toggle
@@ -62,6 +81,7 @@ body {
   font-family: Roboto-Bold;
   font-size: 2vw;
   color: var(--title-text-color);
+  padding-top: 2vw;
 }
 
 
@@ -69,6 +89,7 @@ body {
 .category-toggle h1
 {
   font-size: 3vw;
+
 }
 
 
@@ -76,12 +97,13 @@ body {
 .category-btn {  
   background-color: white;
   color: #333; /* Dark text color */
-  border: 0.15vw solid #333; /* Dark border */
+  border: 0.05vw solid #333; /* Dark border */
   padding: 0.7w 2vw; /* Adjust as per your requirement */
   border-radius: 0.7vw; /* Smooth rounded edges */
   font-size: 1vw; /* Adjust as needed */
   cursor: pointer; /* Cursor changes to a hand icon when hovering over the button */  
   white-space: nowrap; 
+  font-family: Roboto-Bold;
 }
 
 .category-btn:hover,
@@ -224,6 +246,8 @@ button:hover {
   background-color: white; 
   width: 55%; /* Define a specific width */
   padding: 2vh 2vw;
+  border-bottom: 0.2vw solid rgb(232,232,237); /* Добавленная граница */
+  margin-bottom: 2vh; /* Добавьте немного отступа внизу */
 }
 .post-title {
   font-size: 2vw;  
@@ -239,7 +263,7 @@ button:hover {
   flex: 1;    
   justify-content: space-between;  
   align-items: center;  
-  color: var(--title-text-color);
+  color: var( --content-text-color);
 }
 
 .post-date {
@@ -254,8 +278,8 @@ button:hover {
   overflow-wrap: break-word;  /* And this too */
 }
 .post-image {
-  max-width: 15vw;
-  max-height: 40vh;
+  width: 20%;
+  height: 20%;
 }
 .modal {
   display: none;
@@ -299,10 +323,10 @@ button:hover {
 }
 
 #modalImage {
-  max-width: 100%;
-  height: auto;
-  ;
+  width: 100%;
+  height: 100%;
   margin-bottom: 1vh;
+  margin-left: 25vw;
 }
 
 #modalBody {
