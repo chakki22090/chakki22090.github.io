@@ -57,10 +57,15 @@
   .leader-description h1{ 
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
-  font-size: 3vw;
- 
+  font-size: 3vw; 
 }
 
+.leader-description h2 {
+  font-size: 1.4vw;
+  font-family: Roboto-Italic;
+  margin-left: 0.3vw;
+  color: var(--job--color);
+}
 .leader-description p{
     font-size: 2vw;
     color: var(--content-text-color);
@@ -170,6 +175,11 @@
 }
 
 
+.modal-content h1{
+  
+  color: var(--title-text-color);
+}
+
 .modal-content a {
     color: #007BFF;
     text-decoration: none;
@@ -242,7 +252,14 @@
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
   font-size: 3vw;
+  text-decoration: underline;
+}
+.leader-description h2 {
  
+  font-size: 1.4vw;
+  font-family: Roboto-Italic;
+
+  color: var(--job--color);
 }
 
 .leader-description p{
@@ -320,25 +337,22 @@
   
 
   .modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position:fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.2);
 }
-
+  
 
   .modal {
     display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.02);
 }
 
 .modal-content {
@@ -368,6 +382,11 @@
     text-align: center; 
     font-size: 2.5vw;
     margin: 1vw 0;  
+}
+
+.modal-content h1{
+  
+  color: var(--title-text-color);
 }
 
 
