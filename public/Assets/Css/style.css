@@ -22,14 +22,12 @@ body {
   --title-font-size: 2.5vw;
   --subtitle-font-size:1.85vw;
   --text-font-size:1.2vw;
-
-
-  
+ 
   --scrollbar-width-thin: 0.2vw;
   --scrollbar-width-expanded: 0.6vw;
-  --scrollbar-color: #c1c1c1; /* Light grey color */
-  --scrollbar-hover-color: #a0a0a0; /* Darker grey on hover */
-  --scrollbar-radius: 1vw; /* Rounded corners */
+  --scrollbar-color: #c1c1c1;  
+  --scrollbar-hover-color: #a0a0a0;  
+  --scrollbar-radius: 1vw;  
 }
 
 ::-webkit-scrollbar-track {
@@ -120,10 +118,10 @@ body {
   padding: 0vh 1vw;
   position: inherit;
   text-decoration: none;
-  white-space: nowrap; /* Prevents the text inside the button from breaking into multiple lines */
-  overflow: hidden; /* Hides the overflow text */
-  text-overflow: ellipsis; /* Adds an ellipsis (...) to indicate the text is clipped */
-  max-width: 100%; /* Makes sure the button doesn’t stretch beyond its parent container */
+  white-space: nowrap;  
+  overflow: hidden; 
+  text-overflow: ellipsis;  
+  max-width: 100%; 
   border-radius: 0.7vw;
   line-height: 5vh;
   font-size: 1vw;
@@ -136,10 +134,10 @@ body {
   padding: 0vh 1vw;
   position: inherit;
   text-decoration: none;
-  white-space: nowrap; /* Prevents the text inside the button from breaking into multiple lines */
-  overflow: hidden; /* Hides the overflow text */
-  text-overflow: ellipsis; /* Adds an ellipsis (...) to indicate the text is clipped */
-  max-width: 100%; /* Makes sure the button doesn’t stretch beyond its parent container */
+  white-space: nowrap;  
+  overflow: hidden; 
+  text-overflow: ellipsis;  
+  max-width: 100%; 
   border-radius: 0.7vw;
   line-height: 5vh;
   font-size: 1vw;
@@ -158,23 +156,23 @@ margin-top: 1vw;
 
 
 #myBtn {
-  display: none; /* Сначала скрыта */
-  position: fixed; /* Фиксированное позиционирование */
-  bottom: 20px; /* Расположение снизу */
-  right: 20px; /* Расположение справа */
-  z-index: 99; /* Находится поверх других элементов */
-  border: none; /* Без границы */
-  outline: none; /* Без контура */
-  background-color: red; /* Цвет фона */
-  color: white; /* Цвет текста */
-  cursor: pointer; /* Курсор указывает на кликабельность */
-  padding: 15px; /* Отступ внутри кнопки */
-  border-radius: 10px; /* Скругленные углы */
-  font-size: 16px; /* Размер шрифта */
+  display: none;  
+  position: fixed; 
+  bottom: 1.5vw;  
+  right: 1.5vw;  
+  z-index: 99;  
+  border: none;  
+  outline: none;  
+  background-color: red;  
+  color: white;  
+  cursor: pointer;  
+  padding: 1vw; 
+  border-radius: 1vw;  
+  font-size: 1vw; 
 }
 
 #myBtn:hover {
-  background-color: #555; /* Цвет фона при наведении */
+  background-color: #555;  
 }
 
 
