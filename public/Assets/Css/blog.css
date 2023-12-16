@@ -98,12 +98,12 @@ body {
 
 .category-btn {  
   background-color: white;
-  color: #333; /* Dark text color */
-  border: 0.05vw solid #333; /* Dark border */
-  padding: 0.7w 2vw; /* Adjust as per your requirement */
-  border-radius: 0.7vw; /* Smooth rounded edges */
-  font-size: 1vw; /* Adjust as needed */
-  cursor: pointer; /* Cursor changes to a hand icon when hovering over the button */  
+  color: #333; 
+  border: 0.05vw solid #333;  
+  padding: 0.7w 2vw;  
+  border-radius: 0.7vw; 
+  font-size: 1vw; 
+  cursor: pointer;  
   white-space: nowrap; 
   font-family: Roboto-Bold;
 }
@@ -133,23 +133,24 @@ body {
     top: 0;
     width: 100%; 
     height: 100%; 
-    overflow: auto; 
+    overflow-y: auto; 
     background-color: rgba(0,0,0,0.7);
 }
 
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 2vw;
+    align-items: flex-start;
+    border: 0.1vw solid #888;
     width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 0.4vw 0.8vw 0 rgba(0,0,0,0.2), 0 0.6vw 2vw 0 rgba(0,0,0,0.19);
 }
 
 .close-btn {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 2.8vw;
     font-weight: bold;
 }
 
@@ -162,20 +163,20 @@ body {
 
 input[type="text"], textarea {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 1.2vw 2vw;
+    margin: 0.8vw 0;
     box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
+    border: 0.2vw solid #ccc;
+    border-radius: 0.4vw;
 }
 
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
-    margin: 8px 0;
+    padding: 1vw 2vw;
+    margin: 0.8vw 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.4vw;
     cursor: pointer;
 }
 
@@ -198,13 +199,13 @@ button:hover {
   background-color: red;
   color: white;
   cursor: pointer;
-  padding: 2px 5px;
+  padding: 0.2vw 0.5vw;
 }
 #currentPostImage {
   max-width: 6vw;
   max-height: 6vw;
   display: block;
-  margin: 10px 0;
+  margin: 1vw 0;
 }
 
 
@@ -237,15 +238,15 @@ button:hover {
 {
   display: flex;
   flex-direction: row;  
-  justify-content: start; /* Align to the start */
+  justify-content: start;  
   align-items:center;
   margin: 2vh auto;
   font-family: Arial, sans-serif;
-  width: 90%; /* Ensure this is wide enough */
-  border-bottom: 0.2vw solid rgb(232,232,237); /* Добавленная граница */
-  margin-bottom: 2vh; /* Добавьте немного отступа внизу */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен переход */
-  box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1); /* Добавим тень для большего эффекта */
+  width: 90%;  
+  border-bottom: 0.2vw solid rgb(232,232,237);  
+  margin-bottom: 2vh; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  
+  box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);  
 
 }
 .post-all:hover
@@ -257,7 +258,7 @@ button:hover {
 
 .post-box {
   background-color: white; 
-  width: 55%; /* Define a specific width */
+  width: 55%;  
   padding: 2vh 2vw;
 }
 .post-title {
@@ -285,8 +286,8 @@ button:hover {
 .post-text {
   flex: 1;   
   padding-right: 1vw;   
-  word-wrap: break-word;  /* Add this line */
-  overflow-wrap: break-word;  /* And this too */
+  word-wrap: break-word;   
+  overflow-wrap: break-word;   
 }
 .post-image {
   width: 20%;
@@ -303,15 +304,7 @@ button:hover {
   background-color: rgba(0,0,0,0.6);
   overflow-y: auto;  
 }
-
-.modal-content {
-  margin: 5% auto;
-  padding: 2vw;
-  width: 70%;
-  background-color: #fff;
-  border-radius: 1.2vw;  
-  box-shadow: 0 0.4vw 2vw rgba(0,0,0,0.5);  
-}
+ 
 
 .close {
   color: #aaaaaa;
@@ -371,24 +364,24 @@ button:hover {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: center; /* Align items in the center */
+    justify-content: center;  
   }
   
   .info-image {
-    flex: 0 1 40%; /* Adjust the flex basis to control starting size */
+    flex: 0 1 40%;  
     height: 15vh;
     background-image: url('../png/ServicesPage/meetingpic.jpg');
     background-repeat: no-repeat;
-    background-size: cover; /* Changed to cover for a better fit */
+    background-size: cover;  
   }
   
   .info-content {
-    flex: 0 1 40%; /* Adjust the flex basis as per requirement */
+    flex: 0 1 40%; 
     background-color: var(--text-bg-color);
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 1.5vw 7vw 1.5vw 3vw; /* Adjust padding as needed */
+    padding: 1.5vw 7vw 1.5vw 3vw;  
   }
   
   .info-content h1 {
@@ -433,12 +426,12 @@ button:hover {
   
   .category-btn {  
     background-color: white;
-    color: #333; /* Dark text color */
-    border: 0.05vw solid #333; /* Dark border */
-    padding: 0.7w 2vw; /* Adjust as per your requirement */
-    border-radius: 0.7vw; /* Smooth rounded edges */
-    font-size: 1vw; /* Adjust as needed */
-    cursor: pointer; /* Cursor changes to a hand icon when hovering over the button */  
+    color: #333; 
+    border: 0.05vw solid #333;  
+    padding: 0.7w 2vw; 
+    border-radius: 0.7vw;  
+    font-size: 1vw;  
+    cursor: pointer; 
     white-space: nowrap; 
     font-family: Roboto-Bold;
   }
@@ -475,16 +468,17 @@ button:hover {
   .modal-content {
       background-color: #fefefe;
       margin: auto;
-      padding: 20px;
-      border: 1px solid #888;
+      padding: 2vw;
+      align-items: flex-start;
+      border: 0.1vw solid #888;
       width: 50%;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      box-shadow: 0 0.4vw 0.8vw 0 rgba(0,0,0,0.2), 0 0.6vw 2vw 0 rgba(0,0,0,0.19);
   }
   
   .close-btn {
       color: #aaaaaa;
       float: right;
-      font-size: 28px;
+      font-size: 2.8vw;
       font-weight: bold;
   }
   
@@ -497,20 +491,20 @@ button:hover {
   
   input[type="text"], textarea {
       width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
+      padding: 1.2vw 2vw;
+      margin: 0.8vw 0;
       box-sizing: border-box;
-      border: 2px solid #ccc;
-      border-radius: 4px;
+      border: 0.2vw solid #ccc;
+      border-radius: 0.4vw;
   }
   
   button {
       background-color: #4CAF50;
       color: white;
-      padding: 10px 20px;
-      margin: 8px 0;
+      padding: 1vw 2vw;
+      margin: 0.8vw 0;
       border: none;
-      border-radius: 4px;
+      border-radius: 0.4vw;
       cursor: pointer;
   }
   
@@ -533,13 +527,13 @@ button:hover {
     background-color: red;
     color: white;
     cursor: pointer;
-    padding: 2px 5px;
+    padding: 0.2vw 0.5vw;
   }
   #currentPostImage {
     max-width: 6vw;
     max-height: 6vw;
     display: block;
-    margin: 10px 0;
+    margin: 1vw 0;
   }
   
   
@@ -572,15 +566,15 @@ button:hover {
   {
     display: flex;
     flex-direction: row;  
-    justify-content: start; /* Align to the start */
+    justify-content: start;  
     align-items:center;
     margin: 2vh auto;
     font-family: Arial, sans-serif;
-    width: 90%; /* Ensure this is wide enough */
-    border-bottom: 0.2vw solid rgb(232,232,237); /* Добавленная граница */
-    margin-bottom: 2vh; /* Добавьте немного отступа внизу */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен переход */
-    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1); /* Добавим тень для большего эффекта */
+    width: 90%;  
+    border-bottom: 0.2vw solid rgb(232,232,237);  
+    margin-bottom: 2vh;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);  
   
   }
   .post-all:hover
@@ -592,7 +586,7 @@ button:hover {
   
   .post-box {
     background-color: white; 
-    width: 55%; /* Define a specific width */
+    width: 55%;  
     padding: 2vh 2vw;
   }
   .post-title {
@@ -620,8 +614,8 @@ button:hover {
   .post-text {
     flex: 1;   
     padding-right: 1vw;   
-    word-wrap: break-word;  /* Add this line */
-    overflow-wrap: break-word;  /* And this too */
+    word-wrap: break-word;  
+    overflow-wrap: break-word;   
   }
   .post-image {
     width: 20%;
@@ -638,15 +632,7 @@ button:hover {
     background-color: rgba(0,0,0,0.6);
     overflow-y: auto;  
   }
-  
-  .modal-content {
-    margin: 5% auto;
-    padding: 2vw;
-    width: 70%;
-    background-color: #fff;
-    border-radius: 1.2vw;  
-    box-shadow: 0 0.4vw 2vw rgba(0,0,0,0.5);  
-  }
+   
   
   .close {
     color: #aaaaaa;
@@ -685,7 +671,4 @@ button:hover {
     color: #aaa;
   }
   
-  
-  
-
 }

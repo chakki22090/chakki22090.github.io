@@ -114,8 +114,8 @@ function createPostElement(postData) {
     if(isUserLoggedIn) { 
         controlsHtml = `
             <div class="post-controls" style="display:block;">
-                <button onclick="editPost(this)">Edit</button>
-                <button onclick="deletePost(this)">Delete</button>
+            <button onclick="editPost(this, event)">Edit</button>
+<button onclick="deletePost(this, event)">Delete</button>
             </div>
         `; 
     }
@@ -143,7 +143,8 @@ function createPostElement(postData) {
 
 
 //change post 
-function editPost(button) {
+function editPost(button, event) {
+    event.stopPropagation();
     currentEditingPost = button.closest('.post');
     const post = button.closest('.post');
     const title = post.querySelector('h2').textContent;
@@ -180,7 +181,8 @@ function editPost(button) {
 
 
 //remove post 
-function deletePost(button) {
+function deletePost(button, event) {
+    event.stopPropagation();
     const postId = button.closest('.post').getAttribute('data-id');
     fetch(`/api/deletepost/${postId}`, {
         method: 'DELETE'
@@ -285,8 +287,8 @@ function addPost() {
             ${imageHtml}
             <p class="post-text">${content}</p>
             <div class="post-controls" style="display:block;">
-                <button onclick="editPost(this)">Edit</button>
-                <button onclick="deletePost(this)">Delete</button>
+            <button onclick="editPost(this, event)">Edit</button>
+            <button onclick="deletePost(this, event)">Delete</button>
             </div>
         `;
         document.querySelector('.blog-box').appendChild(post);
@@ -420,7 +422,7 @@ function openModal(postElement) {
     modalDate.innerHTML = clonedElement.querySelector('.post-date').outerHTML;
 
   
-    modal.scrollTo(0,0);
+    modal.scrollTo(0, 0);  
     modal.style.display = "block";
     
     span.onclick = function() {
