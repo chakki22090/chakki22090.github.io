@@ -140,6 +140,7 @@ body {
     background-color: white;
     flex-direction: column; 
     padding: 1.5vw 1.5vw 1.5vw 1.5vw;
+    border-radius: 2vw;
     width: 60%;
     height: 80%;
     } 
@@ -349,7 +350,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    padding: 10vh 0;
+    padding: 12vh 0;
   }
   
   .middle-content {
