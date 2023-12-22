@@ -350,54 +350,67 @@ ul li a {
     background-color: rgba(98, 138, 168, 0.69);
   }
 
+
+
   .container {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align items for a cleaner look */
-    padding: 2vw; /* Slightly increased padding for better spacing */
-    background-color: var(--footer-bg-color);
+    justify-content: space-between;
+    padding: 2vh;
+    background-color:  var( --footer-bg-color);
     color: white;
-    font-size: 1.2vw; /* Slightly reduced font size for minimalism */
-    text-align: center; /* Center align text */
+    font-size: 1vw;
   }
   
   .company-info {
-    margin: 1vw 0; /* Uniform margin for cleaner layout */
-    flex: none;
-  }
+    margin-left: 3%;
+    flex: 3;
+  } 
   
+  .company-info h2{
+    font-family: Evolventa-Regular;
+  } 
+  .company-info p{
+    font-family:SourceSansPro-Regular;
+  } 
   .links {
+    flex: 4;
     display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: white;
-    align-items: center; /* Center align items for a cleaner look */
-    margin: 1vw 0; /* Adjust margin for better spacing */
+    
+    text-decoration: none; 
+    color: white;  
+    justify-content: space-between;
   }
- 
   
   .company, .contact {
-    margin-bottom: 1vw; /* Reduced margin for a compact look */
+    flex: 1;
+  }
+  
+  .company ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .company li {
+    margin: 0.5vw;
+    text-decoration: none;
+  }
+  
+  .company li:hover {
+    text-decoration: underline;
   }
   
   .socials {
     display: flex;
-    justify-content: center; /* Center align social icons */
-    margin-top: 1vw; /* Added margin for separation from other elements */
+  }
+  .socials img{
+    
+    width:2.5vw;
+    height:2.5vw;
   }
   
-  .socials img {
-    width: 2.5vw; /* Slightly reduced size for a more subtle look */
-    height: 2.5vw;
-    margin: 0 0.5vw; /* Added margin between icons for better spacing */
-  }
-
-
+  
   ul li a {
     text-decoration: none;  
     color: white;  
   }
-
-
-
 }

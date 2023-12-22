@@ -14,7 +14,7 @@ body {
   
   
   
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
   
   .top-margin {  
     margin-top: 2vh;
@@ -289,65 +289,51 @@ body {
 
   
   
-@media screen and (max-width: 1200px) {
-  
-  .top-margin {  
-    margin-top: 2vh;
-    padding: 1vw;
-  }
-  
+@media screen and (max-width: 1000px) {
+   
   .info-section {
     display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-right: 4vh;
-    row-gap: 0;
+    flex-direction: column;  
   }
-  
   .info-image {
-    flex: 1;
-    height:15vh;
+    order: -1;
+    width: 100%;  
+    height: 30vh;  
     background-image: url('../png/AboutPage/DudeExplaining.png');
     background-repeat: no-repeat;
-    background-size: 75%;
+    background-size: cover;  
+    background-position: center top;
+    background-color: #f0f0f0;  
   }
-  
   .info-content {
-    flex: 1;
     background-color: var(--text-bg-color);
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin-left: 6vw;
-    margin-top: 2vw;
-    padding: 1.5vw 7vw 1.5vw 3vw; /*top, right, bottom, left*/
+    padding: 1.5vw 7vw 3vw 3vw;  
   }
   
   .info-content h1 {
-    font-size: 2.5vw;
+    font-size: 5.8vw;
     color: var(--title-text-color);
     font-family: Evolventa-Bold;
   }
   
   .info-content p {
-    font-size: 1.5vw;
+    font-size: 1.1vw;
     color: var(--content-text-color);
+    margin-bottom: 1vh;
   }
   
   .btn-read-more {  
     background-color: var(--btn-bg-color);
     color: var(--main-content-text-color);
     font-size: 1.2vw;
-    padding: 1vw 3vw;
-    margin-top: 1vw;
-    margin-left: 2.5vw;
+    padding: 0.5vh 1vw;
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
     border-radius: 0.7vw;
+    margin-bottom: 2vh;
   }
   
   .btn-read-more:active,
@@ -358,14 +344,12 @@ body {
 
 
 
-
-
   .middle-section {
     background-image: url('../png/ServicesPage/background.png');
     background-size: cover;
     background-position: center;
     position: relative;
-    padding: 7vh 0;  
+    padding: 10vh 0;
   }
   
   .middle-content {
@@ -382,52 +366,50 @@ body {
   }
   
   .middle-content h2 {
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-    font-size: 3vw;
+    margin-bottom: 2rem;
+    font-size: 3rem;
     color: white;
   }
   
   .white-boxes {
     display: flex;
     flex-direction: row;
-    gap: 6vw;
-    margin-left: 3vw;
-    margin-right: 3vw;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem;
   }
+  
   .white-box {
+    flex: 0 0 30%;
     display: flex;
     background-color: white;
-    flex-direction: column; 
-    padding: 1.5vw 1.5vw 1.5vw 1.5vw;
-    width: 60%;
-    height: 80%;
-    } 
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 5vw;
+    align-items: center;
+    overflow: hidden;
+  }
   
   .white-box img {
-  margin-left: 2vw;
-    width: 40%;
-    height: 40%;
-  margin-left: 30%;
-    
+    width: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
   }
-  .white-box h1{
-    font-family: Roboto-Bold;
-    font-size: 1.5vw;
+  
+  .white-box h1 {
+    font-family: 'Roboto-Bold';
+    font-size: 1.2rem;
     color: var(--title-text-color);
-    margin-top: 0.5vw;
-    margin-bottom: 0.5vw;
+    margin-bottom: 0.5rem;
   }
-  .white-box p { 
+  
+  .white-box p {
     text-align: left;
-    font-size: 1.2vw;
-    font-family: Roboto-Regular;
-    color: var( --content-text-color);
-    padding-bottom: 1vh;
-   padding-top: 0;
+    font-size: 1rem;
+    font-family: 'Roboto-Regular';
+    color: var(--content-text-color);
   }
-
-
 
 
 
@@ -458,7 +440,7 @@ body {
   display: flex;
   background-color:  var(--text-bg-color);  
   color: rgb(0, 0, 0);
-  padding: 3vh 3vw 3vh 3vw;
+  padding: 2vh 2vw 2vh 2vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -474,15 +456,15 @@ body {
   
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
-  font-size: 2vw;
+  font-size: 1rem;
   margin-left: 1vw;
   text-align: center;
 }
 
 .text-section p {
-  font-size: 1.5vw;
-  margin: 1vh 2vw 1vh 1vw;  
+  font-size: 0.77rem;
   color: var(--content-text-color);
+  margin-bottom: 0.7vh;
 }
 
 
@@ -491,14 +473,13 @@ body {
   background-color: var( --btn-bg-color);
   color: var(--main-content-text-color);
   font-size: 1vw;
-  padding: 1vw 3vh;
-  margin-left: 1vw;
+  padding: 0.5vh 1vw;
   text-decoration: none; 
   white-space: nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis; 
   max-width: 100%; 
-  border-radius: 0.7vw;
+  border-radius: 1vw;
 }
 
 
@@ -511,7 +492,7 @@ body {
 
 .image-section img {
   margin-top: -1.7vw;
-  width: 25vw;
+  width: 20vw;
 }
 
 
