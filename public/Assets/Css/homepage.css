@@ -68,6 +68,26 @@
   }
   
 
+
+
+
+
+
+  .custom-link {
+    text-decoration: none; 
+    color: #ffffff;  
+}
+
+.custom-link h1 {
+    font-size: 4vw;  
+    color: inherit;  
+    transition: color 0.3s ease;  
+}
+
+.custom-link:hover h1 {
+    color: #c7e2fe;  
+}
+
 }
 
 
@@ -148,5 +168,21 @@
       height: 7.7vw;   
     }
     
+  
+
+    .custom-link {
+      text-decoration: none; 
+      color: #ffffff;  
+  }
+  
+  .custom-link h1 {
+      font-size: 4vw;  
+      color: inherit;  
+      transition: color 0.3s ease;  
+  }
+  
+  .custom-link:hover h1 {
+      color: #c7e2fe;  
+  }
   
   }
