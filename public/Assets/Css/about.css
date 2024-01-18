@@ -29,6 +29,7 @@ body {
     flex-wrap: wrap;  
     margin-right: 4vh;
     row-gap: 0;
+    
   }
   
   .info-image {
@@ -40,6 +41,7 @@ body {
     background-repeat: no-repeat;  
     background-position: center;
     margin-right: 11vw;
+    border-radius: 4vw;
   }
   
   .info-content {
@@ -49,6 +51,7 @@ body {
     flex-direction: column;
     align-items: start;  
     margin-left: 6vw;
+    border-radius: 3vw;
     padding: 1.5vw 7vw 1.5vw 3vw; /*top, right, bottom, left*/
   }
   
@@ -77,7 +80,7 @@ body {
     overflow: hidden; 
     text-overflow: ellipsis; 
     max-width: 100%; 
-  
+    border-radius: 3vw;
   }
   
   .btn-read-more:active,
@@ -124,7 +127,7 @@ body {
   .middle-content h2 {
     margin-top: 2vw;
     margin-bottom: 2vw;
-    font-size: 3vw;
+    font-size: 2vw;
     color: white;
   }
   
@@ -134,6 +137,7 @@ body {
     gap: 6vw;
     margin-left: 3vw;
     margin-right: 3vw;
+    width: 80%;
   }
   .white-box {
     display: flex;
@@ -154,14 +158,14 @@ body {
   }
   .white-box h1{
     font-family: Roboto-Bold;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     color: var(--title-text-color);
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
   }
   .white-box p { 
     text-align: left;
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     font-family: Roboto-Regular;
     color: var( --content-text-color);
     padding-bottom: 1vh;
@@ -183,6 +187,7 @@ body {
 
 .bottom-section {
   text-align: center;
+  
   padding: 2vw 0;
 }
 
@@ -194,15 +199,17 @@ body {
 
 .grey-box {
   flex: 1;
-  margin-left: 10vw;
-  margin-right: 10vw;
   display: flex;
+  margin-left:  15vw;
   background-color:  var(--text-bg-color);  
   color: rgb(0, 0, 0);
   padding: 7vh 3vw 3vh 3vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  border-radius: 3vw;
+  width:70%;
+  height: 90%;
 }
 
 
@@ -238,6 +245,7 @@ body {
   overflow: hidden; 
   text-overflow: ellipsis; 
   max-width: 100%; 
+  border-radius: 3vw;
 }
 
 
@@ -251,6 +259,7 @@ body {
 .image-section img {
   margin-top: -1.7vw;
   width: 25vw;
+  border-radius: 3vw;
 }
 
 

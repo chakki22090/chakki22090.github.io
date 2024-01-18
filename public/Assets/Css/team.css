@@ -35,6 +35,9 @@
     padding: 2.5vw;
     transition: transform 0.3s ease, box-shadow 0.3s ease;  
     box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);  
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 1vw;
   }
   .team-leader:hover
   {    
@@ -45,10 +48,12 @@
 
   .team-leader img{
     width: 30%;
+    border-radius: 1vw; 
   }
   
   .leader-description {
-    background-color: var(--text-bg-color);  
+    background-color: var(--text-bg-color); 
+    border-radius: 1vw; 
     padding: 5vw;
     flex: 1;
   }
@@ -57,17 +62,17 @@
   .leader-description h1{ 
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
-  font-size: 3vw; 
+  font-size: 2vw; 
 }
 
 .leader-description h2 {
-  font-size: 1.4vw;
+  font-size: 1.2vw;
   font-family: Roboto-Italic;
   margin-left: 0.3vw;
   color: var(--job--color);
 }
 .leader-description p{
-    font-size: 2vw;
+    font-size: 1.2vw;
     color: var(--content-text-color);
 }
 
@@ -88,7 +93,7 @@
     background-color: var(--text-bg-color);  ;
     display: flex;
     align-items: center;
-    
+    border-radius: 1vw; 
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен переход */
   box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1); /* Добавим тень для большего эффекта */
   }
@@ -100,6 +105,7 @@
 
   .team-member img{
    width: 30%;
+   border-radius: 1vw; 
   }
   
   .member-description {

@@ -210,7 +210,6 @@ margin-top: 1vw;
 .links {
   flex: 4;
   display: flex;
-  
   text-decoration: none; 
   color: white;  
   justify-content: space-between;
@@ -218,6 +217,10 @@ margin-top: 1vw;
 
 .company, .contact {
   flex: 1;
+}
+.contact
+{
+  margin-top: 0.5vw;
 }
 
 .company ul {
@@ -238,7 +241,6 @@ margin-top: 1vw;
   display: flex;
 }
 .socials img{
-  
   width:2.5vw;
   height:2.5vw;
 }
