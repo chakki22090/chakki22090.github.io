@@ -121,7 +121,7 @@ function createPostElement(postData) {
     }
 
     let fullText = postData.content;
-    let shortText = fullText.length > 150 ? fullText.substring(0, 150) + "..." : fullText;
+    let shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText;
 
     post.innerHTML = `
     <div class = "post-all">
