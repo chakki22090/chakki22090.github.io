@@ -21,7 +21,26 @@
         </ul>
         <a class="btn-request" href="#">REQUEST QUOTE</a> 
     </nav>
-
+<!-- Request Quote Modal -->
+<div id="requestQuoteModal" class="Quote-modal">
+    <div class="Quote-modal-content">
+        <div class="Quote-modal-header">
+            <span class="close">&times;</span>
+            <h2>Send your request to us</h2>
+        </div>
+        <form id="quoteForm">
+            <!-- Form Fields -->
+            <h1> Full name</h1>
+            <input type="text" id="name" name="name" placeholder="Enter your Name" required><br>
+            <h1> Email</h1>
+            <input type="email" id="email" name="email" placeholder="Enter your Email" required><br>
+            <h1> Message</h1>
+            <textarea id="message" name="message" placeholder="Enter your Message" required></textarea><br>
+            <button type="submit">Send Request</button>
+        </form>
+    </div>
+  </div>
+  
     
  
     
