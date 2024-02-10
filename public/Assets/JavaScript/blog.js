@@ -106,37 +106,23 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content); // Сохраняем исходный текст без изменений
+    post.setAttribute('data-full-text', postData.content);  // Сохраняем исходный текст
 
-    // Разделяем текст на абзацы по переносам строк
-    const paragraphs = postData.content.split('\n');
-    let shortText = '';
-    // Ограничиваем количество абзацев, которые будем показывать в короткой версии
-    const maxParagraphs = 1; // Например, показываем только один абзац
-
-    for (let i = 0; i < Math.min(paragraphs.length, maxParagraphs); i++) {
-        // Добавляем абзацы в короткий текст
-        shortText += (i > 0 ? '\n' : '') + paragraphs[i];
-    }
-
-    // Если абзацев больше, чем maxParagraphs, добавляем многоточие в конце
-    if (paragraphs.length > maxParagraphs) {
-        shortText += '...';
-    } else if (shortText.length > 50) { // Если последний абзац слишком длинный, обрезаем его
-        shortText = shortText.substring(0, 47) + '...';
-    }
-
-    // Преобразуем переносы строк в <br> для HTML
-    shortText = shortText.replace(/\n/g, '<br>');
-
-    let controlsHtml = '';
-    if (isUserLoggedIn) {
+    let controlsHtml = ''; 
+    if(isUserLoggedIn) { 
         controlsHtml = `
             <div class="post-controls" style="display:block;">
                 <button onclick="editPost(this, event)">Edit</button>
                 <button onclick="deletePost(this, event)">Delete</button>
             </div>
-        `;
+        `; 
+    }
+
+    // Разделяем текст на абзацы и берем первые N абзацев для короткой версии
+    const paragraphs = postData.content.split('\n');
+    let shortText = paragraphs.slice(0, 2).join('<br>'); // Возьмем, например, первые 2 абзаца
+    if (paragraphs.length > 2) {
+        shortText += '...'; // Добавляем многоточие, если текст был сокращен
     }
 
     post.innerHTML = `
@@ -144,18 +130,21 @@ function createPostElement(postData) {
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text">${shortText}</p>
+                    <p class="post-text" data-full-text="${postData.content}">${shortText}</p>  // Используем shortText с сохраненными абзацами
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
             <img class="post-image" src="${postData.image}" alt="${postData.title}">
-            ${controlsHtml}
         </div>
+        ${controlsHtml}
     `;
 
-    post.onclick = function() { openModal(this); };
+    post.onclick = function() { openModal(this); };  
     return post;
 }
+
+
+
 
 
 
