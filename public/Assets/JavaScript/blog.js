@@ -108,7 +108,6 @@ function createPostElement(postData) {
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
     
-    // Замена символов переноса строки на <br> для отображения в HTML
     const contentWithBreaks = postData.content.replace(/\n/g, '<br>');
 
     let controlsHtml = ''; 
@@ -400,28 +399,23 @@ posts.forEach(post => {
 
 
 //open modal window 
-
 function openModal(postElement) {
     const modal = document.getElementById("myModal");
     const span = document.getElementsByClassName("close")[0];
     const modalBody = document.getElementById("modalBody");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalImage = document.getElementById("modalImage");
-    const modalDate = document.getElementById("modalDate");
 
+    // Получаем полный текст с учётом HTML-форматирования
     const fullText = postElement.getAttribute('data-full-text');
-    clonedElement.querySelector('.post-text').innerHTML = fullText; // Используй innerHTML вместо textContent
+
+    // Клонируем элемент, чтобы использовать его структуру в модальном окне
+    const clonedElement = postElement.cloneNode(true);
+
+    // Обновляем содержимое клонированного элемента с полным текстом
+    clonedElement.querySelector('.post-text').innerHTML = fullText;
+
+    // Устанавливаем содержимое модального окна
     modalBody.innerHTML = clonedElement.innerHTML;
 
-
-    
-    modalTitle.innerHTML = clonedElement.querySelector('.post-title').outerHTML;
-    modalImage.innerHTML = clonedElement.querySelector('.post-image').outerHTML;
-    modalBody.innerHTML = clonedElement.querySelector('.post-text').outerHTML;
-    modalDate.innerHTML = clonedElement.querySelector('.post-date').outerHTML;
-
-  
-    modal.scrollTo(0, 0);  
     modal.style.display = "block";
     
     span.onclick = function() {
