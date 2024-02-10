@@ -101,38 +101,62 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //create posts that user sees with check whether admin or not 
-
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    
-    // Преобразуем переносы строк в <br> в полном тексте
-    const fullTextWithBreaks = postData.content.replace(/\n/g, '<br>');
-    post.setAttribute('data-full-text', fullTextWithBreaks); // Сохраняем полный текст с <br> для модального окна
+    post.setAttribute('data-full-text', postData.content); // Сохраняем исходный текст без изменений
 
-    // Создаем короткий текст, учитывая <br>
-    let shortText = fullTextWithBreaks.length > 50 ? fullTextWithBreaks.substring(0, 50) + "..." : fullTextWithBreaks;
+    // Разделяем текст на абзацы по переносам строк
+    const paragraphs = postData.content.split('\n');
+    let shortText = '';
+    // Ограничиваем количество абзацев, которые будем показывать в короткой версии
+    const maxParagraphs = 1; // Например, показываем только один абзац
 
+    for (let i = 0; i < Math.min(paragraphs.length, maxParagraphs); i++) {
+        // Добавляем абзацы в короткий текст
+        shortText += (i > 0 ? '\n' : '') + paragraphs[i];
+    }
+
+    // Если абзацев больше, чем maxParagraphs, добавляем многоточие в конце
+    if (paragraphs.length > maxParagraphs) {
+        shortText += '...';
+    } else if (shortText.length > 50) { // Если последний абзац слишком длинный, обрезаем его
+        shortText = shortText.substring(0, 47) + '...';
+    }
+
+    // Преобразуем переносы строк в <br> для HTML
+    shortText = shortText.replace(/\n/g, '<br>');
+
+    let controlsHtml = '';
+    if (isUserLoggedIn) {
+        controlsHtml = `
+            <div class="post-controls" style="display:block;">
+                <button onclick="editPost(this, event)">Edit</button>
+                <button onclick="deletePost(this, event)">Delete</button>
+            </div>
+        `;
+    }
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text" data-full-text="${fullText}">${shortText}</p>
+                    <p class="post-text">${shortText}</p>
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
             <img class="post-image" src="${postData.image}" alt="${postData.title}">
+            ${controlsHtml}
         </div>
-        ${controlsHtml}
     `;
 
-    post.onclick = function() { openModal(this); };  
+    post.onclick = function() { openModal(this); };
     return post;
 }
+
 
 
 //change post 
