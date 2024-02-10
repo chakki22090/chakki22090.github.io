@@ -8,6 +8,10 @@ var testimonials = [
     text: "Jim is the best and i love working with him!!!!",
     author: "-Charlie Weir, Great guy-"
   }, 
+  {
+    text: "The Conquest Communications team worked closely with us to ensure that our needs and our ideas were reflected in our website relaunch. Conquest has a wealth of experience and the technical know-how to get the job done. They listened closely to our ideas and worked with us to implement them. Our new website is a tool that works for our users and we can easily keep it up to date using our internal resources. Website traffic increased with the relaunch and we received positive feedback from users on the clarity and professionalism of our site. Many thanks to Jim Sheppard and the Conquest team",
+    author: "-Michael Smart, co-director, Finances of the Nation-"
+  }, 
 
 ];
 

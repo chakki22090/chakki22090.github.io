@@ -174,7 +174,7 @@ margin-top: 1vw;
 }
 
 #myBtn:hover {
-  background-color:rgb(98, 138, 168);  
+  background-color: var(--btn-bg-hover-color);  
 
 }
 

@@ -37,7 +37,7 @@ body {
   background-repeat: no-repeat;  
   background-position: center;
   margin-left: 15vw;
-  border-radius: 2.5vw;
+  border-radius: 15%;
 }
 
 .info-content {
@@ -49,7 +49,7 @@ body {
   align-items: start;  
   padding-left: 5vw;  
   margin-right: 14vw;
-  border-radius: 3vw;
+ border-radius: 15%;
 }
 
 .info-content h1 {
@@ -57,7 +57,6 @@ body {
   color: var(--title-text-color);
   font-family: Evolventa-Bold;
   margin-bottom: 2vh;
-  margin-left: -1.5vw;
 }
 
 .info-content h2 {
@@ -109,12 +108,12 @@ body {
 
 .middle-content h2 {
   margin-top: -1vw;
-  font-size: 3vw;
+  font-size: 2.5vw;
   color: white;
 }
 
 .middle-content p {
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   padding-bottom: 4vh;
   color: white;
 }
@@ -130,12 +129,12 @@ body {
   flex-direction: column;
   margin: 0vw 2vw 3vw 2vw;
   padding: 0 1.5vw 0 1.5vw;
-  border-radius: 3vw;
+ border-radius: 15%;
 } 
 
 .white-box img {
 margin-left: 5.5vw;
-  width: 40%;
+  width: 35%;
 }
 .white-box h1{
   font-family: Roboto-Bold;
@@ -205,7 +204,7 @@ margin-left: 5.5vw;
 .testimonial-author {
   font-family:Roboto-BoldItalic;
   font-size: 1.2vw;
-  color: rgb(87, 101, 114 );
+  color: B1B8BF;
 }
 
 .quote-top-left,
@@ -248,9 +247,11 @@ margin-left: 5.5vw;
 }
 .left-arrow:hover { 
   background-color: rgba(48, 48, 48, 0.05);
+  width: 5.5vw;
 }
 .right-arrow:hover { 
   background-color: rgba(48, 48, 48, 0.05);
+  width: 5.5vw;
 }
 
 

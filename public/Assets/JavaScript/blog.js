@@ -107,20 +107,21 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content);  
-
     
+    // Замена символов переноса строки на <br> для отображения в HTML
+    const contentWithBreaks = postData.content.replace(/\n/g, '<br>');
+
     let controlsHtml = ''; 
     if(isUserLoggedIn) { 
         controlsHtml = `
             <div class="post-controls" style="display:block;">
             <button onclick="editPost(this, event)">Edit</button>
-<button onclick="deletePost(this, event)">Delete</button>
+            <button onclick="deletePost(this, event)">Delete</button>
             </div>
         `; 
     }
 
-    let fullText = postData.content;
+    let fullText = contentWithBreaks;
     let shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText;
 
     post.innerHTML = `
@@ -129,18 +130,17 @@ function createPostElement(postData) {
             <h2 class="post-title">${postData.title}</h2>
             <div class="post-content">
              <p class="post-text" data-full-text="${fullText}">${shortText}</p>
-                </div>
-                <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
-    <img class="post-image" src="${postData.image}" alt="${postData.title}">
-    </div>
+            <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
+        </div>
+        <img class="post-image" src="${postData.image}" alt="${postData.title}">
         ${controlsHtml}
+    </div>
     `;
 
     post.onclick = function() { openModal(this); };  
     return post;
 }
-
 
 //change post 
 function editPost(button, event) {
