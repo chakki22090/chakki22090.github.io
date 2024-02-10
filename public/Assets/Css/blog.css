@@ -14,12 +14,7 @@ body {
     --title-text-color: rgba( 87, 101, 114);
     --content-text-color: rgba( 112, 115, 128  );
   }
-  
-  
-  div {
-    white-space: pre-wrap;
-}
-  
+   
 
 @media screen and (min-width: 1200px) {
   
