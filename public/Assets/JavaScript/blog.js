@@ -107,7 +107,8 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content);  
+    post.setAttribute('data-full-text', postData.content);  // Сохраняем исходный текст
+
     let controlsHtml = ''; 
     if(isUserLoggedIn) { 
         controlsHtml = `
@@ -118,19 +119,15 @@ function createPostElement(postData) {
         `; 
     }
 
-    let shortText = postData.content;
-    const maxLength = 50;   
-    if (shortText.length > maxLength) {
-        const lastSpace = shortText.lastIndexOf(' ', maxLength);
-        shortText = shortText.substring(0, lastSpace) + '...';
-    }
+    let fullText = postData.content;
+    let shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText;
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text">${shortText}</p>
+                    <p class="post-text" data-full-text="${fullText}">${shortText}</p>
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
@@ -142,9 +139,6 @@ function createPostElement(postData) {
     post.onclick = function() { openModal(this); };  
     return post;
 }
-
-
-
 
 
 //change post 
