@@ -101,13 +101,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //create posts that user sees with check whether admin or not 
-
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content); 
+    post.setAttribute('data-full-text', postData.content); // Сохраняем исходный текст для модального окна
 
     let controlsHtml = ''; 
     if(isUserLoggedIn) { 
@@ -119,15 +118,22 @@ function createPostElement(postData) {
         `; 
     }
 
-    const fullText = postData.content;
-    const shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText; 
+    // Преобразуем переносы строк в <br> для корректного отображения в HTML
+    let fullTextWithBreaks = postData.content.replace(/\n/g, '<br>');
+
+    // Создаем короткую версию текста
+    let shortText = fullTextWithBreaks;
+    if (fullTextWithBreaks.length > 50) {
+        // Обрезаем до 50 символов и добавляем многоточие
+        shortText = fullTextWithBreaks.substring(0, 50) + '...';
+    }
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text" data-full-text="${fullText}">${shortText}</p>
+                    <p class="post-text">${shortText}</p>
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
@@ -139,6 +145,7 @@ function createPostElement(postData) {
     post.onclick = function() { openModal(this); };  
     return post;
 }
+
 
 //change post 
 function editPost(button, event) {
@@ -364,7 +371,7 @@ function addPostToServer(postData) {
         const postElement = createPostElement(post);
         blogBox.appendChild(postElement);
         
-        const textElement = postElement.querySelector('p.post-text').replace(/\n/g, '<br>');
+        const textElement = postElement.querySelector('p.post-text');
         const fullText = textElement.getAttribute('data-full-text');
         ;
         const num = 50;
