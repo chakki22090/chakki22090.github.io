@@ -107,32 +107,30 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content); // Сохраняем полный текст для модального окна
+    post.setAttribute('data-full-text', postData.content);
 
-    let controlsHtml = ''; 
-    if(isUserLoggedIn) { 
+    let controlsHtml = '';
+    if (isUserLoggedIn) {
         controlsHtml = `
             <div class="post-controls" style="display:block;">
                 <button onclick="editPost(this, event)">Edit</button>
                 <button onclick="deletePost(this, event)">Delete</button>
             </div>
-        `; 
+        `;
     }
 
-    // Обрабатываем текст для короткой версии, сохраняя переносы строк
-    let shortText = postData.content.substring(0, 50);
-    if (postData.content.length > 50) {
-        let lastIndex = shortText.lastIndexOf(' ');
-        shortText = shortText.substring(0, lastIndex) + '...'; // Обрезаем до последнего целого слова
-    }
-    shortText = shortText.replace(/\n/g, '<br>'); // Заменяем переносы строк на <br>
+    // Оставляем логику shortText как в исходной версии
+    let shortText = postData.content.length > 50 ? postData.content.substring(0, 50) + "..." : postData.content;
+
+    // Добавляем обработку абзацев только для shortText, сохраняя исходную логику
+    shortText = shortText.replace(/\n/g, '<br>');
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <span class="post-text">${shortText}</span>  <!-- Используем <span> для короткого текста -->
+                    <p class="post-text">${shortText}</p>
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
@@ -144,6 +142,7 @@ function createPostElement(postData) {
     post.onclick = function() { openModal(this); };
     return post;
 }
+
 
 //change post 
 function editPost(button, event) {
