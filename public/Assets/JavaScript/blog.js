@@ -107,30 +107,27 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content);
+    post.setAttribute('data-full-text', postData.content); 
 
-    let controlsHtml = '';
-    if (isUserLoggedIn) {
+    let controlsHtml = ''; 
+    if(isUserLoggedIn) { 
         controlsHtml = `
             <div class="post-controls" style="display:block;">
                 <button onclick="editPost(this, event)">Edit</button>
                 <button onclick="deletePost(this, event)">Delete</button>
             </div>
-        `;
+        `; 
     }
 
-    // Оставляем логику shortText как в исходной версии
-    let shortText = postData.content.length > 50 ? postData.content.substring(0, 50) + "..." : postData.content;
-
-    // Добавляем обработку абзацев только для shortText, сохраняя исходную логику
-    shortText = shortText.replace(/\n/g, '<br>');
+    const fullText = postData.content;
+    const shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText; 
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text">${shortText}</p>
+                    <p class="post-text" data-full-text="${fullText}">${shortText}</p>
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
@@ -139,10 +136,9 @@ function createPostElement(postData) {
         ${controlsHtml}
     `;
 
-    post.onclick = function() { openModal(this); };
+    post.onclick = function() { openModal(this); };  
     return post;
 }
-
 
 //change post 
 function editPost(button, event) {
