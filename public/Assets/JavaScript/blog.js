@@ -101,48 +101,45 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //create posts that user sees with check whether admin or not 
+
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content); // Сохраняем исходный текст для модального окна
+    post.setAttribute('data-full-text', postData.content);
 
-    let controlsHtml = ''; 
-    if(isUserLoggedIn) { 
+    let controlsHtml = '';
+    if (isUserLoggedIn) {
         controlsHtml = `
             <div class="post-controls" style="display:block;">
                 <button onclick="editPost(this, event)">Edit</button>
                 <button onclick="deletePost(this, event)">Delete</button>
             </div>
-        `; 
+        `;
     }
 
-    // Преобразуем переносы строк в <br> для корректного отображения в HTML
-    let fullTextWithBreaks = postData.content.replace(/\n/g, '<br>');
+    let fullText = postData.content;
+    let shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText;
 
-    // Создаем короткую версию текста
-    let shortText = fullTextWithBreaks;
-    if (fullTextWithBreaks.length > 50) {
-        // Обрезаем до 50 символов и добавляем многоточие
-        shortText = fullTextWithBreaks.substring(0, 50) + '...';
-    }
+    // Здесь добавляем обработку переносов строк для короткого текста
+    shortText = shortText.replace(/\n/g, '<br>');
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text">${shortText}</p>
+                    <p class="post-text" data-full-text="${fullText.replace(/\n/g, '<br>')}">${shortText}</p>
                 </div>
-                <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
+                <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p>
             </div>
             <img class="post-image" src="${postData.image}" alt="${postData.title}">
         </div>
         ${controlsHtml}
     `;
 
-    post.onclick = function() { openModal(this); };  
+    post.onclick = function() { openModal(this); };
     return post;
 }
 
