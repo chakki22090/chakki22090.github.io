@@ -285,6 +285,7 @@ button:hover {
   padding-right: 1vw;   
   word-wrap: break-word;   
   overflow-wrap: break-word;   
+  white-space: pre-line;
 }
 .post-image {
   width: 20%;
