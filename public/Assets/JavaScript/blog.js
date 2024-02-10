@@ -107,7 +107,7 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content); // Сохраняем исходный текст
+    post.setAttribute('data-full-text', postData.content); 
 
     let controlsHtml = ''; 
     if(isUserLoggedIn) { 
@@ -120,7 +120,8 @@ function createPostElement(postData) {
     }
 
     const fullText = postData.content;
-    const shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText;
+    const shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText; 
+    shortText.replace(/\n/g, '<br>');
 
     post.innerHTML = `
         <div class="post-all">
