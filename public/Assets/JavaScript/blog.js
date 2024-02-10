@@ -409,10 +409,9 @@ function openModal(postElement) {
     const modalImage = document.getElementById("modalImage");
     const modalDate = document.getElementById("modalDate");
 
-    const clonedElement = postElement.cloneNode(true); 
-    const fullText = postElement.getAttribute('data-full-text');  
-    clonedElement.querySelector('.post-text').textContent = fullText;  
-    modalBody.innerHTML = clonedElement.innerHTML; 
+    const fullText = postElement.getAttribute('data-full-text');
+    clonedElement.querySelector('.post-text').innerHTML = fullText; // Используй innerHTML вместо textContent
+    modalBody.innerHTML = clonedElement.innerHTML;
 
 
     
