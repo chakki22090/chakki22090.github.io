@@ -364,8 +364,8 @@ function addPostToServer(postData) {
         const postElement = createPostElement(post);
         blogBox.appendChild(postElement);
         
-        const textElement = postElement.querySelector('p.post-text');
-        const fullText = textElement.getAttribute('data-full-text').replace(/\n/g, '<br>');
+        const textElement = postElement.querySelector('p.post-text').replace(/\n/g, '<br>');
+        const fullText = textElement.getAttribute('data-full-text');
         ;
         const num = 50;
         if (fullText.split(" ").length > num) {
