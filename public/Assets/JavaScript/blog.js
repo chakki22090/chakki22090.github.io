@@ -101,42 +101,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //create posts that user sees with check whether admin or not 
+
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content);
+    post.setAttribute('data-full-text', postData.content); // Сохраняем полный текст для модального окна
 
-    let controlsHtml = '';
-    if(isUserLoggedIn) {
+    let controlsHtml = ''; 
+    if(isUserLoggedIn) { 
         controlsHtml = `
             <div class="post-controls" style="display:block;">
                 <button onclick="editPost(this, event)">Edit</button>
                 <button onclick="deletePost(this, event)">Delete</button>
             </div>
-        `;
+        `; 
     }
 
-    // Обрабатываем исходный текст, чтобы сохранить форматирование абзацев
-    let paragraphs = postData.content.split('\n').filter(paragraph => paragraph.trim() !== '');
-    let shortText = '';
-    let charCount = 0;
-    for (let paragraph of paragraphs) {
-        if (charCount + paragraph.length > 50) break;
-        shortText += `<p>${paragraph}</p>`;
-        charCount += paragraph.length;
+    // Обрабатываем текст для короткой версии, сохраняя переносы строк
+    let shortText = postData.content.substring(0, 50);
+    if (postData.content.length > 50) {
+        let lastIndex = shortText.lastIndexOf(' ');
+        shortText = shortText.substring(0, lastIndex) + '...'; // Обрезаем до последнего целого слова
     }
-    if (charCount < postData.content.length) {
-        shortText += '<p>...</p>'; // Добавляем многоточие, если текст обрезан
-    }
+    shortText = shortText.replace(/\n/g, '<br>'); // Заменяем переносы строк на <br>
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
-                <div class="post-content">${shortText}</div>
-                <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p>
+                <div class="post-content">
+                    <span class="post-text">${shortText}</span>  <!-- Используем <span> для короткого текста -->
+                </div>
+                <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
             <img class="post-image" src="${postData.image}" alt="${postData.title}">
         </div>
@@ -146,8 +144,6 @@ function createPostElement(postData) {
     post.onclick = function() { openModal(this); };
     return post;
 }
-
-
 
 //change post 
 function editPost(button, event) {
