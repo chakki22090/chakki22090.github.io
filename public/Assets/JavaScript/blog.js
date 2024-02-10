@@ -101,13 +101,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //create posts that user sees with check whether admin or not 
-
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content); 
+    post.setAttribute('data-full-text', postData.content); // Сохраняем исходный текст для модального окна
 
     let controlsHtml = ''; 
     if(isUserLoggedIn) { 
@@ -116,19 +115,27 @@ function createPostElement(postData) {
                 <button onclick="editPost(this, event)">Edit</button>
                 <button onclick="deletePost(this, event)">Delete</button>
             </div>
-        `; 
+        `;
     }
 
-    const fullText = postData.content;
-    const shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText; 
-    shortText.replace(/\n/g, '<br>');
+    // Обрабатываем текст, преобразуя переносы строк в <br>, для корректного отображения в HTML
+    let processedText = postData.content.replace(/\n/g, '<br>');
+    
+    // Создаём короткую версию текста, если текст слишком длинный
+    let shortText = processedText;
+    if (processedText.length > 50) {
+        // Обрезаем текст до 50 символов, не разделяя слова пополам
+        let endIndex = shortText.lastIndexOf(' ', 50);
+        endIndex = endIndex <= 0 ? 50 : endIndex; // Убедимся, что endIndex не меньше 0
+        shortText = processedText.substring(0, endIndex) + '...';
+    }
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text" data-full-text="${fullText}">${shortText}</p>
+                    <p class="post-text">${shortText}</p>  
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
@@ -140,6 +147,7 @@ function createPostElement(postData) {
     post.onclick = function() { openModal(this); };  
     return post;
 }
+
 
 //change post 
 function editPost(button, event) {
