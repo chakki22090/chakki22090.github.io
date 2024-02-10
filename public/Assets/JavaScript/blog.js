@@ -121,15 +121,11 @@ function createPostElement(postData) {
         `; 
     }
 
-    // Преобразуем переносы строк в <br> для отображения в HTML
     const fullTextWithBreaks = postData.content.replace(/\n/g, '<br>');
     
-    // Создаем короткую версию текста
     let shortText = fullTextWithBreaks;
     if (fullTextWithBreaks.length > 50) {
-        // Находим индекс ближайшего <br> после 50-го символа
         const nextBreakIndex = fullTextWithBreaks.indexOf('<br>', 50);
-        // Если <br> найден, обрезаем текст до этого места и добавляем многоточие
         shortText = nextBreakIndex !== -1 ? fullTextWithBreaks.substring(0, nextBreakIndex) + '...' : fullTextWithBreaks.substring(0, 50) + '...';
     }
 
@@ -138,7 +134,7 @@ function createPostElement(postData) {
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text">${shortText}</p>  // Используем innerHTML для shortText
+                    <p class="post-text">${shortText}</p>  
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
