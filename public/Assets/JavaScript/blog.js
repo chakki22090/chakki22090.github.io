@@ -130,7 +130,7 @@ function createPostElement(postData) {
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text" data-full-text="${postData.content}">${shortText}</p>  // Используем shortText с сохраненными абзацами
+                    <p class="post-text" data-full-text="${postData.content}">${shortText}</p>  
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
