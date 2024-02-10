@@ -101,6 +101,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //create posts that user sees with check whether admin or not 
+
+
+
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
@@ -118,11 +121,16 @@ function createPostElement(postData) {
         `; 
     }
 
-    // Разделяем текст на абзацы и берем первые N абзацев для короткой версии
-    const paragraphs = postData.content.split('\n');
-    let shortText = paragraphs.slice(0, 2).join('<br>'); // Возьмем, например, первые 2 абзаца
-    if (paragraphs.length > 2) {
-        shortText += '...'; // Добавляем многоточие, если текст был сокращен
+    // Преобразуем переносы строк в <br> для отображения в HTML
+    const fullTextWithBreaks = postData.content.replace(/\n/g, '<br>');
+    
+    // Создаем короткую версию текста
+    let shortText = fullTextWithBreaks;
+    if (fullTextWithBreaks.length > 50) {
+        // Находим индекс ближайшего <br> после 50-го символа
+        const nextBreakIndex = fullTextWithBreaks.indexOf('<br>', 50);
+        // Если <br> найден, обрезаем текст до этого места и добавляем многоточие
+        shortText = nextBreakIndex !== -1 ? fullTextWithBreaks.substring(0, nextBreakIndex) + '...' : fullTextWithBreaks.substring(0, 50) + '...';
     }
 
     post.innerHTML = `
@@ -130,7 +138,7 @@ function createPostElement(postData) {
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text" data-full-text="${postData.content}">${shortText}</p>  
+                    <p class="post-text">${shortText}</p>  // Используем innerHTML для shortText
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
@@ -142,6 +150,7 @@ function createPostElement(postData) {
     post.onclick = function() { openModal(this); };  
     return post;
 }
+
 
 
 
