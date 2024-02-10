@@ -399,26 +399,22 @@ posts.forEach(post => {
 
 function openModal(postElement) {
     const modal = document.getElementById("myModal");
-    const span = document.getElementsByClassName("close")[0];
     const modalBody = document.getElementById("modalBody");
     const modalTitle = document.getElementById("modalTitle");
     const modalImage = document.getElementById("modalImage");
     const modalDate = document.getElementById("modalDate");
 
-    // Здесь сохраняем исходную структуру, но применяем правильное отображение текста
-    const clonedElement = postElement.cloneNode(true);
-    const fullText = postElement.getAttribute('data-full-text').replace(/\n/g, '<br>'); // Преобразуем переносы строк в <br>
-    clonedElement.querySelector('.post-text').innerHTML = fullText; // Используем innerHTML для сохранения форматирования
+    const fullText = postElement.getAttribute('data-full-text').replace(/\n/g, '<br>'); // Получаем полный текст с переносами строк
 
-    // Вставляем клонированные элементы в модальное окно
-    modalTitle.innerHTML = clonedElement.querySelector('.post-title').outerHTML;
-    if (clonedElement.querySelector('.post-image')) {
-        modalImage.innerHTML = clonedElement.querySelector('.post-image').outerHTML;
+    // Заполняем модальное окно данными
+    modalTitle.innerHTML = postElement.querySelector('.post-title').outerHTML;
+    if (postElement.querySelector('.post-image')) {
+        modalImage.innerHTML = postElement.querySelector('.post-image').outerHTML;
     } else {
-        modalImage.innerHTML = ''; // Если изображения нет, не отображаем его
+        modalImage.innerHTML = ''; // Очищаем, если изображения нет
     }
-    modalBody.innerHTML = clonedElement.querySelector('.post-content').innerHTML; // Теперь тут используется innerHTML
-    modalDate.innerHTML = clonedElement.querySelector('.post-date').outerHTML;
+    modalBody.innerHTML = `<p>${fullText}</p>`; // Используем полный текст
+    modalDate.innerHTML = postElement.querySelector('.post-date').outerHTML;
 
     modal.style.display = "block";
 
