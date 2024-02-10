@@ -102,15 +102,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //create posts that user sees with check whether admin or not 
 
-
-
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content);  // Сохраняем исходный текст
-
+    post.setAttribute('data-full-text', postData.content);  
     let controlsHtml = ''; 
     if(isUserLoggedIn) { 
         controlsHtml = `
@@ -121,12 +118,11 @@ function createPostElement(postData) {
         `; 
     }
 
-    const fullTextWithBreaks = postData.content.replace(/\n/g, '<br>');
-    
-    let shortText = fullTextWithBreaks;
-    if (fullTextWithBreaks.length > 50) {
-        const nextBreakIndex = fullTextWithBreaks.indexOf('<br>', 50);
-        shortText = nextBreakIndex !== -1 ? fullTextWithBreaks.substring(0, nextBreakIndex) + '...' : fullTextWithBreaks.substring(0, 50) + '...';
+    let shortText = postData.content;
+    const maxLength = 50;   
+    if (shortText.length > maxLength) {
+        const lastSpace = shortText.lastIndexOf(' ', maxLength);
+        shortText = shortText.substring(0, lastSpace) + '...';
     }
 
     post.innerHTML = `
@@ -134,7 +130,7 @@ function createPostElement(postData) {
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text">${shortText}</p>  
+                    <p class="post-text">${shortText}</p>
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
@@ -146,8 +142,6 @@ function createPostElement(postData) {
     post.onclick = function() { openModal(this); };  
     return post;
 }
-
-
 
 
 
