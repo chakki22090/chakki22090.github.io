@@ -101,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //create posts that user sees with check whether admin or not 
-
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
@@ -110,7 +109,7 @@ function createPostElement(postData) {
     post.setAttribute('data-full-text', postData.content);
 
     let controlsHtml = '';
-    if (isUserLoggedIn) {
+    if(isUserLoggedIn) {
         controlsHtml = `
             <div class="post-controls" style="display:block;">
                 <button onclick="editPost(this, event)">Edit</button>
@@ -119,19 +118,24 @@ function createPostElement(postData) {
         `;
     }
 
-    let fullText = postData.content;
-    let shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText;
-
-    // Здесь добавляем обработку переносов строк для короткого текста
-    shortText = shortText.replace(/\n/g, '<br>');
+    // Обрабатываем исходный текст, чтобы сохранить форматирование абзацев
+    let paragraphs = postData.content.split('\n').filter(paragraph => paragraph.trim() !== '');
+    let shortText = '';
+    let charCount = 0;
+    for (let paragraph of paragraphs) {
+        if (charCount + paragraph.length > 50) break;
+        shortText += `<p>${paragraph}</p>`;
+        charCount += paragraph.length;
+    }
+    if (charCount < postData.content.length) {
+        shortText += '<p>...</p>'; // Добавляем многоточие, если текст обрезан
+    }
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
-                <div class="post-content">
-                    <p class="post-text" data-full-text="${fullText.replace(/\n/g, '<br>')}">${shortText}</p>
-                </div>
+                <div class="post-content">${shortText}</div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p>
             </div>
             <img class="post-image" src="${postData.image}" alt="${postData.title}">
@@ -142,6 +146,7 @@ function createPostElement(postData) {
     post.onclick = function() { openModal(this); };
     return post;
 }
+
 
 
 //change post 
