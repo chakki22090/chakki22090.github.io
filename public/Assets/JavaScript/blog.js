@@ -107,20 +107,20 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    
-    const contentWithBreaks = postData.content.replace(/\n/g, '<br>');
+    post.setAttribute('data-full-text', postData.content);  
 
+    
     let controlsHtml = ''; 
     if(isUserLoggedIn) { 
         controlsHtml = `
             <div class="post-controls" style="display:block;">
             <button onclick="editPost(this, event)">Edit</button>
-            <button onclick="deletePost(this, event)">Delete</button>
+<button onclick="deletePost(this, event)">Delete</button>
             </div>
         `; 
     }
 
-    let fullText = contentWithBreaks;
+    let fullText = postData.content;
     let shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText;
 
     post.innerHTML = `
@@ -129,17 +129,18 @@ function createPostElement(postData) {
             <h2 class="post-title">${postData.title}</h2>
             <div class="post-content">
              <p class="post-text" data-full-text="${fullText}">${shortText}</p>
+                </div>
+                <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
-            <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
-        </div>
-        <img class="post-image" src="${postData.image}" alt="${postData.title}">
-        ${controlsHtml}
+    <img class="post-image" src="${postData.image}" alt="${postData.title}">
     </div>
+        ${controlsHtml}
     `;
 
     post.onclick = function() { openModal(this); };  
     return post;
 }
+
 
 //change post 
 function editPost(button, event) {
@@ -399,23 +400,29 @@ posts.forEach(post => {
 
 
 //open modal window 
+
 function openModal(postElement) {
     const modal = document.getElementById("myModal");
     const span = document.getElementsByClassName("close")[0];
     const modalBody = document.getElementById("modalBody");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImage = document.getElementById("modalImage");
+    const modalDate = document.getElementById("modalDate");
 
-    // Получаем полный текст с учётом HTML-форматирования
-    const fullText = postElement.getAttribute('data-full-text');
+    const clonedElement = postElement.cloneNode(true); 
+    const fullText = postElement.getAttribute('data-full-text');  
+    clonedElement.querySelector('.post-text').textContent = fullText;  
+    modalBody.innerHTML = clonedElement.innerHTML; 
 
-    // Клонируем элемент, чтобы использовать его структуру в модальном окне
-    const clonedElement = postElement.cloneNode(true);
 
-    // Обновляем содержимое клонированного элемента с полным текстом
-    clonedElement.querySelector('.post-text').innerHTML = fullText;
+    
+    modalTitle.innerHTML = clonedElement.querySelector('.post-title').outerHTML;
+    modalImage.innerHTML = clonedElement.querySelector('.post-image').outerHTML;
+    modalBody.innerHTML = clonedElement.querySelector('.post-text').outerHTML;
+    modalDate.innerHTML = clonedElement.querySelector('.post-date').outerHTML;
 
-    // Устанавливаем содержимое модального окна
-    modalBody.innerHTML = clonedElement.innerHTML;
-
+  
+    modal.scrollTo(0, 0);  
     modal.style.display = "block";
     
     span.onclick = function() {
