@@ -119,15 +119,24 @@ function createPostElement(postData) {
         `; 
     }
 
-    const fullText = postData.content;
-    const shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText; 
+    const fullText = postData.content; // Полный текст без изменений
+    let shortText = fullText.length > 50 ? fullText.substring(0, 50) : fullText; // Обрезаем текст до 50 символов
+
+    // Ищем первый перенос строки после 50 символов, чтобы завершить абзац
+    const newlineIndex = fullText.indexOf('\n', 50);
+    if (newlineIndex !== -1 && newlineIndex < shortText.length) {
+        shortText = fullText.substring(0, newlineIndex + 1); // Включаем перенос строки в короткий текст
+    }
+
+    // Заменяем переносы строк на <br> для корректного отображения в HTML
+    shortText = shortText.replace(/\n/g, '<br>');
 
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text" data-full-text="${fullText}">${shortText}</p>
+                    <p class="post-text" data-full-text="${fullText.replace(/\n/g, '<br>')}">${shortText}</p>
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
