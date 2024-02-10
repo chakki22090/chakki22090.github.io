@@ -107,20 +107,14 @@ function createPostElement(postData) {
     post.className = 'post';
     post.setAttribute('data-category', postData.category);
     post.setAttribute('data-id', postData._id);
-    post.setAttribute('data-full-text', postData.content);  // Сохраняем исходный текст
+    
+    // Преобразуем переносы строк в <br> в полном тексте
+    const fullTextWithBreaks = postData.content.replace(/\n/g, '<br>');
+    post.setAttribute('data-full-text', fullTextWithBreaks); // Сохраняем полный текст с <br> для модального окна
 
-    let controlsHtml = ''; 
-    if(isUserLoggedIn) { 
-        controlsHtml = `
-            <div class="post-controls" style="display:block;">
-                <button onclick="editPost(this, event)">Edit</button>
-                <button onclick="deletePost(this, event)">Delete</button>
-            </div>
-        `; 
-    }
+    // Создаем короткий текст, учитывая <br>
+    let shortText = fullTextWithBreaks.length > 50 ? fullTextWithBreaks.substring(0, 50) + "..." : fullTextWithBreaks;
 
-    let fullText = postData.content;
-    let shortText = fullText.length > 50 ? fullText.substring(0, 50) + "..." : fullText;
 
     post.innerHTML = `
         <div class="post-all">
