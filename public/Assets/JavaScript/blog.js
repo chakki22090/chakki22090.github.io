@@ -101,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //create posts that user sees with check whether admin or not 
-
 function createPostElement(postData) {
     const post = document.createElement('div');
     post.className = 'post';
@@ -128,15 +127,12 @@ function createPostElement(postData) {
         shortText = fullText.substring(0, newlineIndex + 1); // Включаем перенос строки в короткий текст
     }
 
-    // Заменяем переносы строк на <br> для корректного отображения в HTML
-    shortText = shortText.replace(/\n/g, '<br>');
-
     post.innerHTML = `
         <div class="post-all">
             <div class="post-box">
                 <h2 class="post-title">${postData.title}</h2>
                 <div class="post-content">
-                    <p class="post-text" data-full-text="${fullText.replace(/\n/g, '<br>')}">${shortText}</p>
+                    <p class="post-text" data-full-text="${fullText}"></p> <!-- Убрана замена на <br> -->
                 </div>
                 <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
@@ -145,9 +141,23 @@ function createPostElement(postData) {
         ${controlsHtml}
     `;
 
-    post.onclick = function() { openModal(this); };  
+    const postTextElement = post.querySelector('.post-text');
+    postTextElement.textContent = shortText; // Добавляем короткий текст с сохранением переносов строк
+
+    post.onclick = function() { openModal(this); };
     return post;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 //change post 
 function editPost(button, event) {
