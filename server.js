@@ -130,7 +130,7 @@ app.post('/api/addpost',ensureAuthenticated, upload.single('postImage'), async (
             content: req.body.content,
             image: imageUrl,  
             category: req.body.category,
-            date: req.body.date
+            date: new Date() 
         });
         await newPost.save();
         res.json({ success: true, message: 'Post Added!' });
@@ -139,6 +139,12 @@ app.post('/api/addpost',ensureAuthenticated, upload.single('postImage'), async (
         res.json({ success: false, message: err.message });
     }
 });
+
+
+
+
+
+
 
 app.get('/api/posts', async (req, res) => {
     try {

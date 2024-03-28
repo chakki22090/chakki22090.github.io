@@ -13,7 +13,7 @@ body {
 
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px)and (max-width: 2500px) {
 
 .top-margin {  
   margin-top: 2vh;
@@ -273,7 +273,262 @@ margin-left: 5.5vw;
 
 
 
+@media screen and (min-width: 2500px)   {
 
+  .top-margin {  
+    margin-top: 2vh;
+    padding: 1vw;
+  }
+  
+  .info-section {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;  
+    margin-right: 4vh;
+    row-gap: 0;
+  }
+  
+  .info-image {
+    flex: 1;
+    height: 66vh; 
+    background-image: url('../png/ServicesPage/meetingpic.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;  
+    background-position: center;
+    margin-left: 15vw;
+    border-radius: 15%;
+  }
+  
+  .info-content {
+    flex: 1;
+    background-color: var(--text-bg-color);  
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: start;  
+    padding-left: 5vw;  
+    margin-right: 14vw;
+   border-radius: 15%;
+  }
+  
+  .info-content h1 {
+    font-size: 3vw;
+    color: var(--title-text-color);
+    font-family: Evolventa-Bold;
+    margin-bottom: 2vh;
+  }
+  
+  .info-content h2 {
+    font-size: 1.6vw;
+    color: var(--title-text-color);
+    font-family: Roboto-Regular;
+  }
+  .info-content p {
+    font-size: 1.6vw; 
+    color: var(--content-text-color);
+    margin-bottom: 5vh;
+    
+    padding-right: 2vw;
+  }
+  
+  .icon {
+    color: var(--title-text-color);
+    background-repeat: no-repeat;
+    background-position: left top; 
+    background-image: url('../png/ServicesPage/tick.png');
+    background-size: 10%;
+    padding-left: 2vw;
+    margin-left: -2vw;
+  }
+  
+    
+  
+   
+  .middle-section {
+    background-image: url('../png/ServicesPage/background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 45vh 0;  
+  }
+  
+  .middle-content {
+    position: absolute;
+    top: 4vw;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .middle-content h2 {
+    margin-top: -1vw;
+    font-size: 2.5vw;
+    color: white;
+  }
+  
+  .middle-content p {
+    font-size: 1.25vw;
+    padding-bottom: 4vh;
+    color: white;
+  }
+  .white-boxes {
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .white-box {
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0vw 2vw 3vw 2vw;
+    padding: 0 1.5vw 0 1.5vw;
+   border-radius: 15%;
+  } 
+  
+  .white-box img {
+  margin-left: 5.5vw;
+    width: 35%;
+  }
+  .white-box h1{
+    font-family: Roboto-Bold;
+    font-size: 2vw;
+    margin-bottom: 2vw;
+    color: var(--title-text-color);
+  
+  }
+  .white-box h2 {
+    font-size: 1vw;
+    margin-bottom: 0.3vw;
+    font-family: Roboto-Bold;
+    
+    color:var(--title-text-color); 
+  }
+  .white-box p { 
+    font-size: 0.8vw;
+    font-family: Roboto-Regular;
+    color: var( --content-text-color); 
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .testimonial-section {
+    text-align: center;
+    margin-top: 5vh;
+  }
+  
+  
+  .testimonial-section h2
+  {
+    font-family:Evolventa-Bold;
+    color:var(--title-text-color);
+    font-size: 3vw;
+  }
+  
+  .testimonial-box {
+    background-color:  rgb(242, 244, 247);; 
+    margin: 2vh auto;
+    width: 60%;
+    height: 50vh;
+    position: relative;
+    padding: 7vh 5vw;
+  }
+  
+  .testimonial-text {
+    margin-bottom: 2vh;
+    font-size: 1.5vw;
+    font-family: Roboto-Regular;
+    color: var(--testimonials-text-color)
+  }
+  
+  .testimonial-author {
+    font-family:Roboto-BoldItalic;
+    font-size: 1.2vw;
+    color: B1B8BF;
+  }
+  
+  .quote-top-left,
+  .quote-bottom-right {
+    font-size: 7.7vw;
+    position: absolute;
+  }
+  
+  .quote-top-left {
+    top: 0;
+    left: 0;
+    font-family:Evolventa-Bold;
+    color:var(--title-text-color);
+  }
+  
+  .quote-bottom-right {
+    bottom: -5vw;
+    right: 0;
+    color:var(--title-text-color);
+    font-family:Evolventa-Bold;
+  }
+  
+  
+  
+  .arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5vw; 
+    height: auto;  
+  }
+  
+  .left-arrow {
+    left:10vw;  
+  }
+  
+  .right-arrow {
+    right: 10vw;  
+  }
+  .left-arrow:hover { 
+    background-color: rgba(48, 48, 48, 0.05);
+    width: 5.5vw;
+  }
+  .right-arrow:hover { 
+    background-color: rgba(48, 48, 48, 0.05);
+    width: 5.5vw;
+  }
+  
+  
+  .left-arrow:active{
+    background-color: rgba(48, 48, 48, 0.2);
+  }
+  
+  
+  .right-arrow:active{
+    background-color: rgba(48, 48, 48, 0.2);
+  }
+  .testimonial-section {
+    position: relative;
+    overflow: hidden;  
+  }
+  }
+  
 
 
 
