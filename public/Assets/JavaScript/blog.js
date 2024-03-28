@@ -118,7 +118,7 @@ function createPostElement(postData) {
         `; 
     }
 
-    const fullText = postData.content; // Полный текст без изменений
+    const fullText = linkify(postData.content); // Полный текст без изменений
     let shortText = fullText.length > 50 ? fullText.substring(0, 50) : fullText; // Обрезаем текст до 50 символов
 
     // Ищем первый перенос строки после 50 символов, чтобы завершить абзац
@@ -436,7 +436,7 @@ function openModal(postElement) {
     const modalDate = document.getElementById("modalDate");
 
     const fullText = postElement.getAttribute('data-full-text').replace(/\n/g, '<br>'); // Получаем полный текст с переносами строк
-
+    fullText = linkify(fullText);
     // Заполняем модальное окно данными
     modalTitle.innerHTML = postElement.querySelector('.post-title').outerHTML;
     if (postElement.querySelector('.post-image')) {
