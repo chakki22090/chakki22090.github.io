@@ -167,8 +167,6 @@ function editPost(button, event) {
     const title = post.querySelector('h2').textContent;
     const content = post.querySelector('p').textContent;
     const imageElement = post.querySelector('img');
-    const date = post.querySelector('.post-date').textContent;
-    document.getElementById('postDate').value = date;
     
     const imageUrl = imageElement ? imageElement.src : '';
     window.currentEditingPostId = post.getAttribute('data-id'); 
