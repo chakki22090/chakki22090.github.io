@@ -118,7 +118,7 @@ function createPostElement(postData) {
         `; 
     }
 
-    const fullText = linkify(postData.content); // Полный текст проверенный на ссылки
+    const fullText = postData.content; // Полный текст без изменений
     let shortText = fullText.length > 50 ? fullText.substring(0, 50) : fullText; // Обрезаем текст до 50 символов
 
     // Ищем первый перенос строки после 50 символов, чтобы завершить абзац
@@ -395,7 +395,7 @@ function addPostToServer(postData) {
         const postElement = createPostElement(post);
         blogBox.appendChild(postElement);
         
-        const textElement = postElement.querySelector('p.post-text');
+        const textElement = linkify(postElement.querySelector('p.post-text'));
         const fullText = textElement.getAttribute('data-full-text');
         ;
         const num = 50;
