@@ -435,8 +435,7 @@ function openModal(postElement) {
     const modalImage = document.getElementById("modalImage");
     const modalDate = document.getElementById("modalDate");
 
-    const fullText = postElement.getAttribute('data-full-text').replace(/\n/g, '<br>'); // Получаем полный текст с переносами строк
-    fullText = linkify(fullText);
+    const fullText = linkify(postElement.getAttribute('data-full-text').replace(/\n/g, '<br>')); // Получаем полный текст с переносами строк и ссылкой
     // Заполняем модальное окно данными
     modalTitle.innerHTML = postElement.querySelector('.post-title').outerHTML;
     if (postElement.querySelector('.post-image')) {
