@@ -314,7 +314,6 @@ function addPost() {
         title: title,
         content: content,
         category: category,
-        date: date,
         imageUrl: (imageFile && typeof imageFile !== "undefined") ? URL.createObjectURL(imageFile) : null
     };
     
