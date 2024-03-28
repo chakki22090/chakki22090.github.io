@@ -274,7 +274,6 @@ function addPost() {
     const imageFile = document.getElementById('postImageFile').files[0];
     const content = document.getElementById('postContent').value;
     const category = document.getElementById('postCategory').value;
-    const date = document.getElementById('postDate').value;
     let imageHtml = '';
     if (imageFile) {
         imageHtml = `<img class="post-image" src="${URL.createObjectURL(imageFile)}" alt="${title}">`;
