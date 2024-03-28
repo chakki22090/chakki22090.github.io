@@ -118,7 +118,7 @@ function createPostElement(postData) {
         `; 
     }
 
-    const fullText = postData.content; // Полный текст без изменений
+    const fullText = linkify(postData.content); // Полный текст проверенный на ссылки
     let shortText = fullText.length > 50 ? fullText.substring(0, 50) : fullText; // Обрезаем текст до 50 символов
 
     // Ищем первый перенос строки после 50 символов, чтобы завершить абзац
@@ -142,7 +142,7 @@ function createPostElement(postData) {
     `;
 
     const postTextElement = post.querySelector('.post-text');
-    postTextElement.innerHTML = linkify(shortText);
+    postTextElement.textContent = shortText; // Добавляем короткий текст с сохранением переносов строк
 
     post.onclick = function() { openModal(this); };
     return post;
