@@ -395,11 +395,7 @@ function addPostToServer(postData) {
         const postElement = createPostElement(post);
         blogBox.appendChild(postElement);
         
-        const textElement = linkify(postElement.querySelector('p.post-text'));
-        if (textElement == null ) 
-        {
-             textElement = postElement.querySelector('p.post-text');
-        }
+        const textElement = postElement.querySelector('p.post-text');
         const fullText = textElement.getAttribute('data-full-text');
         ;
         const num = 50;
