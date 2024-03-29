@@ -120,7 +120,7 @@ function createPostElement(postData) {
 
     const fullText = FormatText(postData.content); // Полный отформатированный и с ссылками
     let shortText = fullText.length > 50 ? fullText.substring(0, 50) : fullText; // Обрезаем текст до 50 символов
-
+    postData.title = FormatText(postData.title);
     // Ищем первый перенос строки после 50 символов, чтобы завершить абзац
     const newlineIndex = fullText.indexOf('\n', 50);
     if (newlineIndex !== -1 && newlineIndex < shortText.length) {
@@ -459,7 +459,7 @@ function openModal(postElement) {
 
     const fullText = FormatText(postElement.getAttribute('data-full-text').replace(/\n/g, '<br>')); // Получаем полный текст с переносами строк и ссылкой
     // Заполняем модальное окно данными
-    modalTitle.innerHTML = postElement.querySelector('.post-title').outerHTML;
+    modalTitle.innerHTML = FormatText(postElement.querySelector('.post-title').outerHTML);
     if (postElement.querySelector('.post-image')) {
         modalImage.innerHTML = postElement.querySelector('.post-image').outerHTML;
     } else {
