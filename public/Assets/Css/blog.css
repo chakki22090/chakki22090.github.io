@@ -263,7 +263,9 @@ button:hover {
   color: var(--title-text-color);
   margin-bottom: 1vw;
 }
-
+.post-title strong {
+  font-weight: bold;
+}
 .post-content {
   flex-wrap: wrap;  
   font-size: 1.5vw;
@@ -592,7 +594,9 @@ button:hover {
     color: var(--title-text-color);
     margin-bottom: 1vw;
   }
-  
+  .post-title strong {
+    font-weight: bold;
+}
   .post-content {
     flex-wrap: wrap;  
     font-size: 1.5vw;
