@@ -118,7 +118,7 @@ function createPostElement(postData) {
         `; 
     }
 
-    const fullText = linkify(postData.content); // Полный текст без изменений
+    const fullText = FormatText(postData.content); // Полный текст без изменений
     let shortText = fullText.length > 50 ? fullText.substring(0, 50) : fullText; // Обрезаем текст до 50 символов
 
     // Ищем первый перенос строки после 50 символов, чтобы завершить абзац
@@ -326,6 +326,20 @@ function addPost() {
     document.getElementById('postContent').value = "";
 }
 
+
+function FormatText(inputText)
+{
+    let replacedText;
+    replacedText = AddBold(inputText);
+    replacedText = linkify(replacedText);
+
+    return replacedText;
+
+    
+}
+
+
+
 function linkify(inputText) {
     let replacedText, replacePattern1, replacePattern2, replacePattern3;
 
@@ -343,6 +357,16 @@ function linkify(inputText) {
 
     return replacedText;
 }
+
+function AddBold(inputText)
+{
+    let replacedText;
+    boldPattern = /\*\*(.*?)\*\*/g;
+    replacedText = replacedText.replace(boldPattern, '<strong>$1</strong>');
+
+    return replacedText;
+}
+
 
 //add post to the server 
 function addPostToServer(postData) {
@@ -435,7 +459,7 @@ function openModal(postElement) {
     const modalImage = document.getElementById("modalImage");
     const modalDate = document.getElementById("modalDate");
 
-    const fullText = linkify(postElement.getAttribute('data-full-text').replace(/\n/g, '<br>')); // Получаем полный текст с переносами строк и ссылкой
+    const fullText = FormatText(postElement.getAttribute('data-full-text').replace(/\n/g, '<br>')); // Получаем полный текст с переносами строк и ссылкой
     // Заполняем модальное окно данными
     modalTitle.innerHTML = postElement.querySelector('.post-title').outerHTML;
     if (postElement.querySelector('.post-image')) {
