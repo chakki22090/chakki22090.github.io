@@ -142,7 +142,7 @@ function createPostElement(postData) {
     `;
 
     const postTextElement = post.querySelector('.post-text');
-    postTextElement.textContent = FormatText(shortText); // Добавляем короткий текст с сохранением переносов строк
+    postTextElement.innerHTML = shortText; // Добавляем короткий текст с сохранением переносов строк
 
     post.onclick = function() { openModal(this); };
     return post;
