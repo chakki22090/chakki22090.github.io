@@ -360,7 +360,7 @@ function linkify(inputText) {
 function AddBold(inputText)
 {
     boldPattern = /\*\*(.*?)\*\*/g;
-    let replacedText = replacedText.replace(boldPattern, '<strong>$1</strong>');
+    let replacedText = inputText.replace(boldPattern, '<strong>$1</strong>');
 
     return replacedText;
 }
