@@ -329,8 +329,7 @@ function addPost() {
 
 function FormatText(inputText)
 {
-    let replacedText;
-    replacedText = AddBold(inputText);
+    let replacedText = AddBold(inputText);
     replacedText = linkify(replacedText);
 
     return replacedText;
@@ -360,9 +359,8 @@ function linkify(inputText) {
 
 function AddBold(inputText)
 {
-    let replacedText;
     boldPattern = /\*\*(.*?)\*\*/g;
-    replacedText = replacedText.replace(boldPattern, '<strong>$1</strong>');
+    let replacedText = replacedText.replace(boldPattern, '<strong>$1</strong>');
 
     return replacedText;
 }
