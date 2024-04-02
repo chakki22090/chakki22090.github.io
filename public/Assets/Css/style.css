@@ -88,6 +88,7 @@ body {
 
 
 .navbar-nav {
+  margin-top: 0.1vw;
   list-style: none;
   display: flex;
   padding: 0;
@@ -177,8 +178,6 @@ margin-top: 1vw;
   background-color: var(--btn-bg-hover-color);  
 
 }
-
-
 
 
 /*Footer*/

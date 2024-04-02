@@ -27,42 +27,47 @@ body {
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;  
-    margin-right: 4vh;
     row-gap: 0;
     
   }
   
   .info-image {
     flex: 1;
-    height: 77vh;
-    margin-right: 5vh;
+    height: 65vh;
+    width: 100%;
     background-image: url('../png/AboutPage/DudeExplaining.png');
-    background-size: contain;
+    background-size:cover;
     background-repeat: no-repeat;  
     background-position: center;
-    margin-right: 11vw;
-    border-radius: 15%;
-  }
-  
+    margin-right: 2vw;
+    border-radius: 1cap;
+    display: flex;
+  } 
+
   .info-content {
     flex: 1;
     background-color: var(--text-bg-color);  
     display: flex;
     flex-direction: column;
     align-items: start;  
-    margin-left: 6vw;
-    border-radius: 15%;
-    padding: 1.5vw 7vw 1.5vw 3vw; /*top, right, bottom, left*/
+    margin-left: 2vw;
+    border-top-left-radius: 1cap;
+    border-bottom-left-radius: 1cap;
+    padding: 1.5vw 18vw 1.5vw 3vw; /*top, right, bottom, left*/
   }
   
   .info-content h1 {
     font-size: 2.5vw;
     color: var(--title-text-color);
+    white-space: nowrap;
     font-family: Evolventa-Bold;
   }
   
   .info-content p {
+    margin-top: 2vw;
+    margin-bottom: 0.7vw;
     font-size: 1.5vw;
+    white-space: nowrap;
     color: var(--content-text-color);
   }
   
@@ -74,13 +79,13 @@ body {
     font-size: 1.2vw;
     padding: 1vw 3vw;
     margin-top: 1vw;
-    margin-left: 2.5vw;
     text-decoration: none; 
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis; 
     max-width: 100%; 
-   border-radius: 15%;
+   border-radius: 1cap;
+   margin-bottom: 1vw;
   }
   
   .btn-read-more:active,
@@ -106,7 +111,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    padding: 30vh 0;  
+    padding: 25vh 0;  
   }
   
   .middle-content {
@@ -148,7 +153,7 @@ body {
     } 
   
   .white-box img {
-    width: 30%;
+    width: 35%;
     height: 35%;
   margin-left: 35%;
     
@@ -159,6 +164,7 @@ body {
     color: var(--title-text-color);
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
+    text-align: center;
   }
   .white-box p { 
     text-align: left;
@@ -167,6 +173,7 @@ body {
     color: var( --content-text-color);
     padding-bottom: 1vh;
    padding-top: 0;
+   text-align: center;
   }
 
 
@@ -309,42 +316,47 @@ body {
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;  
-    margin-right: 4vh;
     row-gap: 0;
     
   }
   
   .info-image {
     flex: 1;
-    height: 77vh;
-    margin-right: 5vh;
+    height: 65vh;
+    width: 100%;
     background-image: url('../png/AboutPage/DudeExplaining.png');
-    background-size: contain;
+    background-size:cover;
     background-repeat: no-repeat;  
     background-position: center;
-    margin-right: 11vw;
-    border-radius: 15%;
-  }
-  
+    margin-right: 2vw;
+    border-radius: 1cap;
+    display: flex;
+  } 
+
   .info-content {
     flex: 1;
     background-color: var(--text-bg-color);  
     display: flex;
     flex-direction: column;
     align-items: start;  
-    margin-left: 6vw;
-    border-radius: 15%;
-    padding: 1.5vw 7vw 1.5vw 3vw; /*top, right, bottom, left*/
+    margin-left: 2vw;
+    border-top-left-radius: 1cap;
+    border-bottom-left-radius: 1cap;
+    padding: 1.5vw 18vw 1.5vw 3vw; /*top, right, bottom, left*/
   }
   
   .info-content h1 {
     font-size: 2.5vw;
     color: var(--title-text-color);
+    white-space: nowrap;
     font-family: Evolventa-Bold;
   }
   
   .info-content p {
+    margin-top: 2vw;
+    margin-bottom: 0.7vw;
     font-size: 1.5vw;
+    white-space: nowrap;
     color: var(--content-text-color);
   }
   
@@ -356,13 +368,13 @@ body {
     font-size: 1.2vw;
     padding: 1vw 3vw;
     margin-top: 1vw;
-    margin-left: 2.5vw;
     text-decoration: none; 
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis; 
     max-width: 100%; 
-   border-radius: 15%;
+   border-radius: 1cap;
+   margin-bottom: 1vw;
   }
   
   .btn-read-more:active,
@@ -373,7 +385,6 @@ body {
   
    
   
-
 
 
 

@@ -12,18 +12,17 @@
   }
   
   .text-container {    
-    margin-top: 35vh;
-    margin-left: 4vw;
-    font-family:SourceSansPro-Regular;
+    margin-top: 58vh;
+    font-size: 1vw;
+    border-radius: 15%;
+    font-family:Roboto-Regular;
+
   }
   
   .text-container h1 {
     color: white;
-    font-size: 4.5vw;
     line-height: 1.1;
-    margin-bottom: 3vw;
-  }
-  
+  } 
  
   .btn-secondary {  
     
@@ -51,7 +50,7 @@
   .social-icons {
     position: fixed;
     bottom: 1%;
-    right: 1%;
+    right: 85%;
     margin-right: 1.7vw;
   }
   
@@ -70,25 +69,59 @@
 
 
 
-
-
-
   .custom-link {
-    text-decoration: none; 
-    color: #ffffff;  
-}
+    display: inline-block; /* Или block в зависимости от нужного эффекта */
+    background-color: rgba(17, 29, 39, 0.54);
+    text-decoration: none; /* Убрать подчёркивание текста */
+    color: inherit; /* Цвет текста наследуется от родителя */
+    height: 10vw;
+    width: 50vw;
+    border-top-right-radius: 1cap;
+    border-bottom-right-radius: 1cap;
+    
+    display: flex;
+    align-items: center; /* Центрирование элементов по вертикали */
+    justify-content: flex-start; /* Выравнивание содержимого в начале контейнера */
+  }
+  
+  .custom-link:hover {
+    background-color:  rgba(46, 77, 102, 0.54) /* Цвет подложки при наведении */
+    /* Другие стили для эффекта при наведении */
+  }
+  
 
-.custom-link h1 {
-    font-size: 4vw;  
+ 
+  
+  .custom-link h1 {
+    font-size: 3.5vw;  
     color: inherit;  
     transition: color 0.3s ease;  
+    margin: 0; /* Убедитесь, что маргины убраны или уменьшены */
+    margin-top: 1vw;
+    margin-left: 5vw;  
+    line-height: normal;
 }
 
-.custom-link:hover h1 {
-    color: #c7e2fe;  
+
+
+
+
+
+
+.arrow {
+  width: 3vw; /* Пример ширины стрелочки */
+  height: auto; /* Авто-высота для сохранения пропорций изображения */
+  margin-left: 3vw; /* Отступ от текста */
 }
 
+
+
+
+
+
+
 }
+
 
 
 
