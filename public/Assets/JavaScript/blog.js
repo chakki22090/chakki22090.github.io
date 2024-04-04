@@ -89,7 +89,11 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Error doing request:", err);
     });
 
-
+    document.querySelectorAll('.close, .close-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            this.closest('.modal').style.display = 'none';
+        });
+    });
 
 });
 
