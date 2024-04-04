@@ -475,6 +475,14 @@ function openModal(postElement) {
             modal.style.display = "none";
         }
     }
+
+
+    document.querySelectorAll('.close').forEach(closeButton => {
+        closeButton.addEventListener('click', () => {
+            // Закрываем модальное окно, изменяя стиль display на 'none'
+            closeButton.closest('.modal').style.display = 'none';
+        });
+    });
 }
 
 
