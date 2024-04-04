@@ -134,7 +134,6 @@ function createPostElement(postData) {
                 <div class="post-content">
                     <p class="post-text" data-full-text="${fullText}"></p> <!-- Убрана замена на <br> -->
                 </div>
-                <p class="post-date">${new Date(postData.date).toLocaleDateString()}</p> 
             </div>
             <img class="post-image" src="${postData.image}" alt="${postData.title}">
         </div>
@@ -376,7 +375,6 @@ function addPostToServer(postData) {
     formData.append('content', postData.content);
     formData.append('category', postData.category);
     formData.append('postId', window.currentEditingPostId ? window.currentEditingPostId : "");
-    formData.append('date', postData.date);
 
    
     const postUrl = window.currentEditingPostId ? `/api/editpost/${window.currentEditingPostId}` : '/api/addpost';
@@ -455,7 +453,6 @@ function openModal(postElement) {
     const modalBody = document.getElementById("modalBody");
     const modalTitle = document.getElementById("modalTitle");
     const modalImage = document.getElementById("modalImage");
-    const modalDate = document.getElementById("modalDate");
 
     const fullText = FormatText(postElement.getAttribute('data-full-text').replace(/\n/g, '<br>')); // Получаем полный текст с переносами строк и ссылкой
     // Заполняем модальное окно данными
@@ -466,7 +463,6 @@ function openModal(postElement) {
         modalImage.innerHTML = ''; // Очищаем, если изображения нет
     }
     modalBody.innerHTML = `<p>${fullText}</p>`; // Используем полный текст
-    modalDate.innerHTML = postElement.querySelector('.post-date').outerHTML;
 
     modal.style.display = "block";
 

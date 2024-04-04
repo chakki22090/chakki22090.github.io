@@ -73,8 +73,7 @@ const postSchema = new mongoose.Schema({
     title: String,
     content: String,
     image: String,
-    category: String, 
-    date: { type: Date }
+    category: String
 });
 
 const Post = mongoose.model('Post', postSchema);
@@ -129,8 +128,7 @@ app.post('/api/addpost',ensureAuthenticated, upload.single('postImage'), async (
             title: req.body.title,
             content: req.body.content,
             image: imageUrl,  
-            category: req.body.category,
-            date: new Date() 
+            category: req.body.category 
         });
         await newPost.save();
         res.json({ success: true, message: 'Post Added!' });
