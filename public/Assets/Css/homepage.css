@@ -1,7 +1,7 @@
 
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) and (max-width:2200px) {
 
 .main-content {
     background-image: var(--main-content-bg-image);
@@ -127,9 +127,127 @@
 
 
 
+@media screen and (min-width: 2400px)  
 
+{
 
-
+  .main-content {
+      background-image: var(--main-content-bg-image);
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: var(--main-content-text-color);
+    }
+    
+    .text-container {    
+      margin-top: 45vh;
+      font-size: 1vw;
+      border-radius: 15%;
+      font-family:Roboto-Regular;
+  
+    }
+    
+    .text-container h1 {
+      color: white;
+      line-height: 1.1;
+    } 
+   
+    .btn-secondary {  
+      
+    background-color: var( --btn-bg-color);
+    color: var(--main-content-text-color);
+    padding: 1vh 1.5vw;
+    position: inherit;
+    text-decoration: none;
+    white-space: nowrap;  
+    overflow: hidden; 
+    text-overflow: ellipsis;  
+    max-width: 100%; 
+    border-radius: 0.7vw;
+    line-height: 5vh;
+    font-size: 1.3vw;
+    
+    }
+    
+    .btn-secondary:active,
+    .btn-secondary:focus,
+    .btn-secondary:hover {
+      background-color: var(--btn-bg-hover-color);
+    }
+    
+    .social-icons {
+      position: fixed;
+      bottom: 1%;
+      right: 85%;
+      margin-right: 1.7vw;
+    }
+    
+    .social-icon-item {
+      position: relative;
+      display: inline-block;
+    }
+  
+    
+    
+    .social-icon-item img{
+      width: 4vw;
+      height: 4vw;   
+    }
+    
+  
+  
+  
+    .custom-link {
+      display: inline-block; /* Или block в зависимости от нужного эффекта */
+      background-color: rgba(17, 29, 39, 0.54);
+      text-decoration: none; /* Убрать подчёркивание текста */
+      color: inherit; /* Цвет текста наследуется от родителя */
+      height: 10vw;
+      width: 45vw;
+      border-top-right-radius: 1cap;
+      border-bottom-right-radius: 1cap;
+      
+      display: flex;
+      align-items: center; /* Центрирование элементов по вертикали */
+      justify-content: flex-start; /* Выравнивание содержимого в начале контейнера */
+    }
+    
+    .custom-link:hover {
+      background-color:  rgba(46, 77, 102, 0.54) /* Цвет подложки при наведении */
+      /* Другие стили для эффекта при наведении */
+    }
+    
+  
+   
+    
+    .custom-link h1 {
+      font-size: 3.5vw;  
+      color: inherit;  
+      transition: color 0.3s ease;  
+      margin: 0; /* Убедитесь, что маргины убраны или уменьшены */
+      margin-left: 5vw;  
+      line-height: normal;
+  }
+  
+  
+  
+  
+  
+  
+  
+  .arrow {
+    width: 3vw; /* Пример ширины стрелочки */
+    height: auto; /* Авто-высота для сохранения пропорций изображения */
+    margin-left: 3vw; /* Отступ от текста */
+  }
+  
+  
+  
+  
+  
+  
+  
+  }
 
 
 
