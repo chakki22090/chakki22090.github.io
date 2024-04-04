@@ -465,7 +465,7 @@ function openModal(postElement) {
     modalBody.innerHTML = `<p>${fullText}</p>`; // Используем полный текст
 
     modal.style.display = "block";
-    var span = document.getElementsByClassName('close')[0];
+    var span = document.getElementsByClassName('close-btn')[0];
     span.onclick = function() {
         modal.style.display = "none";
     };
