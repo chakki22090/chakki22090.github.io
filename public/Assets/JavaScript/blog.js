@@ -465,7 +465,7 @@ function openModal(postElement) {
     modalBody.innerHTML = `<p>${fullText}</p>`; // Используем полный текст
 
     modal.style.display = "block";
-
+    var span = document.getElementsByClassName('close')[0];
     span.onclick = function() {
         modal.style.display = "none";
     };
@@ -476,13 +476,7 @@ function openModal(postElement) {
         }
     }
 
-
-    document.querySelectorAll('.close').forEach(closeButton => {
-        closeButton.addEventListener('click', () => {
-            // Закрываем модальное окно, изменяя стиль display на 'none'
-            closeButton.closest('.modal').style.display = 'none';
-        });
-    });
+ 
 }
 
 
