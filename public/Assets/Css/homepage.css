@@ -1,7 +1,7 @@
 
 
 
-@media screen and (min-width: 1200px) and (max-width:3000px) {
+@media screen and (min-width: 1200px) and (max-width:2000px) {
 
 .main-content {
     background-image: var(--main-content-bg-image);
@@ -127,7 +127,7 @@
 
 
 
-@media screen and (min-width: 3000px)  
+@media screen and (min-width: 2000px)  
 
 {
 
