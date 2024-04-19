@@ -132,11 +132,6 @@ body {
     height: 100%; 
     overflow-y: auto; 
     background-color: rgba(0,0,0,0.7);
-    
-  display: flex;
-  flex-direction: row; /* Элементы в строке */
-  align-items: flex-start; /* Выравнивание элементов сверху */
-  padding: 20px;
 }
 
 .modal-content {
@@ -147,9 +142,6 @@ body {
     border: 0.1vw solid #888;
     width: 80%;
     box-shadow: 0 0.4vw 0.8vw 0 rgba(0,0,0,0.2), 0 0.6vw 2vw 0 rgba(0,0,0,0.19);
-    
-  flex: 3; /* Занимает большую часть пространства */
-  padding-left: 20px; /* Отступ слева от текста */
 }
 
 .close-btn {
@@ -195,9 +187,6 @@ button:hover {
 #imageContainer {
   position: relative;
   display: inline-block;
-  
-  flex: 2; /* Занимает меньшую часть пространства */
-  text-align: center; /* Центрирование изображения */
 }
 
 #removeImageButton {
@@ -217,27 +206,27 @@ button:hover {
 }
 
 
-.modal-content {
-  display: flex;
-  flex-direction: row; /* Горизонтальное размещение контента */
-  align-items: flex-start; /* Выравнивание элементов по верхнему краю */
-  padding: 20px;
+
+#fullPostModal .modal-content {
+    display: flex;
+    flex-direction: row; /* Элементы в строке */
+    align-items: flex-start; /* Выравнивание элементов сверху */
+    padding: 20px;
 }
 
-.post-content {
-  flex: 3; /* Больше места отводится под текст */
-  order: 2; /* Текст идет вторым */
+#fullPostModal .post-content {
+    flex: 3; /* Занимает большую часть пространства */
+    padding-left: 20px; /* Отступ слева от текста */
 }
 
-.post-image-container {
-  flex: 1; /* Меньше места отводится под изображение */
-  order: 1; /* Изображение идет первым */
-  margin-right: 20px; /* Отступ справа от изображения */
+#fullPostModal .post-image-container {
+    flex: 2; /* Занимает меньшую часть пространства */
+    text-align: center; /* Центрирование изображения */
 }
 
-.post-image {
-  width: 100%; /* Изображение занимает всю ширину своего контейнера */
-  height: auto; /* Высота автоматически подстраивается */
+#fullPostModal .post-image {
+    width: 100%; /* Изображение занимает всю ширину своего контейнера */
+    height: auto; /* Высота автоматически подстраивается */
 }
 
 
