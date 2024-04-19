@@ -132,17 +132,19 @@ function createPostElement(postData) {
     }
 
 
-
+    
     post.innerHTML = `
-    <h2 class="post-title">${postData.title}</h2>
-    <div class="post-all">
-        <div class="post-content">
-        <p class="post-text" data-full-text="${fullText}"></p>
+        <div class="post-all">
+            <div class="post-box">
+                <h2 class="post-title">${postData.title}</h2>
+                <div class="post-content">
+                    <p class="post-text" data-full-text="${fullText}"></p> <!-- Убрана замена на <br> -->
+                </div>
+            </div>
+            <img class="post-image" src="${postData.image}" alt="${postData.title}">
         </div>
-        <img class="post-image" src="${postData.image}" alt="${postData.title}" style="float: right; width: 50%; margin-left: 20px;">
-    </div>
-    ${controlsHtml}
-`; 
+        ${controlsHtml}
+    `;
 
     const postTextElement = post.querySelector('.post-text');
     postTextElement.innerHTML = shortText; // Добавляем короткий текст с сохранением переносов строк
