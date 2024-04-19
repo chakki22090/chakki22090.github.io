@@ -290,8 +290,8 @@ button:hover {
   white-space: pre-line;
 }
 .post-image {
-  width: 21vw;  
-  height: 28vw; 
+  width: 30vw;  
+  height: 25vw; 
   object-fit: cover;
 }
 .modal {
