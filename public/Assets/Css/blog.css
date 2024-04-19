@@ -286,7 +286,7 @@ button:hover {
 .modal-content {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: flex;
   width: 80%; /* Вы можете регулировать ширину по желанию */
   margin: auto;
   background-color: #fefefe;
@@ -312,6 +312,7 @@ button:hover {
   width: 40%; /* Меньше, если хотите меньшее изображение */
   height: auto;
   order: 2;
+  float: right; /* Обтекание текста слева */
   align-self: flex-start;
 }
 
