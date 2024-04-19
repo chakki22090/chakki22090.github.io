@@ -290,8 +290,8 @@ button:hover {
   white-space: pre-line;
 }
 .post-image {
-  width: 30vw; /* Установите желаемую ширину изображений */
-  height: 60vw; /* Установите желаемую высоту изображений */
+  width: 30vw;  
+  height: 40vw; 
   object-fit: cover;
 }
 .modal {
