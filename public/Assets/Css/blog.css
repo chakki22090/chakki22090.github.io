@@ -115,12 +115,6 @@ body {
 
 
 
-
-
-
-
-  
-
 .modal {
     display: none; 
     position: fixed;
@@ -321,8 +315,6 @@ button:hover {
   margin-left: 20px; /* Отступ слева от изображения */
 }
 
-.image-obtained-text {
-}
 
 
 
