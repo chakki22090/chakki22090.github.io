@@ -292,7 +292,7 @@ button:hover {
   margin: auto; /* Центрирование модального контента */
 }
 
-.modal-text {
+.modalBody {
   width: 100%; /* Текст занимает всю ширину модального окна */
   text-align: left; /* Выравнивание текста по левому краю */
   margin-bottom: 2vw; /* Отступ между текстовым блоком и блоком с изображением */
@@ -300,11 +300,9 @@ button:hover {
   order: 1; /* Текст слева от изображения */
   flex-grow: 1; /* Занимает оставшееся пространство */
 }
-
-.modal-image-container {
-  display: flex;
-  width: 100%;
-  align-items: center; /* Центрирование элементов в контейнере */
+.modalTitle
+{
+  font-size: 124vw;
 }
 
 #modalImage {
