@@ -302,7 +302,7 @@ button:hover {
 #modalTitle {
   width: 100%; /* Заголовок занимает всю ширину */
   text-align: center;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
 }
 #modalBody {
   display: flex;
@@ -314,7 +314,7 @@ button:hover {
 
 #modalImage {
   width: 40%; 
-  margin-left: 20px;  
+  margin-top: 2vw;  
   float: right;
 }
 
