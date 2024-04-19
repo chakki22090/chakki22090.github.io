@@ -422,7 +422,7 @@ function addPostToServer(postData) {
         const textElement = postElement.querySelector('p.post-text');
         const fullText = textElement.getAttribute('data-full-text');
         ;
-        const num = 50;
+        const num = 30;
         if (fullText.split(" ").length > num) {
             textElement.textContent = fullText.split(" ", num).join(" ") + "...";
         }
