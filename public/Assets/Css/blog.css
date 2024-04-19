@@ -283,36 +283,37 @@ button:hover {
   object-fit: cover;
 }
 
-
 .modal-content {
   display: flex;
-  flex-direction: column; /* Элементы стакаются вертикально */
-  align-items: center; /* Центрирование элементов */
-  width: 99.9%; /* Ограничение ширины модального контента */
-  margin: auto; /* Центрирование модального контента */
+  flex-direction: row;
+  align-items: flex-start;
+  width: 80%; /* Вы можете регулировать ширину по желанию */
+  margin: auto;
+  background-color: #fefefe;
+  border: 0.1vw solid #888;
+  box-shadow: 0 0.4vw 0.8vw 0 rgba(0,0,0,0.2), 0 0.6vw 2vw 0 rgba(0,0,0,0.19);
+  padding: 20px;
+}
+
+.modal-body-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row; /* Элементы в строке */
 }
 
 #modalBody {
-  width: 100%; /* Текст занимает всю ширину модального окна */
-  text-align: left; /* Выравнивание текста по левому краю */
-  margin-bottom: 2vw; /* Отступ между текстовым блоком и блоком с изображением */
-  font-size: 1.5vw;
-  order: 1; /* Текст слева от изображения */
-  flex-grow: 1; /* Занимает оставшееся пространство */
-}
-#modalTitle
-{
-  font-size: 2vw;
+  flex: 3;
+  order: 1;
+  text-align: left;
+  margin-right: 20px; /* Добавляем отступ справа */
 }
 
 #modalImage {
-  width: 40%; /* Ширина изображения */
-  height: auto; /* Высота изображения подстраивается автоматически */
-  order: 2; /* Изображение справа */
-  margin-left: 20px; /* Отступ слева от изображения */
+  width: 40%; /* Меньше, если хотите меньшее изображение */
+  height: auto;
+  order: 2;
+  align-self: flex-start;
 }
-
-
 
 
 
