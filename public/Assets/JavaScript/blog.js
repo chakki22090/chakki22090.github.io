@@ -123,10 +123,10 @@ function createPostElement(postData) {
     }
 
     const fullText = FormatText(postData.content); // Полный отформатированный и с ссылками
-    let shortText = fullText.length > 50 ? fullText.substring(0, 50) : fullText; // Обрезаем текст до 50 символов
+    let shortText = fullText.length > 30 ? fullText.substring(0, 30) : fullText; // Обрезаем текст до 50 символов
     postData.title = FormatText(postData.title);
     // Ищем первый перенос строки после 50 символов, чтобы завершить абзац
-    const newlineIndex = fullText.indexOf('\n', 50);
+    const newlineIndex = fullText.indexOf('\n', 30);
     if (newlineIndex !== -1 && newlineIndex < shortText.length) {
         shortText = fullText.substring(0, newlineIndex + 1); // Включаем перенос строки в короткий текст
     }
