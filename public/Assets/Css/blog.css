@@ -207,29 +207,6 @@ button:hover {
 
 
 
-#fullPostModal .modal-content {
-    display: flex;
-    flex-direction: row; /* Элементы в строке */
-    align-items: flex-start; /* Выравнивание элементов сверху */
-    padding: 20px;
-}
-
-#fullPostModal .post-content {
-    flex: 3; /* Занимает большую часть пространства */
-    padding-left: 20px; /* Отступ слева от текста */
-}
-
-#fullPostModal .post-image-container {
-    flex: 2; /* Занимает меньшую часть пространства */
-    text-align: center; /* Центрирование изображения */
-}
-
-#fullPostModal .post-image {
-    width: 100%; /* Изображение занимает всю ширину своего контейнера */
-    height: auto; /* Высота автоматически подстраивается */
-}
-
-
 
 
 
@@ -245,10 +222,6 @@ button:hover {
   width: 100%;
   position: relative;
 }
-
-
-
-
 
  
 .post-all
@@ -315,54 +288,43 @@ button:hover {
   height: 25vw; 
   object-fit: cover;
 }
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
+
+
+.modal-content {
+  display: flex;
+  flex-direction: column; /* Элементы стакаются вертикально */
+  padding: 20px;
+  align-items: center; /* Центрирование элементов */
+  width: 80%; /* Ограничение ширины модального контента */
+  margin: auto; /* Центрирование модального контента */
+}
+
+.modal-text {
+  width: 100%; /* Текст занимает всю ширину модального окна */
+  text-align: left; /* Выравнивание текста по левому краю */
+  margin-bottom: 20px; /* Отступ между текстовым блоком и блоком с изображением */
+  
+  order: 1; /* Текст слева от изображения */
+  flex-grow: 1; /* Занимает оставшееся пространство */
+}
+
+.modal-image-container {
+  display: flex;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
-  overflow-y: auto;  
-}
- 
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 2vw;
-  font-weight: bold;
-  margin-top: -0.5vh;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#modalTitle {
-  font-size: 2vw;
-  margin-bottom: 1vh;
+  align-items: center; /* Центрирование элементов в контейнере */
 }
 
 #modalImage {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 1vh;
+  width: 40%; /* Ширина изображения */
+  height: auto; /* Высота изображения подстраивается автоматически */
+  order: 2; /* Изображение справа */
+  margin-left: 20px; /* Отступ слева от изображения */
 }
 
-#modalBody {
-  font-size: 2vw;
-  margin-bottom: 1vh;
+.image-obtained-text {
 }
 
-#modalDate {
-  font-size: 1vw;
-  color: #aaa;
-}
+
 
 
 
