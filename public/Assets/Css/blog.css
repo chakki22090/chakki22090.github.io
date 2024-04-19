@@ -135,12 +135,13 @@ body {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    display: flex; /* Используйте flexbox для управления макетом */
+    flex-direction: row; /* Элементы в строке */
+    align-items: start; /* Выравнивание элементов в начале контейнера */
+    justify-content: space-between; /* Распределите пространство между элементами */
+    padding: 2vw; /* Отступ внутри модального окна */
+    width: 80%; /* Ширина модального окна */
     margin: auto;
-    padding: 2vw;
-    align-items: flex-start;
-    border: 0.1vw solid #888;
-    width: 80%;
     box-shadow: 0 0.4vw 0.8vw 0 rgba(0,0,0,0.2), 0 0.6vw 2vw 0 rgba(0,0,0,0.19);
 }
 
@@ -185,8 +186,8 @@ button:hover {
 
 
 #imageContainer {
-  position: relative;
-  display: inline-block;
+  width: 30%; /* Ширина контейнера для изображения */
+  margin-left: 2vw; 
 }
 
 #removeImageButton {
@@ -338,11 +339,7 @@ button:hover {
   font-size: 2vw;
   margin-bottom: 1vh;
 }
-
-#modalDate {
-  font-size: 1vw;
-  color: #aaa;
-}
+ 
 
 
 
