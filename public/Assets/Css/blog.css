@@ -255,7 +255,8 @@ button:hover {
 
 .post-box {
   background-color: white; 
-  width: 55%;  
+  width: 55%;
+  height: 20%;  
   padding: 2vh 2vw;
 }
 .post-title {
