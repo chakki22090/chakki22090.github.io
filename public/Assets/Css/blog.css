@@ -135,13 +135,12 @@ body {
 }
 
 .modal-content {
-    display: flex; /* Используйте flexbox для управления макетом */
-    flex-direction: row; /* Элементы в строке */
-    align-items: start; /* Выравнивание элементов в начале контейнера */
-    justify-content: space-between; /* Распределите пространство между элементами */
-    padding: 2vw; /* Отступ внутри модального окна */
-    width: 80%; /* Ширина модального окна */
+    background-color: #fefefe;
     margin: auto;
+    padding: 2vw;
+    align-items: flex-start;
+    border: 0.1vw solid #888;
+    width: 80%;
     box-shadow: 0 0.4vw 0.8vw 0 rgba(0,0,0,0.2), 0 0.6vw 2vw 0 rgba(0,0,0,0.19);
 }
 
@@ -184,31 +183,10 @@ button:hover {
 
 
 
-#fullPostModal .modal-content {
-  display: flex;
-  flex-wrap: wrap; /* Позволяет элементам переноситься на следующую строку */
-  align-items: flex-start; /* Выравнивание элементов сверху */
-  justify-content: space-between; /* Распределение пространства между элементами */
-  padding: 20px;
-}
 
-#fullPostModal .post-content {
-  flex: 1 1 60%; /* Занимает 60% ширины и может сжиматься/растягиваться */
-  margin-right: 20px; /* Отступ справа от текста */
-}
-
-#fullPostModal .post-image-container {
-  flex: 1 1 30%; /* Занимает 30% ширины и может сжиматься/растягиваться */
-  text-align: center; /* Центрирование изображения */
-}
-
-#fullPostModal .post-image {
-  width: 100%; /* Изображение занимает всю ширину своего контейнера */
-  height: auto; /* Высота автоматически подстраивается */
-}
 #imageContainer {
-  width: 30%; /* Ширина контейнера для изображения */
-  margin-left: 2vw; 
+  position: relative;
+  display: inline-block;
 }
 
 #removeImageButton {
@@ -360,7 +338,11 @@ button:hover {
   font-size: 2vw;
   margin-bottom: 1vh;
 }
- 
+
+#modalDate {
+  font-size: 1vw;
+  color: #aaa;
+}
 
 
 
