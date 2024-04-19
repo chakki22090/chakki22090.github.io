@@ -217,17 +217,25 @@ button:hover {
 }
 
 
-
-#fullPostModal .modal-content {
+.modal-content {
+  display: flex;
+  flex-direction: row; /* Горизонтальное размещение контента */
+  align-items: flex-start; /* Выравнивание элементов по верхнему краю */
+  padding: 20px;
 }
 
-#fullPostModal .post-content {
+.post-content {
+  flex: 3; /* Больше места отводится под текст */
+  order: 2; /* Текст идет вторым */
 }
 
-#fullPostModal .post-image-container {
+.post-image-container {
+  flex: 1; /* Меньше места отводится под изображение */
+  order: 1; /* Изображение идет первым */
+  margin-right: 20px; /* Отступ справа от изображения */
 }
 
-#fullPostModal .post-image {
+.post-image {
   width: 100%; /* Изображение занимает всю ширину своего контейнера */
   height: auto; /* Высота автоматически подстраивается */
 }
