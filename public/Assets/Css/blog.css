@@ -305,7 +305,6 @@ button:hover {
   margin-bottom: 1vh;
 }
 #modalBody {
-  /* Включаем обтекание с flex-start, чтобы начать с левого края */
   display: flex;
   flex-direction: row;
   align-items: flex-start; /* Элементы выровнены по верхнему краю */
