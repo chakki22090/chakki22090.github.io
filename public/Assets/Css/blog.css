@@ -132,6 +132,11 @@ body {
     height: 100%; 
     overflow-y: auto; 
     background-color: rgba(0,0,0,0.7);
+    
+  display: flex;
+  flex-direction: row; /* Элементы в строке */
+  align-items: flex-start; /* Выравнивание элементов сверху */
+  padding: 20px;
 }
 
 .modal-content {
@@ -142,6 +147,9 @@ body {
     border: 0.1vw solid #888;
     width: 80%;
     box-shadow: 0 0.4vw 0.8vw 0 rgba(0,0,0,0.2), 0 0.6vw 2vw 0 rgba(0,0,0,0.19);
+    
+  flex: 3; /* Занимает большую часть пространства */
+  padding-left: 20px; /* Отступ слева от текста */
 }
 
 .close-btn {
@@ -187,6 +195,9 @@ button:hover {
 #imageContainer {
   position: relative;
   display: inline-block;
+  
+  flex: 2; /* Занимает меньшую часть пространства */
+  text-align: center; /* Центрирование изображения */
 }
 
 #removeImageButton {
@@ -208,20 +219,12 @@ button:hover {
 
 
 #fullPostModal .modal-content {
-  display: flex;
-  flex-direction: row; /* Элементы в строке */
-  align-items: flex-start; /* Выравнивание элементов сверху */
-  padding: 20px;
 }
 
 #fullPostModal .post-content {
-  flex: 3; /* Занимает большую часть пространства */
-  padding-left: 20px; /* Отступ слева от текста */
 }
 
 #fullPostModal .post-image-container {
-  flex: 2; /* Занимает меньшую часть пространства */
-  text-align: center; /* Центрирование изображения */
 }
 
 #fullPostModal .post-image {
