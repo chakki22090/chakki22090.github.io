@@ -90,12 +90,12 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
-  padding: 40vh 0;  
+  padding: 45vh 0;  
 }
 
 .middle-content {
   position: absolute;
-  top: 4vw;
+  top: 5vw;
   left: 0;
   width: 100%;
   height: 80%;
@@ -129,11 +129,11 @@ body {
   flex-direction: column;
   margin: 0vw 2vw 3vw 2vw;
   padding: 0 1.5vw 0 1.5vw;
- border-radius: 15%;
+ border-radius: 5cap;
 } 
 
 .white-box img {
-margin-left: 5.5vw;
+  margin-left: 6vw;
   width: 35%;
 }
 .white-box h1{
@@ -350,12 +350,12 @@ margin-left: 5.5vw;
     background-size: cover;
     background-position: center;
     position: relative;
-    padding: 45vh 0;  
+    padding: 55vh 0;  
   }
   
   .middle-content {
     position: absolute;
-    top: 4vw;
+    top: 6vw;
     left: 0;
     width: 100%;
     height: 80%;
@@ -389,7 +389,7 @@ margin-left: 5.5vw;
     flex-direction: column;
     margin: 0vw 2vw 3vw 2vw;
     padding: 0 1.5vw 0 1.5vw;
-   border-radius: 15%;
+   border-radius: 5cap;
   } 
   
   .white-box img {
