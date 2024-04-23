@@ -105,6 +105,7 @@
 
   .team-member img{
    width: 30%;
+   max-height: 15vw;
    border-radius: 1vw; 
   }
   
