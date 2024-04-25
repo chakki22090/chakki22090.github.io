@@ -142,25 +142,17 @@
 
 
   .social-links {
-    margin-top: auto; /* Push to the bottom of the flex container */
     display: flex;
-    align-items: center; /* Center-align items vertically in the social links */
-    position: relative;
   }
   .social-links a {
     margin-right: 1vw;
-    text-decoration: none;
-    font-size: 2vw;
-    
-   align-self: flex-end; /* Align social links at the bottom */
-   margin-top: auto; /* Push to the bottom */
+    margin-top: 0.4vw;
   }
 
 
   .social-links img { 
-   height: 2.3vw;
+   height: 4.6vh;
    width:  2.3vw;
-   margin-top: 0.4vw;
   }
   
 
@@ -230,6 +222,8 @@
 }
 
 .modal-social-links img {
+  margin-top: 1vw;
+  margin-left: 1vw;
     width: 10%;
   }
   
