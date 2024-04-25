@@ -289,6 +289,9 @@ button:hover {
   align-items: center;
   width: 80%; /* Вы можете регулировать ширину по желанию */
   margin: auto;
+  
+  transform: translate(-50%, 0%);
+  top: 0;
   background-color: #fefefe;
   border: 0.1vw solid #888;
   box-shadow: 0 0.4vw 0.8vw 0 rgba(0,0,0,0.2), 0 0.6vw 2vw 0 rgba(0,0,0,0.19);
@@ -318,12 +321,7 @@ button:hover {
   float: right;
 }
 
-
-#myModal {
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0%);
-}
+ 
 
 
 }
