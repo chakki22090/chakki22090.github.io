@@ -290,7 +290,7 @@ button:hover {
   width: 80%; /* Вы можете регулировать ширину по желанию */
   margin: auto;
   
-  transform: translate(0%, -50%);
+  transform: translate(0%, -25%);
   top: 0;
   background-color: #fefefe;
   border: 0.1vw solid #888;
