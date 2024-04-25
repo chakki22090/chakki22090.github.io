@@ -300,6 +300,8 @@ button:hover {
 .modal-body-container {
   width: 100%;
   display: flex;
+  
+  z-index: 1000;
   flex-direction: row; /* Элементы в строке */
 }
 #modalTitle {
@@ -312,6 +314,8 @@ button:hover {
   flex-direction: row;
   align-items: flex-start; /* Элементы выровнены по верхнему краю */
   width: 100%;
+  
+  z-index: 1000;
   flex:1;
 }
 
