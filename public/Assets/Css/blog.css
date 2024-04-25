@@ -258,7 +258,7 @@ button:hover {
   font-size: 1.5vw;
   line-height: 1.1;
   display: flex;     
-  height: 15vw;
+  height: 14vw;
   flex: 1;    
   justify-content: space-between;  
   align-items: center;  
@@ -278,8 +278,8 @@ button:hover {
   white-space: pre-line;
 }
 .post-image {
-  width: 30vw;  
-  height: 23vw; 
+  width: 24vw;  
+  height: 20vw; 
   object-fit: cover;
 }
 
